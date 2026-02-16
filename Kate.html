@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>✨ ncs ✨ - Kate</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                background-color: #7f7f7f;
+            }
+            .flagImg {
+                pointer-events: none;
+            }
+            .bombText {
+                pointer-events: none;
+            }
+            #minigameSVG {
+                pointer-events: none;
+                position: relative;
+                top: -1vw;
+                left: 12vw;
+                width: 15%;
+                height: 15%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                pointer-events: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: inline-block;
+                z-index: 9999;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Tag -->
+
+        <!-- Main Svg and Script -->
+
+        <svg viewBox="0 0 1000 2500" style="margin-left:10vw; width:80vw;">
+            <defs>
+                <pattern id="msPattern" patternUnits="userSpaceOnUse" width="500" height="500">
+                    <image href="images/katePattern.png" x="0" y="0" width="500" height="500" />
+                </pattern>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#msPattern)" />
+            <rect x="150" y="50" width="700" height="700" fill="#dadada"/>
+            <rect x="50" y="850" width="500" height="400" fill="#dadada"/>
+            <text y="1010" fill="#cb1111" font-family="Trebuchet MS" font-size="45" font-weight="700">
+                <tspan x="75" > Name: </tspan>
+                <tspan font-weight="300"> Kate </tspan>
+                <tspan x="75" dy="1.5em"> Age: </tspan>
+                <tspan font-weight="300"> 19 </tspan>
+                <tspan x="75" dy="1.5em"> Height: </tspan>
+                <tspan font-weight="300"> ~5'7" </tspan>
+                <tspan x="75" dy="1.5em"> Gender: </tspan>
+                <tspan font-weight="300"> No Clue </tspan>
+                <tspan font-size="20" font-weight="400"> ¯\_(ツ)_/¯ </tspan>
+            </text>
+            <rect x="450" y="1250" width="500" height="400" fill="#dadada"/>
+            <text y="1415" fill="#cb1111" font-family="Trebuchet MS" font-size="25" font-weight="700">
+                <tspan x="475" > Description: </tspan>
+                <tspan font-weight="300"> A cool and kind person </tspan>
+                <tspan x="475" dy="1.5em" font-weight="300"> who's a snuggle addict. Also the </tspan>
+                <tspan x="475" dy="1.5em" font-weight="300"> farthest thing from straight. </tspan>
+                <tspan x="475" dy="1.5em"> Interests: </tspan>
+                <tspan font-weight="300"> Minesweeper, programming, </tspan>
+                <tspan x="475" dy="1.5em" font-weight="300"> lesbians, yuri, estrogren, cities, hugs, </tspan>
+                <tspan x="475" dy="1.5em" font-weight="300"> cuddles, patterns, and MINNESOTAA. </tspan>
+            </text>
+            <rect x="50" y="1650" width="500" height="400" fill="#dadada"/>
+            <text y="1802.5" fill="#cb1111" font-family="Trebuchet MS" font-size="24" font-weight="700">
+                <tspan x="75" > Q&A #1: Nuggets or tenders? </tspan>
+                <tspan x="75" dy="1.5em" font-weight="300"> "If there's fries; I'm getting tenders, </tspan>
+                <tspan x="75" dy="1.5em" font-weight="300"> no fries; I'm going for nuggets." </tspan>
+                <tspan font-size="12" font-weight="300"> - Kate </tspan>
+                <tspan x="75" dy="1.5em"> Q&A #2: Do you wanna know who else? </tspan>
+                <tspan x="75" dy="1.5em" font-weight="300"> "Wha-??" </tspan>
+                <tspan font-size="12" font-weight="300"> - Kate </tspan>
+                <tspan x="75" dy="1.5em"> Q&A #3: Do you know the muffin man? </tspan>
+                <tspan x="75" dy="1.5em" font-weight="300"> "Yah'mon." </tspan>
+                <tspan font-size="12" font-weight="300"> - Kate </tspan>
+            </text>
+            <g id="frameSweeper">
+                <rect id="ms_1,1" x="150" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,1" x="250" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,1" x="350" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,1" x="450" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,1" x="550" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,1" x="650" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,1" x="750" y="50" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,7" x="150" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,7" x="250" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,7" x="350" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,7" x="450" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,7" x="550" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,7" x="650" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,7" x="750" y="650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,2" x="150" y="150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,2" x="750" y="150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,3" x="150" y="250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,3" x="750" y="250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,4" x="150" y="350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,4" x="750" y="350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,5" x="150" y="450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,5" x="750" y="450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,6" x="150" y="550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,6" x="750" y="550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,8" x="50" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,8" x="150" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,8" x="250" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,8" x="350" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,8" x="450" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,8" x="550" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,8" x="650" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,8" x="750" y="750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,9" x="-50" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,9" x="50" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,9" x="150" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,9" x="250" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,9" x="350" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,9" x="450" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,9" x="550" y="850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,10" x="-50" y="950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,10" x="550" y="950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,10" x="650" y="950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,11" x="-50" y="1050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,11" x="550" y="1050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,11" x="650" y="1050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,12" x="-50" y="1150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,12" x="550" y="1150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,12" x="650" y="1150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,12" x="750" y="1150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,13" x="-50" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,13" x="50" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,13" x="150" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,13" x="250" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,13" x="350" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,13" x="450" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,13" x="550" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,13" x="650" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,13" x="750" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,13" x="850" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,13" x="950" y="1250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,14" x="50" y="1350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,14" x="150" y="1350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,14" x="250" y="1350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,14" x="350" y="1350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,14" x="950" y="1350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,15" x="150" y="1450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,15" x="250" y="1450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,15" x="350" y="1450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,15" x="950" y="1450" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,16" x="150" y="1550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,16" x="250" y="1550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,16" x="350" y="1550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,16" x="950" y="1550" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,17" x="-50" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,17" x="50" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,17" x="150" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,17" x="250" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,17" x="350" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,17" x="450" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,17" x="550" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,17" x="650" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,17" x="750" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,17" x="850" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,17" x="950" y="1650" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,18" x="-50" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,18" x="550" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,18" x="650" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,18" x="750" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,18" x="850" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_9,18" x="950" y="1750" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,19" x="-50" y="1850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,19" x="550" y="1850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,19" x="650" y="1850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,19" x="750" y="1850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,19" x="850" y="1850" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,20" x="-50" y="1950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,20" x="550" y="1950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,20" x="650" y="1950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,20" x="750" y="1950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,20" x="850" y="1950" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_-1,21" x="-50" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,21" x="50" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,21" x="150" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,21" x="250" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,21" x="350" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,21" x="450" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,21" x="550" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,21" x="650" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,21" x="750" y="2050" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,22" x="50" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,22" x="150" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,22" x="250" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,22" x="350" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,22" x="450" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,22" x="550" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,22" x="650" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,22" x="750" y="2150" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,23" x="50" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,23" x="150" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,23" x="250" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,23" x="350" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,23" x="450" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,23" x="550" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,23" x="650" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,23" x="750" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,23" x="850" y="2250" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_0,24" x="50" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_1,24" x="150" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_2,24" x="250" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_3,24" x="350" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_4,24" x="450" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_5,24" x="550" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_6,24" x="650" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_7,24" x="750" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+                <rect id="ms_8,24" x="850" y="2350" width="100" height="100" fill="#b1b1b1" stroke="#676767" stroke-width="10" />
+            </g>
+        </svg>
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 250 50">
+                <rect x="0" y="0" rx="15" ry="15" width="250" height="50" fill="#676767" />
+                <rect x="10" y="10" rx="10" ry="10" width="230" height="30" fill="#a9a9a9" />
+                <text id="mineCounter" x="125" y="31" fill="#cb1111" font-family="Courier New" font-size="15" font-weight="1000" text-anchor="middle">Mines Remaining: XX</text> 
+            </svg>
+        </div>
+
+        <script>
+            // determining mine location
+            const msArray = [...document.getElementById("frameSweeper").children], bombs = [], discovered = [], flagged = [];
+            let initialClick = true, gameOver = false;
+
+            // functions
+            function revealBombs() {
+                gameOver = true;
+                document.getElementById("mineCounter").textContent = "You've lost! :(";
+
+                [...document.getElementsByClassName("flagImg")].forEach(flag => flag.remove());
+
+                bombs.forEach(bomb => {
+                    bomb.setAttribute("fill", "#df7e7e");
+                    let currentBomb = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                    currentBomb.setAttribute("x", bomb.getAttribute("x"));
+                    currentBomb.setAttribute("y", bomb.getAttribute("y"));
+                    currentBomb.setAttribute("width", bomb.getAttribute("width"));
+                    currentBomb.setAttribute("height", bomb.getAttribute("height"));
+                    currentBomb.setAttribute("href", "images/msMine.png");
+
+                    document.getElementById("frameSweeper").appendChild(currentBomb);
+                });
+            }
+
+            function discover(element) {
+                // check if discovered already (or is flagged)
+                if (discovered.includes(element) || flagged.includes(element))
+                    return;
+
+                // just in case it's a bomb
+                if (bombs.includes(element)) {
+                    revealBombs();
+                    return;
+                }
+
+                element.setAttribute("fill", "#d5d5d5");
+                discovered.push(element);
+                let bombCount = 0;
+                let elementID = element.getAttribute("id");
+                let [xCoord, yCoord] = elementID.replace("ms_", "").split(",");
+                xCoord = parseInt(xCoord);
+                yCoord = parseInt(yCoord);
+                let neighborBoxes = [];
+                for (let i = -1; i < 2; i++)
+                    for (let j = -1; j < 2; j++)
+                        if (document.getElementById("ms_" + (parseInt(xCoord) + i) + "," + (parseInt(yCoord) + j)) != null)
+                            neighborBoxes.push(document.getElementById("ms_" + (parseInt(xCoord) + i) + "," + (parseInt(yCoord) + j)));
+                neighborBoxes.forEach(neighborBox => {
+                    if (bombs.includes(neighborBox))
+                        bombCount++;
+                });
+                if (bombCount == 0)
+                    neighborBoxes.forEach(neighborBox => {
+                        if (!discovered.includes(neighborBox))
+                            discover(neighborBox);
+                    });
+                else {
+                    let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    text.setAttribute("x", element.getAttribute("x") * 1 + element.getAttribute("width") / 2);
+                    text.setAttribute("y", element.getAttribute("y") * 1 + element.getAttribute("height") / 2 + 20);
+                    switch (bombCount) {
+                        case 1:
+                            text.setAttribute("fill", "#e59edd");
+                            break;
+                        case 2:
+                            text.setAttribute("fill", "#d86ecc");
+                            break;
+                        case 3:
+                            text.setAttribute("fill", "#a02b93");
+                            break;
+                        case 4:
+                            text.setAttribute("fill", "#78206e");
+                            break;
+                        default:
+                            text.setAttribute("fill", "#50164a");
+                    }
+                    text.setAttribute("font-family", "Trebuchet MS");
+                    text.setAttribute("font-size", "50");
+                    text.setAttribute("font-weight", "2500");
+                    text.setAttribute("text-anchor", "middle");
+                    text.setAttribute("class", "bombText");
+                    text.setAttribute("id", "bombText_" + element.getAttribute("id"));
+                    text.textContent = bombCount;
+
+                    document.getElementById("frameSweeper").appendChild(text);
+                }
+            }
+
+            // for each tile
+            msArray.forEach(element => {
+                element.addEventListener("mouseenter", () => {
+                    if (gameOver)
+                        return;
+                    if (!discovered.includes(element) && !flagged.includes(element))
+                        element.setAttribute("fill", "#7e7e7e");
+                });
+                element.addEventListener("mouseleave", () => {
+                    if (gameOver)
+                        return;
+                    if (flagged.includes(element))
+                        element.setAttribute("fill", "#d5d5d5");
+                    else if (discovered.includes(element))
+                        element.setAttribute("fill", "#d5d5d5");
+                    else
+                        element.setAttribute("fill", "#b1b1b1");
+                });
+                element.addEventListener("mousedown", event => {
+                    if (gameOver)
+                        return;
+
+                    // make sure it is left click
+                    if (event.button !== 0)
+                        return;
+
+                    // set up game if initial click
+                    if (initialClick) {
+                        for (let i = 0; i < 15; i++) {
+                            let selectedTile = msArray[Math.floor(Math.random() * msArray.length)];
+                            if (selectedTile !== element && !bombs.includes(selectedTile))
+                                bombs.push(selectedTile);
+                        }
+                        document.getElementById("mineCounter").textContent = "Mines Remaining: " + bombs.length;
+                        initialClick = false;
+                    }
+
+                    // check if bomb or not
+                    if (bombs.includes(element) && !flagged.includes(element))
+                        revealBombs();
+                    else if (discovered.includes(element) && document.getElementById("bombText_" + element.getAttribute("id")) !== null) {
+                        let nearbyFlagged = 0;
+                        let elementID = element.getAttribute("id");
+                        let [xCoord, yCoord] = elementID.replace("ms_", "").split(",");
+                        xCoord = parseInt(xCoord);
+                        yCoord = parseInt(yCoord);
+                        let nearbyTiles = [];
+                        for (let i = -1; i < 2; i++)
+                            for (let j = -1; j < 2; j++)
+                                if (flagged.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))))
+                                    nearbyFlagged++;
+                                else if (msArray.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))) && !discovered.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))))
+                                    nearbyTiles.push(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j)));
+                                    
+                        
+                        if (nearbyFlagged === parseInt(document.getElementById("bombText_" + element.getAttribute("id")).textContent))
+                            nearbyTiles.forEach(tile => discover(tile));
+                        else 
+                            nearbyTiles.forEach(tile => tile.setAttribute("fill", "#7e7e7e"));
+                    } else
+                        discover(element);
+
+                    // check if game is over
+                    if (discovered.length == msArray.length - bombs.length) {
+                        gameOver = true;
+                        document.getElementById("mineCounter").textContent = "No more mines! :D";
+                        document.getElementById("mineCounter").setAttribute("fill", "#13ac13");
+                        [...document.getElementsByClassName("flagImg")].forEach(flag => flag.remove());
+                        [...bombs].forEach(bomb => {
+                            flagged.push(bomb);
+                            bomb.setAttribute("fill", "#d5d5d5");
+                            let currentFlag = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            currentFlag.setAttribute("x", bomb.getAttribute("x"));
+                            currentFlag.setAttribute("y", bomb.getAttribute("y"));
+                            currentFlag.setAttribute("width", bomb.getAttribute("width"));
+                            currentFlag.setAttribute("height", bomb.getAttribute("height"));
+                            currentFlag.setAttribute("href", "images/msFlag.png");
+                            currentFlag.setAttribute("class", "flagImg");
+                            currentFlag.setAttribute("id", "flagImg_" + bomb.getAttribute("id"));
+
+                            document.getElementById("frameSweeper").appendChild(currentFlag);
+                        });
+                    }
+        
+                });
+                element.addEventListener("mouseup", event => {
+                    if (gameOver)
+                        return;
+
+                    // make sure it is left click
+                    if (event.button !== 0)
+                        return;
+
+                    // reset nearby tiles to original color if not discovered
+                    let elementID = element.getAttribute("id");
+                    let [xCoord, yCoord] = elementID.replace("ms_", "").split(",");
+                    xCoord = parseInt(xCoord);
+                    yCoord = parseInt(yCoord);
+                    let nearbyTiles = [];
+                    for (let i = -1; i < 2; i++)
+                        for (let j = -1; j < 2; j++)
+                            if (msArray.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))) && !discovered.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))) && !flagged.includes(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j))))
+                                nearbyTiles.push(document.getElementById("ms_" + (xCoord + i) + "," + (yCoord + j)));
+                                    
+                        
+                    nearbyTiles.forEach(tile => tile.setAttribute("fill", "#b1b1b1"));
+                });
+                element.addEventListener("contextmenu", event => {
+                    event.preventDefault();
+
+                    if (gameOver)
+                        return;
+
+                    if (discovered.includes(element))
+                        return;
+
+                    if (flagged.includes(element)) {
+                        flagged.splice(flagged.indexOf(element), 1);
+                        document.getElementById("flagImg_" + element.getAttribute("id")).remove();
+                        element.setAttribute("fill", "#b1b1b1");
+                        document.getElementById("mineCounter").textContent = "Mines Remaining: " + (bombs.length - flagged.length);
+                        return;
+                    }
+
+                    // if not flagged, no return fires, allowing it to continue the function of flagging it
+                    flagged.push(element);
+                    element.setAttribute("fill", "#d5d5d5");
+                    let currentFlag = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                    currentFlag.setAttribute("x", element.getAttribute("x"));
+                    currentFlag.setAttribute("y", element.getAttribute("y"));
+                    currentFlag.setAttribute("width", element.getAttribute("width"));
+                    currentFlag.setAttribute("height", element.getAttribute("height"));
+                    currentFlag.setAttribute("href", "images/msFlag.png");
+                    currentFlag.setAttribute("class", "flagImg");
+                    currentFlag.setAttribute("id", "flagImg_" + element.getAttribute("id"));
+
+                    document.getElementById("frameSweeper").appendChild(currentFlag);
+
+                    // correct mines remaining
+                    document.getElementById("mineCounter").textContent = "Mines Remaining: " + (bombs.length - flagged.length);
+                });
+            });
+        </script>
+
+    </body>
+</html>

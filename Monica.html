@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Monica</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+	</head>
+    <style>
+        svg {
+            display: block;
+        }
+        body {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            overflow-x: clip;
+            background-color: #5e5e5e;
+        }
+        #pattern {
+            background-image: url("frausratsPattern.png");
+            background-repeat: repeat;
+            background-size: 10vw 10vw;
+        }
+        #minigameSVG {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            display: block;
+            margin: 0;
+        }
+        #minigameDIV {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+
+        }
+    </style>
+	<body id="body">
+
+        <!-- Frau's Rats tab svg and script -->
+
+        <svg viewBox="0 0 1500 175" width="100vw">
+            <rect x="0" y="0" width="1500" height="100" fill="#474747" />
+            <polygon points="400,0 1100,0 1050,110 450,110" fill="#e0e0e0" />
+            <polygon points="375,15 400,15 431.81818,85 406.81818,85" fill="#e0e0e0" />
+            <polygon points="1100,15 1125,15 1093.18182,85 1068.18182,85" fill="#e0e0e0" />
+            <text x="750" y="80" fill="#222222" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> ✨ Frau's Rats 🐀 </text>
+            <text x="755" y="85" fill="#f9f9f9" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> Frau's Rats </text>
+            <rect x="37.5" y="137.5" width="1425" height="37.5" fill="#474747" />
+        </svg>
+
+        <!-- Main svg and script-->
+
+        <svg viewBox="0 0 1500 2587.5" width="100vw">
+            <defs>
+                <pattern id="frausratsPattern" patternUnits="userSpaceOnUse" width="225" height="225">
+                    <image href="images/frausratsPattern.png" x="-150" y="0" width="225" height="225" />
+                    <image href="images/frausratsPattern.png" x="75" y="0" width="225" height="225" />
+                </pattern>
+                <lineargradient id="frausratsGradient">
+                    <stop offset="25%" stop-color="#7e7e7e" />
+                    <stop offset="75%" stop-color="#eac686" />
+                </lineargradient>
+            </defs>
+            <!-- Backdrop -->
+            <rect x="37.5" y="0" width="1425" height="2587.5" fill="#474747" />
+            <rect x="75" y="0" width="1350" height="2587.5" fill="url(#frausratsPattern)" />
+            
+            <!-- Aboue me stuff -->
+            <polygon id="aboutMeFrame" points="375,300 375,700 513.88889,950 986.11111,950 1125,700 1125,300" fill="#575757" />
+            <polygon id="aboutMeMain" points="400,300 400,700 525,925 975,925 1100,700 1100,300" fill="#e0e0e0" />
+            <text y="650" fill="#222222" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle">
+                <tspan x="750" font-weight="650"> Name: </tspan><tspan> Monica </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Age: </tspan><tspan> 19 </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Gender: </tspan><tspan> Female </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Height: </tspan><tspan> 5'5" </tspan>
+            </text>
+            <polygon />
+            <!-- Image stuff -->
+            <polygon id="outerFrame1" points="375,300 513.88889,550 986.11111,550 1125,300 986.11111,50 513.88889,50" fill="#575757" />
+            <polygon id="outerFrame2" points="400,300 525,525 975,525 1100,300 975,75 525,75" fill="url(#frausratsGradient)" />
+            <rect id="innerFrame1" x="540" y="90" width="420" height="420" fill="#575757" />
+            <rect id="innerFrame2" x="550" y="100" width="400" height="400" fill="#e0e0e0" />
+            <text x="475" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">🐀</text>
+            <text x="1025" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">✨</text>
+            <!-- Extra Stuff -->
+            <g id="description">
+                <polygon id="descOuterFrame" points="175,1300 313.88889,1550 636.11111,1550 775,1300 636.11111,1050 313.88889,1050" fill="#575757" />
+                <polygon id="descInnerFrame" points="200,1300 325,1525 625,1525 750,1300 625,1075 325,1075" fill="#e0e0e0" />
+                <text y="1175" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Description: </tspan>
+                    <tspan x="475" dy="1.5em"> One of the more interesting </tspan>
+                    <tspan x="475" dy="1.5em"> specimens this group has. She's </tspan>
+                    <tspan x="475" dy="1.5em"> the one that can keep the group's </tspan>
+                    <tspan x="475" dy="1.5em"> energy in check and match its </tspan>
+                    <tspan x="475" dy="1.5em"> lighthearted tone, keeping </tspan>
+                    <tspan x="475" dy="1.5em"> the good times alive. </tspan>
+                </text>
+            <g>
+            <g id="interests">
+                <polygon id="inteOuterFrame" points="1325,1595 1186.11111,1845 863.88889,1845 725,1595 863.88889,1345 1186.11111,1345" fill="#575757" />
+                <polygon id="inteInnerFrame" points="1300,1595 1175,1820 875,1820 750,1595 875,1370 1175,1370" fill="#e0e0e0" />
+                <text y="1485" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="1025" font-weight="650"> Interests: </tspan>
+                    <tspan x="1025" dy="1.5em"> Marvel Rivals, Russian, </tspan>
+                    <tspan x="1025" dy="1.5em"> German, Minecraft, saying </tspan>
+                    <tspan x="1025" dy="1.5em"> that ONE word, having a </tspan>
+                    <tspan x="1025" dy="1.5em"> ball in terms of comedy, </tspan>
+                    <tspan x="1025" dy="1.5em"> and hanging out w/ us. </tspan>
+                </text>
+            <g>
+            <g id="quotes">
+                <polygon id="quotOuterFrame" points="175,1890 313.88889,2140 636.11111,2140 775,1890 636.11111,1640 313.88889,1640" fill="#575757" />
+                <polygon id="quotInnerFrame" points="200,1890 325,2115 625,2115 750,1890 625,1665 325,1665" fill="#e0e0e0" />
+                <text y="1745" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Quote 1: </tspan>
+                    <tspan x="475" dy="1.5em"> "You're not Stalin. Go feed </tspan>
+                    <tspan x="475" dy="1.5em"> your people." </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 2: </tspan>
+                    <tspan x="475" dy="1.5em"> "GET ON YOUR KNEES... -- </tspan>
+                    <tspan x="475" dy="1.5em"> NOW! >:O" </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 3: </tspan>
+                    <tspan x="475" dy="1.5em"> "I made him wet." </tspan>
+                </text>
+            <g>
+            <g id="minigame">
+                <polygon id="miniOuterFrame" points="1325,2185 1186.11111,2435 863.88889,2435 725,2185 863.88889,1935 1186.11111,1935" fill="#575757" />
+                <polygon id="miniInnerFrame" points="1300,2185 1175,2410 875,2410 750,2185 875,1960 1175,1960" fill="#e0e0e0" />
+                <text x="1025" y="2100" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="400" text-anchor="middle">
+                    <tspan font-weight="650"> Minigame: </tspan><tspan> Russian </tspan>
+                </text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;');">
+                    <rect x="825" y="2125" rx="15" ry="15" width="400" height="150" fill="#72bf6a" stroke="#575757" stroke-width="15" />
+                    <text x="1025" y="2220" fill="#222222" font-family="Trebuchet MS" font-size="60" font-weight="1400" style="user-select:none;" text-anchor="middle">▶️ PLAY ▶️</text>
+                </g>
+            </g>
+
+        </svg>
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:none;');">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" style="user-select:none;" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+                <!-- Russian Minigame -->
+                <rect x="275" y="275" rx="15" ry="15" width="1200" height="50" fill="#4a4a4a" />
+                <rect id="progressionBar" x="285" y="285" rx="10" ry="10" width="0" height="30" fill="#eac686" />
+                <text x="280" y="260" fill="#4a4a4a" font-family="Trebuchet MS" font-size="40" font-weight="750" text-anchor="start"> Current progress : </text>
+                <text id="correctText" x="875" y="260" fill="#34cd78" font-family="Trebuchet MS" font-size="40" font-weight="750" opacity="0" style="user-select:none;" text-anchor="middle"> Correct! </text>
+                <text id="progressText" x="1470" y="260" fill="#4a4a4a" font-family="Trebuchet MS" font-size="40" font-weight="750" text-anchor="end"> 0 / 10 </text>
+                <text id="itemText" x="500" y="740" fill="#4a4a4a" font-family="Trebuchet MS" font-size="400" font-weight="750" style="user-select:none;" text-anchor="middle"></text>
+                <g id="tileGroup">
+                </g>
+            </svg>
+        </div>
+
+        <script>
+            // items
+            let progress = 0;
+            const items = [["🍎", "ЯБЛОКО"], ["🍐", "ГРУША"], ["🍉", "АРБУЗ"], ["🍑", "ПЕРСИК"], ["🚗", "МАШИНА"], ["📃", "БУМАГА"], ["🖊️", "РУЧКА"], ["👕", "РУБАШКА"], ["📞", "ТЕЛЕФОН"], ["👓", "ОЧКИ"], ["☀️", "СОЛНЦЕ"], ["🌙", "ЛУНА"], ["⭐", "ЗВЕЗДА"], ["🎈", "ШАРИК"], ["🐖", "СВИНЬЯ"], ["🐄", "КОРОВА"], ["🐔", "КУРИЦА"], ["🐀", "КРЫСА"], ["🎄", "ЁЛКА"], ["🎁", "ПОДАРОК"], ["🎲", "КОСТИ"], ["🦴", "КОСТЬ"], ["🦷", "ЗУБ"], ["🐟", "РЫБА"]];
+
+            // minigame handler
+            minigameHandler();
+            async function minigameHandler() {
+                // get indecies for items
+                const indecies = [];
+                for (let i = 0; i < 10; i++) {
+                    let currentIndex = Math.floor(Math.random() * items.length);
+                    while (indecies.includes(currentIndex))
+                        currentIndex = Math.floor(Math.random() * items.length);
+                    indecies.push(currentIndex);
+                }
+
+                // for each index
+                for (let index of indecies) {
+                    // abort controller to end event listeners after a question
+                    let controller = new AbortController(), signal = controller.signal;
+
+                    // move emoji more left if there are more letters
+                    switch (items[index][1].length) {
+                        case 7:
+                            document.getElementById("itemText").setAttribute("x", 450);
+                            break;
+                        case 6:
+                            document.getElementById("itemText").setAttribute("x", 475);
+                            break;
+                        default:
+                            document.getElementById("itemText").setAttribute("x", 500);
+                    }
+
+                    // make the stuff and input
+                    document.getElementById("itemText").textContent = items[index][0];
+                    for (let i = 0; i < items[index][1].length; i++) {
+                        // create column for tiles and set attributes
+                        let column = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        column.setAttribute("x", 1090 - (items[index][1].length * 90 + (items[index][1].length - 1) * 25) / 2 + i * 115);
+                        column.setAttribute("y", 390);
+                        column.setAttribute("rx", 25);
+                        column.setAttribute("ry", 25);
+                        column.setAttribute("width", 110);
+                        column.setAttribute("height", 420);
+                        if (i % 2 === 0)
+                            column.setAttribute("fill", "#7e7e7e");
+                        else
+                            column.setAttribute("fill", "#aeaeae");
+                        column.setAttribute("id", "space" + i);
+                        column.setAttribute("opcaity", 0);
+                        document.getElementById("tileGroup").appendChild(column);
+
+                        // create spaces for tiles and set attributes
+                        let space = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        space.setAttribute("x", 1100 - (items[index][1].length * 90 + (items[index][1].length - 1) * 25) / 2 + i * 115);
+                        space.setAttribute("y", 400);
+                        space.setAttribute("rx", 25);
+                        space.setAttribute("ry", 25);
+                        space.setAttribute("width", 90);
+                        space.setAttribute("height", 90);
+                        space.setAttribute("fill", "#6e6e6e");
+                        space.setAttribute("stroke", "#2a2a2a");
+                        space.setAttribute("stroke-width", 8);
+                        space.setAttribute("id", "space" + i);
+                        space.setAttribute("opacity", 0);
+                        document.getElementById("tileGroup").appendChild(space);
+
+                        // create spaces for tiles and set attributes
+                        let letter = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        letter.setAttribute("x", 1145 - (items[index][1].length * 90 + (items[index][1].length - 1) * 25) / 2 + i * 115);
+                        letter.setAttribute("y", 465);
+                        letter.setAttribute("fill", "#fefefe");
+                        letter.setAttribute("font-family", "Arial");
+                        letter.setAttribute("font-size", 50);
+                        letter.setAttribute("font-weight", 750);
+                        letter.setAttribute("stroke-width", 0);
+                        letter.setAttribute("style", "pointer-events:none; user-select:none;");
+                        letter.setAttribute("text-anchor", "middle");
+                        letter.setAttribute("id", "letter" + i);
+                        letter.setAttribute("opacity", 0);
+                        document.getElementById("tileGroup").appendChild(letter);
+
+                        // create tiles & texts and set attributes
+                        for (let j = 0; j < 3; j++) {
+                            // tile stuff
+                            let tile = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                            tile.setAttribute("x", 1100 - (items[index][1].length * 90 + (items[index][1].length - 1) * 25) / 2 + i * 115);
+                            tile.setAttribute("y", 510 + j * 100);
+                            tile.setAttribute("rx", 25);
+                            tile.setAttribute("ry", 25);
+                            tile.setAttribute("width", 90);
+                            tile.setAttribute("height", 90);
+                            tile.setAttribute("opcaity", 0);
+                            tile.setAttribute("fill", "#fefefe");
+                            tile.setAttribute("stroke", "#4a4a4a");
+                            tile.setAttribute("stroke-width", 8);
+                            tile.setAttribute("id", "tile" + i + "," + j);
+                            document.getElementById("tileGroup").appendChild(tile);
+
+                            // text stuff
+                            let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                            text.setAttribute("x", 1145 - (items[index][1].length * 90 + (items[index][1].length - 1) * 25) / 2 + i * 115);
+                            text.setAttribute("y", 575 + j * 100);
+                            text.setAttribute("fill", "#4a4a4a");
+                            text.setAttribute("font-family", "Arial");
+                            text.setAttribute("font-size", 50);
+                            text.setAttribute("font-weight", 750);
+                            text.setAttribute("stroke-width", 0);
+                            text.setAttribute("opcaity", 0);
+                            text.setAttribute("style", "pointer-events:none; user-select:none;");
+                            text.setAttribute("text-anchor", "middle");
+                            text.setAttribute("id", "text" + i + "," + j);
+                            text.textContent = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"[Math.floor(Math.random() * 33)];
+                            document.getElementById("tileGroup").appendChild(text);
+
+                            // add event listeners
+                            tile.addEventListener("mouseenter", () => tile.setAttribute("fill", "#aeaeae"), { signal });
+                            tile.addEventListener("mouseleave", () => tile.setAttribute("fill", "#fefefe"), { signal });
+                            tile.addEventListener("click", () => letter.textContent = text.textContent, { signal });
+                        }
+
+                        // choose a random text tile to the letter of the word
+                        document.getElementById("text" + i + "," + (Math.floor(Math.random() * 3))).textContent = items[index][1][i];
+                    }
+
+                    // make stuff appear
+                    await new Promise(resolve => {
+                        let opacityInterval = setInterval(() => {
+                            document.getElementById("itemText").setAttribute("opacity", +document.getElementById("itemText").getAttribute("opacity") + 0.01);
+                            for (let element of [...document.getElementById("tileGroup").children])
+                                element.setAttribute("opacity", +element.getAttribute("opacity") + 0.01);
+                            if (+document.getElementById("itemText").getAttribute("opacity") >= 1) {
+                                clearInterval(opacityInterval);
+                                resolve();
+                            }
+                        }, 5);
+                    });
+
+                    // is question done?
+                    await new Promise(resolve => {
+                        let isCompleteInterval = setInterval(() => {
+                            let spelledCorrectly = true;
+                            for (let i = 0; i < items[index][1].length; i++)
+                                if (document.getElementById("letter" + i).textContent !== items[index][1][i]) {
+                                    spelledCorrectly = false;
+                                    break;
+                                }
+                            if (spelledCorrectly) {
+                                resolve();
+                                clearInterval(isCompleteInterval);
+                                progress++;
+                                document.getElementById("progressText").textContent = progress + " / 10";
+                                let progressbarProgress = 0;
+                                let progressbarInterval = setInterval(() => {
+                                    progressbarProgress += 0.01 * Math.PI;
+                                    document.getElementById("progressionBar").setAttribute("width", 118 * (progress - (Math.cos(progressbarProgress) + 1) / 2));
+                                    if (progressbarProgress >= Math.PI)
+                                        clearInterval(progressbarInterval);
+                                }, 10);
+                            }
+                        }, 10);
+                    });
+                    controller.abort();
+
+                    // opacity of stuff and removing past answer input elements
+                    await new Promise(resolve => {
+                        let opacityInterval = setInterval(() => {
+                            document.getElementById("correctText").setAttribute("opacity", +document.getElementById("correctText").getAttribute("opacity") + 0.01);
+                            if (+document.getElementById("correctText").getAttribute("opacity") >= 1)
+                                clearInterval(opacityInterval);
+                        }, 2);
+                        setTimeout(() => {
+                            let opacityInterval = setInterval(() => {
+                                document.getElementById("correctText").setAttribute("opacity", +document.getElementById("correctText").getAttribute("opacity") - 0.01);
+                                document.getElementById("itemText").setAttribute("opacity", +document.getElementById("itemText").getAttribute("opacity") - 0.01);
+                                for (let element of [...document.getElementById("tileGroup").children])
+                                    element.setAttribute("opacity", +element.getAttribute("opacity") - 0.01);
+                                if (+document.getElementById("correctText").getAttribute("opacity") <= 0) {
+                                    clearInterval(opacityInterval);
+                                    resolve();
+                                }
+                            }, 2);
+                        }, 1000);
+                    });
+                    [...document.getElementById("tileGroup").children].forEach(child => child.remove());
+                }
+
+                // opacity of correct, which is changed to "You did it! (≧∀≦)ゞ"
+                document.getElementById("itemText").setAttribute("x", 875);
+                document.getElementById("itemText").textContent = "✨";
+                let opacityInterval = setInterval(() => {
+                document.getElementById("correctText").textContent = "You did it! (≧∀≦)ゞ";
+                    let opacityInterval = setInterval(() => {
+                        document.getElementById("correctText").setAttribute("opacity", +document.getElementById("correctText").getAttribute("opacity") + 0.01);
+                        document.getElementById("itemText").setAttribute("opacity", +document.getElementById("itemText").getAttribute("opacity") + 0.01);
+                        if (+document.getElementById("correctText").getAttribute("opacity") >= 1)
+                            clearInterval(opacityInterval);
+                    }, 5);
+                }, 500);
+            }
+        </script>
+        
+	</body>
+</html>

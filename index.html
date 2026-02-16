@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ nikitascoolsite.com ✨</title>
+		<link rel="icon" type="png" href="images/ncs_favicon.png" />
+		<style>
+			.divider {
+				padding: 0;
+				margin: 0;
+				clip-path: polygon(0 50%, 25% 100%, 50% 50%, 75% 100%, 100% 50%, 100% 0, 75% 50%, 50% 0, 25% 50%, 0 0);
+			}
+			svg {
+				padding: 0;
+				border: 0;
+				margin: 0; 
+				display: block;
+			}
+			body {
+				background-color: #d3d3d3;
+				padding: 0;
+				margin: 0;
+				overflow-x: clip;
+			}
+			h1 {
+				color: darkslateblue;
+				font-family: aptos;
+				font-size: 300%;
+				padding: 200px 0;
+				margin: 0;
+			}
+			p {
+				color: darkslateblue;
+				font-family: aptos;
+				font-size: 150%;
+				padding: 50px;
+				margin: 0;
+			}
+	</style>
+	</head>
+	<body id="bodyID" onload = "startMainAnimations();">
+
+		<!-- Title svg and script -->
+
+		<svg viewbox="0 0 1000 600" width="100vw">
+			<defs>
+				<lineargradient id="titleGradient" x1="0" x2="0" y1="0" y2="100%">
+					<stop offset="0%" stop-color="#ffe0e7" />
+					<stop offset="100%" stop-color="#ffc0cb" />
+				</lineargradient>
+			</defs>
+			<rect x="0" y="0" width="100%" height="90%" fill="url(#titleGradient)" style="z-index:-2;" />
+			<rect x="0" y="90%" width="100%" height="10%" fill="#d3d3d3" style="z-index:-2;" />
+			<rect x="0" y="0" width="100%" height="5.83333%" fill="#252525" style="z-index:-1;" />
+			<text x="3%" y="3.8%" font-family="Avantgarde" font-size="17.5" fill="#f0f0f0" >
+				<tspan font-weight="675"> Welcome to my website </tspan>
+				<tspan font-weight="500"> (✿◡‿◡)... </tspan>
+			</text>
+			<image id="stars1" x="7%" y="25%" width="200" height="200" href="images/stars1_1.png" />
+			<image id="stars2" x="73%" y="25%" width="200" height="200" href="images/stars2_1.png" />
+			<rect id="pinkBox" x="34%" y="36%" rx="20" ry="20" width="30%" height="12%" fill="#e655d5" style="opacity:0.5;" />
+ 			<rect id="purpBox" x="36%" y="40%" rx="20" ry="20" width="30%" height="12%" fill="#612bc4" style="opacity:0.5;" />
+			<text id="titleText" x="50%" y="46%" text-anchor="middle" font-family="Avantgarde" font-size="30" fill="#fefefe" style="font-weight:1000;"> ✨ nikitascoolsite.com ✨ </text>
+			<rect id="titleHitbox" x="32%" y="34%" width="36%" height="20%" style="opacity:0;" />
+			<rect class="divider" x="0" y="80%" width="100%" height="20%" fill="#252525" />
+		</svg>
+
+		<script>
+			// == for the hovering over the title items ==
+			document.getElementById("titleHitbox").addEventListener("mouseenter", () => scaleTitle(true, 0));
+			document.getElementById("titleHitbox").addEventListener("mouseleave", () => scaleTitle(false, 1));
+			function scaleTitle(goingUp, scale) {
+				// checks if scales is done (from 0 to 1)
+				if (scale < 0 || scale > 1)
+					return;
+				// moves x and y of every title element
+				document.getElementById("pinkBox").setAttribute("x", "" + (34 - scale) + "%");
+				document.getElementById("pinkBox").setAttribute("y", "" + (36 - scale) + "%");
+				document.getElementById("purpBox").setAttribute("x", "" + (36 - scale) + "%");
+				document.getElementById("purpBox").setAttribute("y", "" + (40 - scale) + "%");
+				// scales width and height for boxes, and font size for text
+				document.getElementById("pinkBox").setAttribute("width", "" + (30 + 2 * scale) + "%");
+				document.getElementById("pinkBox").setAttribute("height", "" + (12 + 2 * scale) + "%");
+				document.getElementById("purpBox").setAttribute("width", "" + (30 + 2 * scale) + "%");
+				document.getElementById("purpBox").setAttribute("height", "" + (12 + 2 * scale) + "%");
+				document.getElementById("titleText").setAttribute("font-size", 30 + 5 * scale);
+				// calls next if not done
+				if (goingUp)
+					setTimeout(() => scaleTitle(true, scale + 0.05), 2);
+				else
+					setTimeout(() => scaleTitle(false, scale - 0.05), 2);
+			}
+		</script>
+
+		<!-- Website svg and script -->
+
+		<svg viewbox="0 0 1000 600" width="100vw">
+			<rect x="0" y="0" width="100%" height="5%" fill="#d3d3d3" style="z-index:-2;" />
+			<rect x="0" y="5%" width="100%" height="70%" fill="#f0f0f0" style="z-index:-2;" />
+			<rect x="0" y="75%" width="100%" height="25%" fill="#d3d3d3" style="z-index:-2;" />
+			<text x="50%" y="13%" text-anchor="middle" font-family="Verdana" font-size="25" font-weight="800" fill="#3f3f3f"> My Website [- o x]&lt;~(◐⌣◐`)o </text>
+			<text x="65%" y="24%" text-anchor="middle" font-family="Verdana" font-size="17.5" font-weight="600" fill="#3f3f3f"> so... what's this about? </text>
+			<text x="45%" y="29%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> This is my website- where you can learn about me and </text>
+			<text x="45%" y="32%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> 
+				<tspan> all of my wonderful friends!!.. </tspan>
+				<tspan font-size="12.5"> and other crap too i guess... ;-; </tspan>
+			</text>
+			<text x="45%" y="35%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> So come look around at some funni things, some cool ppl, </text>
+			<text x="45%" y="38%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f">
+				<tspan> and </tspan>
+				<tspan fill="#5f0000"> the things that make me cry at night </tspan> 
+				<tspan> in my dubious </tspan>
+			</text>
+			<text x="45%" y="41%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> yet awesome site!! (≧∀≦)ゞ </text>
+			<text x="65%" y="50%" text-anchor="middle" font-family="Verdana" font-size="17.5" font-weight="600" fill="#3f3f3f"> version 1.0.0 </text>
+			<text x="45%" y="55%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> - added website (literally JUST ADDED) </text>
+			<text x="46.5%" y="57.5%" font-family="Verdana" font-size="12.5" font-weight="0" fill="#3f3f3f"> • 14 awesome pages!! :D </text>
+			<text x="46.5%" y="60%" font-family="Verdana" font-size="12.5" font-weight="0" fill="#3f3f3f"> • XX minigames to find and play! </text>
+			<text x="46.5%" y="62.5%" font-family="Verdana" font-size="12.5" font-weight="0" fill="#3f3f3f"> • XX secrets hidden around' </text>
+			<text x="45%" y="65.5%" font-family="Verdana" font-size="15" font-weight="0" fill="#3f3f3f"> - nothing much else to list here- so enjoy (～￣▽￣)～ </text>
+			<image id="stars3" x="1%" y="34%" width="250" height="250" href="images/stars3_1.png" background-image="#ffffff" />
+			<image id="stars4" x="77%" y="8%" width="200" height="200" href="images/stars4_1.png" background-image="#ffffff" />
+			<image id="stars5" x="79%" y="41%" width="200" height="200" href="images/stars5_1.png" background-image="#ffffff" />
+			<g id="pageHitbox">
+				<rect id="pinkBorder" x="15%" y="17%" rx="20" ry="20" width="25%" height="45%" fill="#e655d5" style="opacity:0.5;" />
+				<rect id="mgtaBorder" x="7.5%" y="15%" rx="18" ry="18" width="8.5%" height="25%" fill="#b630d1" style="opacity:0.5;" />
+ 				<rect id="purpBorder" x="11%" y="22%" rx="20" ry="20" width="25%" height="45%" fill="#612bc4" style="opacity:0.5;" />
+				<image id="webbite" x="9%" y="17%" width="325" height="325" href="images/webbite.hovering_false_1.png" background-image="#ffffff" />
+			<g>
+			<rect class="divider" x="0" y="80%" width="100%" height="20%" fill="#252525" />
+		</svg>
+
+		<script>
+			// == for the hovering over the about me items ==
+			document.getElementById("pageHitbox").addEventListener("mouseenter", () => {
+				scaleWebsite(true, 0);
+				hoveringWebbite = true;
+				document.getElementById("webbite").setAttribute("href", "images/webbite.hovering_" + hoveringWebbite + "_" + frame + ".png");
+			});
+			document.getElementById("pageHitbox").addEventListener("mouseleave", () => {
+				scaleWebsite(false, 1);
+				hoveringWebbite = false;
+				document.getElementById("webbite").setAttribute("href", "images/webbite.hovering_" + hoveringWebbite + "_" + frame + ".png");
+			});
+			function scaleWebsite(goingUp, scale) {
+				// checks if scales is done (from 0 to 1)
+				if (scale < 0 || scale > 1)
+					return;
+				// moves x and y of every title element
+				document.getElementById("pinkBorder").setAttribute("x", "" + (15 - 0.5 * scale) + "%");
+				document.getElementById("pinkBorder").setAttribute("y", "" + (17 - 0.5 * scale) + "%");
+				document.getElementById("mgtaBorder").setAttribute("x", "" + (7.5 - 0.5 * scale) + "%");
+				document.getElementById("mgtaBorder").setAttribute("y", "" + (15 - 0.5 * scale) + "%");
+				document.getElementById("purpBorder").setAttribute("x", "" + (11 - 0.5 * scale) + "%");
+				document.getElementById("purpBorder").setAttribute("y", "" + (22 - 0.5 * scale) + "%");
+				document.getElementById("webbite").setAttribute("x", "" + (9 - 0.5 * scale) + "%");
+				document.getElementById("webbite").setAttribute("y", "" + (17 - 0.5 * scale) + "%");
+				// scales width and height for boxes, and font size for text
+				document.getElementById("pinkBorder").setAttribute("width", "" + (25 + scale) + "%");
+				document.getElementById("pinkBorder").setAttribute("height", "" + (45 + scale) + "%");
+				document.getElementById("mgtaBorder").setAttribute("width", "" + (8.5 + scale) + "%");
+				document.getElementById("mgtaBorder").setAttribute("height", "" + (25 + scale) + "%");
+				document.getElementById("purpBorder").setAttribute("width", "" + (25 + scale) + "%");
+				document.getElementById("purpBorder").setAttribute("height", "" + (45 + scale) + "%");
+				document.getElementById("webbite").setAttribute("width", "" + (325 + 7.5 * scale));
+				document.getElementById("webbite").setAttribute("height", "" + (325 + 7.5 * scale));
+				// calls next if not done
+				if (goingUp) 
+					setTimeout(() => scaleWebsite(true, scale + 0.05), 2);
+				else
+					setTimeout(() => scaleWebsite(false, scale - 0.05), 2);
+			}
+		</script>
+
+		<!-- About Me svg and script -->
+
+		<svg viewbox="0 0 1000 600" width="100vw">
+			<rect x="0" y="0" width="100%" height="5%" fill="#d3d3d3" style="z-index:-2;" />
+			<rect x="0" y="5%" width="100%" height="70%" fill="#f0f0f0" style="z-index:-2;" />
+			<rect x="0" y="75%" width="100%" height="25%" fill="#d3d3d3" style="z-index:-2;" />
+			<image id="stars6" x="3%" y="20%" width="250" height="250" href="images/stars6_1.png" background-image="#ffffff" />
+			<image id="stars7" x="73.5%" y="36%" width="250" height="250" href="images/stars7_1.png" background-image="#ffffff" />
+			<text x="50%" y="13%" text-anchor="middle" font-family="Verdana" font-size="25" font-weight="800" fill="#3f3f3f"> About Me ヾ(≧▽≦*)o </text>
+			<text x="5%" y="10%" font-family="Verdana" font-size="10" font-weight="400" fill="#3f3f3f"> Hey!- I just met you, </text>
+			<text x="7%" y="13%" font-family="Verdana" font-size="10" font-weight="400" fill="#3f3f3f"> and this is crazy, </text>
+			<text x="9%" y="16%" font-family="Verdana" font-size="10" font-weight="400" fill="#3f3f3f"> but peep the stats []~(￣▽￣)~* </text>
+			<text x="13%" y="22%" font-family="Verdana" font-size="20" font-weight="800" fill="#3f3f3f"> Stats (a.k.a. the about me): </text>
+			<text x="13%" y="26%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Name : </tspan>
+				<tspan font-weight="300"> Nikita :P </tspan>
+				<tspan font-weight="300" font-size="10"> (or Nikki) </tspan>
+				<tspan font-weight="300" font-size="5"> (or Nikita Ivan Romero Sharapova, if ur creepy) </tspan>
+			</text>
+			<text x="13%" y="30%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Age : </tspan>
+				<tspan font-weight="300"> FINALLY 18 :D </tspan>
+			</text>
+			<text x="13%" y="34%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Gender : </tspan>
+				<tspan font-weight="300"> emoticons \^o^/ </tspan>
+				<tspan font-size="10" font-weight="300"> (jk i'm an enby 🟨⬜🟪⬛) </tspan>
+			</text>
+			<text x="13%" y="38%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Birthday : </tspan>
+				<tspan font-weight="300"> valentines day &lt;3 </tspan>
+			</text>
+			<text x="13%" y="42%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Hobbies : </tspan>
+				<tspan font-weight="300"> Friends, Coding, Going Outside, Biking, </tspan>
+			</text>
+			<text x="13%" y="45%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="300"> Drawing, Games, Fashion, <a href="WANNAKNOWWHOELSE.html" target="_blank" rel="noopener noreferrer">YOUR MOM-</a></tspan>
+			</text>
+			<text x="13%" y="49%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Location : </tspan>
+				<tspan font-weight="300"> Greater DC Area </tspan>
+			</text>
+			<text x="13%" y="53%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Favorite Food : </tspan>
+				<tspan font-weight="300"> Creamy Tomato Soup </tspan>
+				<tspan font-size="10" font-weight="300"> +pasta (●'◡'●) </tspan>
+			</text>
+			<text x="13%" y="57%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Likes : </tspan>
+			</text>
+			<text x="13%" y="60%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="300"> My Friends :D, coding funny crap, drawing funny crap, </tspan>
+			</text>
+			<text x="13%" y="63%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="300"> mato' soup, funni roblox games, and helping around! </tspan>
+			</text>
+			<text x="13%" y="67%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="600"> Dislikes : </tspan>
+			</text>
+			<text x="13%" y="70%" font-family="Verdana" font-size="15" fill="#3f3f3f"> 
+				<tspan font-weight="300"> Being deadnamed, Chicken Noodle Soup (kill me), etc. </tspan>
+			</text>
+			<text x="10%" y="72%" font-family="Verdana" font-size="5" fill="#3f3f3f" font-weight="300"> (i'm completely neurotypical i swear (〃＞目＜)) </text>
+			<g id="aboutmeHitbox">
+				<rect id="pinkBound" x="60%" y="19%" rx="20" ry="20" width="23%" height="45%" fill="#e655d5" style="opacity:0.5;" />
+				<rect id="mgtaBound" x="76%" y="17%" rx="18" ry="18" width="12%" height="16%" fill="#b630d1" style="opacity:0.5;" />
+ 				<rect id="purpBound" x="63%" y="24%" rx="20" ry="20" width="23%" height="45%" fill="#612bc4" style="opacity:0.5;" />
+				<image id="meImg" x="58%" y="20%" width="300" height="300" href="images/me.hovering_false_1.png" background-image="#ffffff" />
+			</g>
+			<rect class="divider" x="0" y="80%" width="100%" height="20%" fill="#252525" />
+		</svg>
+
+		<script>
+			// == for the hovering over me icon ==
+			document.getElementById("aboutmeHitbox").addEventListener("mouseenter", function() {
+				scaleAboutMe(true, 0);
+				hoveringMe = true;
+				document.getElementById("meImg").setAttribute("href", "images/me.hovering_" + hoveringMe + "_" + frame + ".png");
+			});
+			document.getElementById("aboutmeHitbox").addEventListener("mouseleave", function() {
+				scaleAboutMe(false, 1);
+				hoveringMe = false;
+				document.getElementById("meImg").setAttribute("href", "images/me.hovering_" + hoveringMe + "_" + frame + ".png");
+			});
+			function scaleAboutMe(goingUp, scale) {
+				// checks if scales is done (from 0 to 1)
+				if (scale < 0 || scale > 1)
+					return;
+				// moves x and y of every title element
+				document.getElementById("pinkBound").setAttribute("x", "" + (60 - 0.5 * scale) + "%");
+				document.getElementById("pinkBound").setAttribute("y", "" + (19 - 0.5 * scale) + "%");
+				document.getElementById("mgtaBound").setAttribute("x", "" + (76 - 0.5 * scale) + "%");
+				document.getElementById("mgtaBound").setAttribute("y", "" + (17 - 0.5 * scale) + "%");
+				document.getElementById("purpBound").setAttribute("x", "" + (63 - 0.5 * scale) + "%");
+				document.getElementById("purpBound").setAttribute("y", "" + (24 - 0.5 * scale) + "%");
+				document.getElementById("meImg").setAttribute("x", "" + (58 - 0.5 * scale) + "%");
+				document.getElementById("meImg").setAttribute("y", "" + (20 - 0.5 * scale) + "%");
+				// scales width and height for boxes, and font size for text
+				document.getElementById("pinkBound").setAttribute("width", "" + (23 + scale) + "%");
+				document.getElementById("pinkBound").setAttribute("height", "" + (45 + scale) + "%");
+				document.getElementById("mgtaBound").setAttribute("width", "" + (12 + scale) + "%");
+				document.getElementById("mgtaBound").setAttribute("height", "" + (16 + scale) + "%");
+				document.getElementById("purpBound").setAttribute("width", "" + (23 + scale) + "%");
+				document.getElementById("purpBound").setAttribute("height", "" + (45 + scale) + "%");
+				document.getElementById("meImg").setAttribute("width", "" + (300 + 7.5 * scale));
+				document.getElementById("meImg").setAttribute("height", "" + (300 + 7.5 * scale));
+				// calls next if not done
+				if (goingUp) 
+					setTimeout(() => scaleAboutMe(true, scale + 0.05), 2);
+				else
+					setTimeout(() => scaleAboutMe(false, scale - 0.05), 2);
+			}
+		</script>
+
+		<!-- My friends svg and script -->
+
+		<svg viewBox="0 0 1000 600" width="100vw" onload="displayFriends()">
+			<defs>
+				<linearGradient id="pipu-gradient">
+					<stop offset="0" stop-color="#e655d5" />
+					<stop offset="100%" stop-color="#612bc4" />
+				</linearGradient>
+				<linearGradient id="cots-gradient">
+					<stop offset="15%" stop-color="#e3300f" />
+                    <stop offset="85%" stop-color="#f3800f" />
+				</linearGradient>
+				<linearGradient id="fr-gradient">
+					<stop offset="15%" stop-color="#eac686" />
+                    <stop offset="85%" stop-color="#2f2f2f" />
+				</linearGradient>
+				<linearGradient id="mnij-gradient">
+					<stop offset="15%" stop-color="#00fff7" />
+					<stop offset="85%" stop-color="#ff154f" />
+				</linearGradient>
+			</defs>
+			<rect x="0" y="0" width="100%" height="5%" fill="#d3d3d3"></rect>
+			<rect x="0" y="5%" width="100%" height="70%" fill="#f0f0f0"></rect>
+			<rect x="0" y="75%" width="100%" height="15%" fill="#d3d3d3"></rect>
+			<rect x="50" y="60" rx="40" ry="40" width="425" height="360" fill="#d3d3d3"></rect>
+			<rect x="525" y="60" rx="40" ry="40" width="425" height="360" fill="#d3d3d3"></rect>
+
+			<!-- Friends Search Stuff -->
+			<rect class="searchCB" x="80" y="90" rx="7.5" ry="7.5" width="285" height="30" fill="#f0f0f0"></rect>
+			<rect class="searchCB" x="375" y="90" rx="7.5" ry="7.5" width="30" height="30" fill="#f0f0f0"></rect>
+			<rect class="searchCB" x="415" y="90" rx="7.5" ry="7.5" width="30" height="30" fill="#f0f0f0"></rect>
+			<rect x="80" y="130" rx="7.5" ry="7.5" width="365" height="260" fill="#f0f0f0"></rect>
+			<text id="searchText" x="89" y="111.5" fill="#aeaeae" font-family="Verdana" font-size="15"> 
+				<tspan id="searchQuery">Search...</tspan><tspan id="searchBlinker"></tspan>
+			</text>
+			<text class="searchEmoji" x="350" y="111.5" text-anchor="middle" font-size="18" style="user-select:none;"> 🔍 </text>
+			<text class="searchEmoji" x="390" y="111.5" text-anchor="middle" font-size="18" style="user-select:none;"> ◀️ </text>
+			<text class="searchEmoji" x="430" y="111.5" text-anchor="middle" font-size="18" style="user-select:none;"> ▶️ </text>
+			<g id="friendsHitbox1">
+				<rect id="friendsBdBx1" x="87.22222" y="137.22222" rx="5" ry="5" width="350.55555" height="43.33333" fill="#d3d3d3" opacity="1"></rect>
+				<rect id="friendsPiBx1" x="94.6388888" y="144.6388888" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#e655d5" opacity="0.5"></rect>
+				<rect id="friendsPuBx1" x="100.0555555" y="150.0555555" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#612bc4" opacity="0.5"></rect>
+				<text id="friendsFndTxt1" x="133" y="167.8888888" font-family="Verdana" font-size="20" fill="url(#pipu-gradient)">Ace</text>
+				<text id="friendsNumTxt1" x="109" y="167.8888888" text-anchor="middle" font-family="Verdana" font-size="20" fill="#f0f0f0">1</text>
+			</g>
+			<g id="friendsHitbox2">
+				<rect id="friendsBdBx2" x="87.22222" y="187.77777" rx="5" ry="5" width="350.55555" height="43.33333" fill="#d3d3d3" opacity="1"></rect>
+				<rect id="friendsPiBx2" x="94.6388888" y="195.1944444" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#e655d5" opacity="0.5"></rect>
+				<rect id="friendsPuBx2" x="100.0555555" y="200.6111111" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#612bc4" opacity="0.5"></rect>
+				<text id="friendsFndTxt2" x="133" y="218.4444444" font-family="Verdana" font-size="20" fill="url(#pipu-gradient)">Amy</text>
+				<text id="friendsNumTxt2" x="109" y="218.4444444" text-anchor="middle" font-family="Verdana" font-size="20" fill="#f0f0f0">2</text>
+			</g>
+			<g id="friendsHitbox3">
+				<rect id="friendsBdBx3" x="87.22222" y="238.33333" rx="5" ry="5" width="350.55555" height="43.33333" fill="#d3d3d3" opacity="1"></rect>
+				<rect id="friendsPiBx3" x="94.6388888" y="245.75" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#e655d5" opacity="0.5"></rect>
+				<rect id="friendsPuBx3" x="100.0555555" y="251.1666666" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#612bc4" opacity="0.5"></rect>
+				<text id="friendsFndTxt3" x="133" y="269" font-family="Verdana" font-size="20" fill="url(#pipu-gradient)">Andrea</text>
+				<text id="friendsNumTxt3" x="109" y="269" text-anchor="middle" font-family="Verdana" font-size="20" fill="#f0f0f0">3</text>
+			</g>
+			<g id="friendsHitbox4">
+				<rect id="friendsBdBx4" x="87.22222" y="288.88888" rx="5" ry="5" width="350.55555" height="43.33333" fill="#d3d3d3" opacity="1"></rect>
+				<rect id="friendsPiBx4" x="94.6388888" y="296.3055555" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#e655d5" opacity="0.5"></rect>
+				<rect id="friendsPuBx4" x="100.0555555" y="301.7222222" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#612bc4" opacity="0.5"></rect>
+				<text id="friendsFndTxt4" x="133" y="319.5555555" font-family="Verdana" font-size="20" fill="url(#pipu-gradient)">Annika</text>
+				<text id="friendsNumTxt4" x="109" y="319.5555555" text-anchor="middle" font-family="Verdana" font-size="20" fill="#f0f0f0">4</text>
+			</g>
+			<g id="friendsHitbox5">
+				<rect id="friendsBdBx5" x="87.22222" y="339.44444" rx="5" ry="5" width="350.55555" height="43.33333" fill="#d3d3d3" opacity="1"></rect>
+				<rect id="friendsPiBx5" x="94.6388888" y="346.8611111" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#e655d5" opacity="0.5"></rect>
+				<rect id="friendsPuBx5" x="100.0555555" y="352.2777777" rx="4" ry="4" width="23.0833333" height="23.0833333" fill="#612bc4" opacity="0.5"></rect>
+				<text id="friendsFndTxt5" x="133" y="370.1111111" font-family="Verdana" font-size="20" fill="url(#pipu-gradient)">Artifactory</text>
+				<text id="friendsNumTxt5" x="109" y="370.1111111" text-anchor="middle" font-family="Verdana" font-size="20" fill="#f0f0f0">5</text>
+			<g>
+			<a id="anchor1" href="Ace.html" target="_blank" rel="noopener noreferrer"><rect x="87.22222" y="137.22222" rx="5" ry="5" width="355.55555" height="43.33333" opacity="0" opacity="1" /></a>
+			<a id="anchor2" href="Amy.html" target="_blank" rel="noopener noreferrer"><rect x="87.22222" y="187.77777" rx="5" ry="5" width="355.55555" height="43.33333" opacity="0" opacity="1" /></a>
+			<a id="anchor3" href="Andrea.html" target="_blank" rel="noopener noreferrer"><rect x="87.22222" y="238.33333" rx="5" ry="5" width="355.55555" height="43.33333" opacity="0" opacity="1" /></a>
+			<a id="anchor4" href="Annika.html" target="_blank" rel="noopener noreferrer"><rect x="87.22222" y="288.88888" rx="5" ry="5" width="355.55555" height="43.33333" opacity="0" opacity="1" /></a>
+			<a id="anchor5" href="Artifactory.html" target="_blank" rel="noopener noreferrer"><rect x="87.22222" y="339.44444" rx="5" ry="5" width="355.55555" height="43.33333" opacity="0" opacity="1" /></a>
+			<rect id="searchBox" class="searchCB" x="80" y="90" rx="7.5" ry="7.5" width="285" height="30" opacity="0" />
+			<rect id="searchBack" class="searchCB" x="375" y="90" fill="#aeaeae" rx="7.5" ry="7.5" width="30" height="30" opacity="0.4" />
+			<rect id="searchNext" class="searchCB" x="415" y="90" fill="#aeaeae" rx="7.5" ry="7.5" width="30" height="30" opacity="0" />
+
+			<!-- Friend Groups Stuff -->
+			<rect x="555" y="90" rx="7.5" ry="7.5" width="365" height="300" fill="#f0f0f0" />
+			<text x="580" y="125" font-family="Verdana" font-size="20" font-weight="750" fill="#474747"> My Friends! (≧∀≦)ゞ </text>
+			<text y="150" font-family="Verdana" font-size="15" font-weight="350" fill="#474747">
+				<tspan x="585"> This is the place where you can take a </tspan>
+				<tspan x="585" dy="1.3em"> look at all my friends! To the left is a </tspan>
+				<tspan x="585" dy="1.3em"> search menu to look through friends by </tspan>
+				<tspan x="585" dy="1.3em"> their name, and below is some of the </tspan>
+				<tspan x="585" dy="1.3em"> friend groups I am in! :D All have their </tspan>
+				<tspan x="585" dy="1.2em"> own pages you can find by clicking on </tspan>
+				<tspan x="585" dy="1.2em"> their respective boxes / text. </tspan>
+			</text>
+			<image id="stars8" x="715" y="178" width="250" height="250" href="images/stars8_1.png" background-image="#ffffff" />
+			<text x="580" y="300" font-family="Verdana" font-size="20" font-weight="750" fill="#474747"> The Groups: （￣︶￣）↗ </text>
+			<text y="325" font-family="Verdana" font-size="15" font-weight="500" fill="#474747">
+				<a href="CouncilOfTheSun.html" target="_blank" rel="noopener noreferrer"><tspan x="585"> ➡ </tspan><tspan fill="url(#cots-gradient)"> 🐦‍🔥 Council of the SUN ☀️ </tspan></a>
+				<a href="FrausRats.html" target="_blank" rel="noopener noreferrer"><tspan x="585" dy="1.3em"> ➡ </tspan><tspan fill="url(#fr-gradient)"> ✨ Frau's Rats 🐀 </tspan></a>
+				<a href="MyNameIsJason.html" target="_blank" rel="noopener noreferrer"><tspan x="585" dy="1.3em"> ➡ </tspan><tspan fill="url(#mnij-gradient)"> ❓ MY NAME IS JASON!! ⁉️ </tspan></a>
+			</text>
+			<rect class="divider" x="0" y="80%" width="100%" height="20%" fill="#252525"></rect>
+		</svg>
+
+		<script>
+			let currentIndex = 0;
+			let searchField = "";
+			let clickedOnSearch = false;
+			let blinker; // Interval event for blinking of the text thingy-majig
+
+			// Class for friends, containing multiple fields
+			class Friend {
+				// class field variables
+				name = "";
+				url = "";
+				showOnList = false;
+				showMarked = false;
+
+				// class constructor
+				constructor(name, url, sOL, sM) {
+					this.name = name;
+					this.url = url;
+					this.showOnList = sOL;
+					this.showMarked = sM;
+				}
+			}
+
+			// Declaring all friends in class, and adding them to a list, and declaring a list for only found friends off a search
+			const friendsList = [new Friend("Ace", "Ace.html", true, false), new Friend("Amy", "Amy.html", true, false), new Friend("Andrea", "Andrea.html", true, false), 
+				new Friend("Annika", "Annika.html", true, false), new Friend("NikaWuzHere", "AnnikaPRSN.html", false, false), new Friend("Artifactory", "Artifactory.html", true, false), new Friend("Azar", "Azar.html", true, false), 
+				new Friend("Beto", "Beto.html", true, false), new Friend("Casper", "Casper.html", true, false), new Friend("Daniel", "Daniel.html", true, false), new Friend("Emmanuelle", "Emmanuelle.html", true, false), new Friend("Ethen", "Ethen.html", true, false),
+				new Friend("Guadalupe", "Guadalupe.html", true, false), new Friend("Immanuel", "Immanuel.html", true, false), new Friend("Jaden", "Jaden.html", true, false), new Friend("Jonas", "Jonas.html", true, false), new Friend("Jonathan", "https://www.emminizer.dev/", true, false), new Friend("Jordan", "Jordan.html", false, false),
+				new Friend("Kate", "Kate.html", true, false), new Friend("Katie", "Katie.html", true, false), new Friend("Kyle", "https://thatonenerd.net/", true, false), new Friend("Monica", "Monica.html", true, false),
+				new Friend("Raghib", "Raghib.html", true, false), new Friend("Rich", "Rich.html", true, false), new Friend("Sirius", "Sirius.html", true, false), new Friend("Sophia", "Sophia.html", true, false), new Friend("Starla", "ConstellationConsolation.html", false, false),
+				new Friend("Thomas", "Thomas.html", true, false), new Friend("Willow", "Willow.html", true, false), new Friend("imissyouash", "missing.html", false, true), new Friend("!NOT:ASPEN", "IWANTTOFORGET.html", false, true)];
+			let foundFriends = [];
+
+			// Actions for all buttons
+			window.addEventListener("keydown", () => {
+				if (event.key == " ") // STUPID BROWSER SCROLLING ON SPACE NEEDS TO STOPPIT
+					event.preventDefault();
+			});
+			document.addEventListener("click", () => {
+				if (event.button != 0)
+					return;
+				clickedOnSearch = false;
+				clearInterval(blinker);
+				document.getElementById("searchBlinker").textContent = "";
+				document.getElementById("searchText").setAttribute("fill", "#aeaeae");
+
+				// check if empty or not
+				if (searchField == "")
+					document.getElementById("searchQuery").textContent = "Search...";
+				else
+					document.getElementById("searchQuery").textContent = searchField;
+			});
+			document.addEventListener("keydown", () => {
+				if (!clickedOnSearch)
+					return;
+				
+				if (event.key == "Enter") {
+					clickedOnSearch = false;
+					clearInterval(blinker);
+					document.getElementById("searchBlinker").textContent = "";
+					document.getElementById("searchText").setAttribute("fill", "#aeaeae");
+				} else if (event.key == "Backspace")
+					searchField = searchField.substring(0, searchField.length - 1);
+				else if (event.key.length > 1) // make sure it's nothing like shift or alt...
+					return;
+				else if (searchField.length > 26) {
+					searchField = "Your search is too long! 🎃";
+					document.getElementById("searchQuery").textContent = searchField;
+					return;
+				} else
+					searchField += event.key;
+
+				// check if empty or not
+				if (searchField == "")
+					document.getElementById("searchQuery").textContent = "";
+				else
+					document.getElementById("searchQuery").textContent = searchField;
+
+				currentIndex = 0;
+				displayFriends();
+			});
+			document.getElementById("searchBox").addEventListener("click", () => {
+				if (event.button != 0)
+					return;
+				setTimeout(() => {
+					clickedOnSearch = true;
+					document.getElementById("searchQuery").textContent = searchField;
+					document.getElementById("searchText").setAttribute("fill", "#5f5f5f");
+					blinker = setInterval(() => {
+						if (document.getElementById("searchBlinker").textContent == "")
+							document.getElementById("searchBlinker").textContent = "︳";
+						else
+						document.getElementById("searchBlinker").textContent = "";
+					}, 400);
+				}, 1);
+			});
+			document.getElementById("searchBack").addEventListener("click", () => {
+				if (currentIndex > 4)
+					currentIndex -= 5;
+				displayFriends();
+			});
+			document.getElementById("searchNext").addEventListener("click", () => {
+				if (currentIndex < foundFriends.length - 5)
+					currentIndex += 5;
+				displayFriends();
+			});
+
+			// search and display function
+			function displayFriends() {
+				foundFriends = [];
+
+				// find found friends
+				for (let friend of friendsList)
+					if (friend.name.toLowerCase().substring(0, searchField.length) == searchField.toLowerCase() && friend.showOnList)
+						foundFriends[foundFriends.length] = friend;
+					else if (friend.name == searchField)
+						foundFriends[foundFriends.length] = friend;
+
+				// check if marked friend is found...
+				if (foundFriends.length == 1 && foundFriends[0].showMarked) {
+					document.getElementById("friendsFndTxt1").setAttribute("style", "z-index:3;text-decoration:line-through;");
+					document.getElementById("friendsFndTxt1").setAttribute("fill", "#101010");
+					document.getElementById("friendsPiBx1").setAttribute("fill", "#000000");
+					document.getElementById("friendsPuBx1").setAttribute("fill", "#000000");
+				} else {
+					document.getElementById("friendsFndTxt1").setAttribute("style", "z-index:3;");
+					document.getElementById("friendsFndTxt1").setAttribute("fill", "url(#pipu-gradient)");
+					document.getElementById("friendsPiBx1").setAttribute("fill", "#e655d5");
+					document.getElementById("friendsPuBx1").setAttribute("fill", "#612bc4");
+				}
+
+				// loop that displays friends
+				for (let i = 1; i < 6; i++) {
+					if (currentIndex + i - 1 < foundFriends.length) {
+						document.getElementById("friendsBdBx" + i).setAttribute("opacity", 1);
+						document.getElementById("friendsPiBx" + i).setAttribute("opacity", 0.5);
+						document.getElementById("friendsPuBx" + i).setAttribute("opacity", 0.5);
+						document.getElementById("friendsFndTxt" + i).textContent = foundFriends[currentIndex + i - 1].name;
+						document.getElementById("friendsNumTxt" + i).textContent = currentIndex + i;
+						document.getElementById("anchor" + i).setAttribute("href", foundFriends[currentIndex + i - 1].url);
+						document.getElementById("anchor" + i).setAttribute("target", "_blank");
+					} else {
+						document.getElementById("friendsBdBx" + i).setAttribute("opacity", 0);
+						document.getElementById("friendsPiBx" + i).setAttribute("opacity", 0);
+						document.getElementById("friendsPuBx" + i).setAttribute("opacity", 0);
+						document.getElementById("friendsFndTxt" + i).textContent = "";
+						document.getElementById("friendsNumTxt" + i).textContent = "";
+						document.getElementById("anchor" + i).setAttribute("href", "#friendsSVG");
+						document.getElementById("anchor" + i).setAttribute("target", "_self");
+					}
+				}
+
+				// updates back and next button's hitboxes to see if they are usable
+				if (currentIndex < 5)
+					document.getElementById("searchBack").setAttribute("opacity", 0.4);
+				else
+					document.getElementById("searchBack").setAttribute("opacity", 0);
+
+				if (currentIndex >= foundFriends.length - 5)
+					document.getElementById("searchNext").setAttribute("opacity", 0.4);
+				else
+					document.getElementById("searchNext").setAttribute("opacity", 0);
+			}
+		</script>
+
+		<!-- Gallery svg and script -->
+
+		<svg viewbox="0 0 1000 1800" width="100vw">
+			<rect x="0" y="0" width="100%" height="30" fill="#d3d3d3" style="z-index:-2;" />
+			<rect x="0" y="30" width="100%" height="1620" fill="#f0f0f0" style="z-index:-2;" />
+			<rect x="0" y="1650" width="100%" height="150" fill="#d3d3d3" style="z-index:-2;" />
+			<text x="75" y="130" text-anchor="left" font-family="Verdana" font-size="50" font-weight="800" fill="#3f3f3f"> Gallery [~(^▽^)~] </text>
+			<text x="75" y="180" text-anchor="left" font-family="Verdana" font-size="20" font-weight="400" fill="#3f3f3f"> Goofy gallery of me n' my friends! </text>
+			<text x="75" y="210" text-anchor="left" font-family="Verdana" font-size="20" font-weight="400" fill="#3f3f3f"> Some irl photos, some in game photos </text>
+			<text x="75" y="240" text-anchor="left" font-family="Verdana" font-size="20" font-weight="400" fill="#3f3f3f"> of funni moments! :P </text>
+			<g id="galleryHitbox">
+				<rect id="galleryPiBx" x="700" y="90" rx="20" ry="20" width="200" height="200" fill="#e655d5" opacity="0.5" />
+				<rect id="galleryMaBx" x="650" y="240" rx="18" ry="18" width="100" height="100" fill="#b630d1" opacity="0.5" />
+ 				<rect id="galleryPuBx" x="725" y="115" rx="20" ry="20" width="200" height="200" fill="#612bc4" opacity="0.5" />
+				<image id="galleryCnvsImg" x="646" y="60" width="300" height="300" href="images/canvas_1.png" />
+			</g>
+			<image id="galleryStarLine" x="60" y="250" width="520" height="80" href="images/galleryStarLine_1.png" />
+			<!-- Images for the gallery -->
+			<rect x="50" y="390" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="83.33333" y="423.33333" width="200" height="200" href="images/galleryImages/gi1.jpg" />
+			<rect x="366.66666" y="390" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="400" y="423.33333" width="200" height="200" href="images/galleryImages/gi2.jpg" />
+			<rect x="683.33333" y="390" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="716.66666" y="423.33333" width="200" height="200" href="images/galleryImages/gi3.png" />
+			<rect x="50" y="706.66666" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="83.33333" y="740" width="200" height="200" href="images/galleryImages/gi4.png" />
+			<rect x="366.66666" y="706.66666" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="400" y="740" width="200" height="200" href="images/galleryImages/gi5.jpg" />
+			<rect x="683.33333" y="706.66666" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="716.66666" y="740" width="200" height="200" href="images/galleryImages/gi6.png" />
+			<rect x="50" y="1023.33333" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="83.33333" y="1056.66666" width="200" height="200" href="images/galleryImages/gi7.png" />
+			<rect x="366.66666" y="1023.33333" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="400" y="1056.66666" width="200" height="200" href="images/galleryImages/gi8.jpg" />
+			<rect x="683.33333" y="1023.33333" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="716.66666" y="1056.66666" width="200" height="200" href="images/galleryImages/gi9.jpg" />
+			<rect x="50" y="1340" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="83.33333" y="1363.33333" width="200" height="200" href="images/galleryImages/gi10.png" />
+			<rect x="366.66666" y="1340" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="400" y="1363.33333" width="200" height="200" href="images/galleryImages/gi11.png" />
+			<rect x="683.33333" y="1340" rx="35" ry="35" width="266.66666" height="266.66666" fill="#cdcdcd" />
+			<image x="716.66666" y="1363.33333" width="200" height="200" href="images/galleryImages/gi12.jpg" />
+
+			<rect class="divider" x="0" y="1680" width="100%" height="120" fill="#252525" />
+		</svg>
+
+		<script>
+			// == for the hovering over the about me items ==
+			document.getElementById("galleryHitbox").addEventListener("mouseenter", () => {
+				scaleGallery(true, 0);	
+			});
+			document.getElementById("galleryHitbox").addEventListener("mouseleave", () => {
+				scaleGallery(false, 1);
+			});
+			function scaleGallery(goingUp, scale) {
+				// checks if scales is done (from 0 to 1)
+				if (scale < 0 || scale > 1)
+					return;
+				// moves x and y of every title element
+				document.getElementById("galleryPiBx").setAttribute("x", "" + (700 - 3 * scale));
+				document.getElementById("galleryPiBx").setAttribute("y", "" + (90 - 3 * scale));
+				document.getElementById("galleryMaBx").setAttribute("x", "" + (650 - 3 * scale));
+				document.getElementById("galleryMaBx").setAttribute("y", "" + (240 - 3 * scale));
+				document.getElementById("galleryPuBx").setAttribute("x", "" + (725 - 3 * scale));
+				document.getElementById("galleryPuBx").setAttribute("y", "" + (115 - 3 * scale));
+				document.getElementById("galleryCnvsImg").setAttribute("x", "" + (646 - 3 * scale));
+				document.getElementById("galleryCnvsImg").setAttribute("y", "" + (60 - 3 * scale));
+				// scales width and height for boxes, and font size for text
+				document.getElementById("galleryPiBx").setAttribute("width", "" + (200 + 6 * scale));
+				document.getElementById("galleryPiBx").setAttribute("height", "" + (200 + 6 * scale));
+				document.getElementById("galleryMaBx").setAttribute("width", "" + (100 + 6 * scale));
+				document.getElementById("galleryMaBx").setAttribute("height", "" + (100 + 6 * scale));
+				document.getElementById("galleryPuBx").setAttribute("width", "" + (200 + 6 * scale));
+				document.getElementById("galleryPuBx").setAttribute("height", "" + (200 + 6 * scale));
+				document.getElementById("galleryCnvsImg").setAttribute("width", "" + (300 + 6 * scale));
+				document.getElementById("galleryCnvsImg").setAttribute("height", "" + (300 + 6 * scale));
+				// calls next if not done
+				if (goingUp) 
+					setTimeout(() => scaleGallery(true, scale + 0.05), 2);
+				else
+					setTimeout(() => scaleGallery(false, scale - 0.05), 2);
+			}
+		</script>
+
+		<!-- Main Animation Script! -->
+
+		<script>
+			// animation control for all the main site, mostly the stars
+			var hoveringWebbite = false
+			var hoveringMe = false
+			var frame = 1;
+			var fastAnimationInterval;
+			function nextFrameMain() {
+				if (frame == 3)
+					frame = 1;
+				else
+					frame++;
+
+				document.getElementById("stars1").setAttribute("href", "images/stars1_" + frame + ".png");
+				document.getElementById("stars2").setAttribute("href", "images/stars2_" + frame + ".png");
+				document.getElementById("stars3").setAttribute("href", "images/stars3_" + frame + ".png");
+				document.getElementById("stars4").setAttribute("href", "images/stars4_" + frame + ".png");
+				document.getElementById("stars5").setAttribute("href", "images/stars5_" + frame + ".png");
+				document.getElementById("stars6").setAttribute("href", "images/stars6_" + frame + ".png");
+				document.getElementById("stars7").setAttribute("href", "images/stars7_" + frame + ".png");
+				document.getElementById("stars8").setAttribute("href", "images/stars8_" + frame + ".png");
+
+				document.getElementById("webbite").setAttribute("href", "images/webbite.hovering_" + hoveringWebbite + "_" + frame + ".png");
+				document.getElementById("meImg").setAttribute("href", "images/me.hovering_" + hoveringMe + "_" + frame + ".png");
+				document.getElementById("galleryCnvsImg").setAttribute("href", "images/canvas_" + frame + ".png");
+				document.getElementById("galleryStarLine").setAttribute("href", "images/galleryStarLine_" + frame + ".png");
+			}
+			function startMainAnimations() {
+				setInterval(nextFrameMain, 400);
+			}
+		</script>
+
+	</body>
+</html>

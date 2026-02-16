@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - My Name is Jason</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: auto;
+                overflow-y: scroll;
+                min-height: 100vh;
+                background-attachment: fixed;
+                background-image: linear-gradient(135deg, #ef3456, #ef8934, #ddc058, #58dc79, #388fef, #a865ef);
+            }
+            svg {
+                position: absolute;
+                left: 25%;
+                width: 50%;
+            }
+            p {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                color: #434749;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- About me svg -->
+
+        <svg viewBox="0 0 500 1700">
+            <g class="window" left="0" top="25" width="500" height="325" title="ournameisjason.png" options="File Image Help" type="image" href="images/ournameisjason.png"></g>
+            <g class="window" left="0" top="375" width="500" height="175" title="AboutUs.txt" options="File Edit Search Help" type="text" text="<p>Hello! Welcome to our little group full of us! Half of us are Enby and the other half are entities beyond gender. :P Feel free to explore and enjoy yourself here! And remember... &quot;HELP I'M BEING BANGED ON THE ROCCKKKKSS- ≧Д≦&quot;</p>"></g>
+            <a href="Artifactory.html" target="_blank" rel="noopener noreferrer">
+                <g class="window" left="0" top="575" width="500" height="300" title="artifactory.bmp - Paint" options="File Edit View Image Options Help" type="paint" href="images/artifactory.png"></g>
+                <g class="window" left="0" top="775" width="250" height="150" title="Arti.txt" options="File Edit Search Help" type="text" text="<p>His name is artifactory. She made the art. It was difficult to put the art together-.</p>"></g>
+            </a>
+            <a href="ConstellationConsolation.html" target="_blank" rel="noopener noreferrer">
+                <g class="window" left="0" top="950" width="500" height="300" title="rowan.bmp - Paint" options="File Edit View Image Options Help" type="paint" href="images/rowan.png"></g>
+                <g class="window" left="0" top="1150" width="250" height="150" title="Log[CC].log" options="File Edit Entries Search Help" type="text" text="<p>Log[CC] - 6 entries found.</p>"></g>
+            </a>
+            <a href="Sirius.html" target="_blank" rel="noopener noreferrer">
+                <g class="window" left="0" top="1325" width="500" height="300" title="sirius.bmp - Paint" options="File Edit View Image Options Help" type="paint" href="images/sirius.png"></g>
+                <g class="window" left="0" top="1525" width="250" height="150" title="Sirius.txt" options="File Edit Search Help" type="text" text="<p>Seriously Sirius? How seriously serious can Sirius be serious? Plenty serious, trust me- I'm serious.</p>"></g>
+            </a>
+        </svg>
+
+        <!-- Minigame svg -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 600 400">
+                <g id="mgWindow" left="25" top="25" width="550" height="350" title="Running Breakout.exe..." options="File Edit Save Search Quit Help" type="minigame" text=""></g>
+                <g id="mgMessage" left="150" top="100" width="300" height="200" title="EndGame.txt" options="File Edit Search Help" type="text" text="Congrats!! You won! ヾ(≧▽≦*)o"></g>
+            </svg>
+        </div>
+
+        <!-- Script -->
+
+        <script id="script">
+            // takes care of windows
+            for (let tab of document.getElementsByClassName("window"))
+                createWindow(tab);
+            document.getElementById("gossipWindow").setAttribute("style", "display:none;");
+
+            function createWindow(tab) {
+                // if window is too small, don't make it
+                if (+tab.getAttribute("width") < 50 || +tab.getAttribute("height") < 50)
+                    return;
+
+                // create main
+                let main = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                main.setAttribute("x", tab.getAttribute("left"));
+                main.setAttribute("y", tab.getAttribute("top"));
+                main.setAttribute("rx", 1.5);
+                main.setAttribute("ry", 1.5);
+                main.setAttribute("width", tab.getAttribute("width"));
+                main.setAttribute("height", tab.getAttribute("height"));
+                main.setAttribute("fill", "#c3c7c9");
+                main.setAttribute("stroke", "#434749");
+                main.setAttribute("stroke-width", 1);
+
+                // create windowbar
+                let windowbar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                windowbar.setAttribute("x", +tab.getAttribute("left") + 5);
+                windowbar.setAttribute("y", +tab.getAttribute("top") + 5);
+                windowbar.setAttribute("rx", 1.5);
+                windowbar.setAttribute("ry", 1.5);
+                windowbar.setAttribute("width", +tab.getAttribute("width") - 10);
+                windowbar.setAttribute("height", 25);
+                windowbar.setAttribute("stroke", "#434749");
+                windowbar.setAttribute("stroke-width", 1);
+                windowbar.setAttribute("fill", "hsl(" + Math.floor(Math.random() * 361) + "deg, 85%, 60%)");
+
+                // create X
+                let x = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let xBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                xBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 32.5);
+                xBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                xBound.setAttribute("rx", 1.5);
+                xBound.setAttribute("ry", 1.5);
+                xBound.setAttribute("width", 25);
+                xBound.setAttribute("height", 20);
+                xBound.setAttribute("stroke", "#434749");
+                xBound.setAttribute("stroke-width", 1);
+                xBound.setAttribute("fill", "#c3c7c9");
+                let xLine1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine1.setAttribute("x1", +xBound.getAttribute("x") + 5);
+                xLine1.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine1.setAttribute("x2", +xBound.getAttribute("x") + 20);
+                xLine1.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine1.setAttribute("stroke", "#434749");
+                xLine1.setAttribute("stroke-width", 3);
+                let xLine2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine2.setAttribute("x1", +xBound.getAttribute("x") + 20);
+                xLine2.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine2.setAttribute("x2", +xBound.getAttribute("x") + 5);
+                xLine2.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine2.setAttribute("stroke", "#434749");
+                xLine2.setAttribute("stroke-width", 3);
+                x.append(xBound);
+                x.append(xLine1);
+                x.append(xLine2);
+
+                // create Square
+                let s = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let sBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 60);
+                sBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                sBound.setAttribute("rx", 1.5);
+                sBound.setAttribute("ry", 1.5);
+                sBound.setAttribute("width", 25);
+                sBound.setAttribute("height", 20);
+                sBound.setAttribute("stroke", "#434749");
+                sBound.setAttribute("stroke-width", 1);
+                sBound.setAttribute("fill", "#c3c7c9");
+                let sSquare1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare1.setAttribute("x", +sBound.getAttribute("x") + 5);
+                sSquare1.setAttribute("y", +sBound.getAttribute("y") + 4);
+                sSquare1.setAttribute("width", +sBound.getAttribute("width") - 10);
+                sSquare1.setAttribute("height", +sBound.getAttribute("height") - 8);
+                sSquare1.setAttribute("fill", "#434749");
+                let sSquare2 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare2.setAttribute("x", +sBound.getAttribute("x") + 6);
+                sSquare2.setAttribute("y", +sBound.getAttribute("y") + 7);
+                sSquare2.setAttribute("width", +sBound.getAttribute("width") - 12);
+                sSquare2.setAttribute("height", +sBound.getAttribute("height") - 12);
+                sSquare2.setAttribute("fill", "#c3c7c9");
+                s.append(sBound);
+                s.append(sSquare1);
+                s.append(sSquare2);
+
+                // create Minus
+                let m = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let mBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                mBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 87.5);
+                mBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                mBound.setAttribute("rx", 1.5);
+                mBound.setAttribute("ry", 1.5);
+                mBound.setAttribute("width", 25);
+                mBound.setAttribute("height", 20);
+                mBound.setAttribute("stroke", "#434749");
+                mBound.setAttribute("stroke-width", 1);
+                mBound.setAttribute("fill", "#c3c7c9");
+                let mLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                mLine.setAttribute("x1", +mBound.getAttribute("x") + 5);
+                mLine.setAttribute("y1", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("x2", +mBound.getAttribute("x") + 20);
+                mLine.setAttribute("y2", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("stroke", "#434749");
+                mLine.setAttribute("stroke-width", 3);
+                m.append(mBound);
+                m.append(mLine);
+
+                // create barText
+                let barText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                barText.setAttribute("x", +tab.getAttribute("left") + 15);
+                barText.setAttribute("y", +tab.getAttribute("top") + 22.5);
+                barText.setAttribute("font-family", "Courier New");
+                barText.setAttribute("font-size", 16);
+                barText.setAttribute("font-width", 500);
+                barText.setAttribute("fill", "#434749");
+                barText.setAttribute("stroke", "#434749");
+                barText.setAttribute("stroke-width", 1);
+                barText.textContent = tab.getAttribute("title");
+
+                // create options texts
+                let options = document.createElementNS("http://www.w3.org/2000/svg", "g"), optionsArray = tab.getAttribute("options").split(" ");
+                tab.prepend(options);
+                for (let i = 0; i < optionsArray.length; i++) {
+                    let optionText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    let optionTextX = +tab.getAttribute("left") + 10;
+                    for (let option of options.children)
+                        optionTextX += option.getBBox().width + 10;
+                    optionText.setAttribute("x", optionTextX);
+                    optionText.setAttribute("y", +tab.getAttribute("top") + 43);
+                    optionText.setAttribute("font-family", "Courier New");
+                    optionText.setAttribute("font-size", 10);
+                    optionText.setAttribute("font-width", 500);
+                    optionText.setAttribute("fill", "#434749");
+                    optionText.setAttribute("stroke", "#434749");
+                    optionText.setAttribute("stroke-width", 0.05);
+                    optionText.setAttribute("text-decoration", "underline");
+                    optionText.textContent = optionsArray[i];
+                    options.append(optionText);
+                }
+
+                // what to put in the main area
+                switch (tab.getAttribute("type")) {
+                    case "text":
+                        // make text box
+                        let textBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        textBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        textBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        textBox.setAttribute("rx", 1.5);
+                        textBox.setAttribute("ry", 1.5);
+                        textBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        textBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        textBox.setAttribute("stroke", "#434749");
+                        textBox.setAttribute("stroke-width", 1);
+                        textBox.setAttribute("fill", "#f3f7f9");
+
+                        // make foreign object with said text
+                        let tbText = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+                        tbText.setAttribute("x", +tab.getAttribute("left") + 10);
+                        tbText.setAttribute("y", +tab.getAttribute("top") + 55);
+                        tbText.setAttribute("width", +tab.getAttribute("width") - 20);
+                        tbText.setAttribute("height", +tab.getAttribute("height") - 65);
+                        tbText.innerHTML = tab.getAttribute("text");
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(tbText);
+                        tab.prepend(textBox);
+                        break;
+                    case "paint":
+                        // make paint box
+                        let paintBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        paintBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        paintBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        paintBox.setAttribute("rx", 1.5);
+                        paintBox.setAttribute("ry", 1.5);
+                        paintBox.setAttribute("width", 0.2 * +tab.getAttribute("width") - 2);
+                        paintBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        paintBox.setAttribute("stroke", "#434749");
+                        paintBox.setAttribute("stroke-width", 1);
+                        paintBox.setAttribute("fill", "#f3f7f9");
+
+                        // make paint squares
+                        for (let i = 0; i < 2; i++)
+                            for (let j = 0; j < 4; j++) {
+                                let paintSquare = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                                paintSquare.setAttribute("x", +paintBox.getAttribute("x") + (i * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("y", +paintBox.getAttribute("y") + (j * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("rx", 1.5);
+                                paintSquare.setAttribute("ry", 1.5);
+                                paintSquare.setAttribute("width", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("height", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("stroke", "#434749");
+                                paintSquare.setAttribute("stroke-width", 1);
+                                paintSquare.setAttribute("fill", "hsl(" + 40 * (i + j * 2) + "deg, 50%, 50%)");
+                                tab.prepend(paintSquare);
+                            }
+
+                        // make main box
+                        let mainBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mainBox.setAttribute("x", +tab.getAttribute("left") + 0.2 * +tab.getAttribute("width") + 8);
+                        mainBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        mainBox.setAttribute("rx", 1.5);
+                        mainBox.setAttribute("ry", 1.5);
+                        mainBox.setAttribute("width", 0.8 * +tab.getAttribute("width") - 13);
+                        mainBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        mainBox.setAttribute("stroke", "#434749");
+                        mainBox.setAttribute("stroke-width", 1);
+                        mainBox.setAttribute("fill", "#f3f7f9");
+
+                        let painting = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        painting.setAttribute("x", +mainBox.getAttribute("x") + 20);
+                        painting.setAttribute("y", +mainBox.getAttribute("y") + 20);
+                        painting.setAttribute("width", +mainBox.getAttribute("width") - 40);
+                        painting.setAttribute("height", +mainBox.getAttribute("height") - 40);
+                        painting.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(painting);
+                        tab.prepend(mainBox);
+                        tab.prepend(paintBox);
+                        break;
+                    case "image":
+                        // make imgae box
+                        let imageBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        imageBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        imageBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        imageBox.setAttribute("rx", 1.5);
+                        imageBox.setAttribute("ry", 1.5);
+                        imageBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        imageBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        imageBox.setAttribute("stroke", "#434749");
+                        imageBox.setAttribute("stroke-width", 1);
+                        imageBox.setAttribute("fill", "#f3f7f9");
+
+                        // make the image
+                        let image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        image.setAttribute("x", +tab.getAttribute("left") + 10);
+                        image.setAttribute("y", +tab.getAttribute("top") + 55);
+                        image.setAttribute("width", +tab.getAttribute("width") - 20);
+                        image.setAttribute("height", +tab.getAttribute("height") - 65);
+                        image.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(image);
+                        tab.prepend(imageBox);
+                        break;
+                }
+
+                // add stuff
+                tab.prepend(barText);
+                tab.prepend(m);
+                tab.prepend(s);
+                tab.prepend(x);
+                tab.prepend(windowbar);
+                tab.prepend(main);
+            }
+        </script>
+        
+	</body>
+</html>

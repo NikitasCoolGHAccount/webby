@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Casper</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                overflow-y: clip;
+                background-color: #1f1f24;
+            }
+        </style>
+	</head>
+	<body>
+
+        <!-- About me svg and script-->
+         
+        <svg x="0" y="0" width="100vw" height="100vh">
+            <defs>
+                <lineargradient id="transgrad">
+                    <stop offset="0" stop-color="#5bcefa" />
+                    <stop offset="25%" stop-color="#f5a9b8" />
+                    <stop offset="50%" stop-color="#ffffff" />
+                    <stop offset="75%" stop-color="#f5a9b8" />
+                    <stop offset="100%" stop-color="#5bcefa" />
+                </lineargradient>
+            </defs>
+            <rect x="0" y="0" width="65vw" height="100vh" fill="#2e2e34" />
+            <rect x="65vw" y="0" width="35vw" height="100vh" fill="#1f1f24" />
+            <svg viewBox="0 0 100 200" x="5vw" y="10vh" width="25vw" height="90vh" perserveAspectRatio="xMidyMax meet">
+                <rect x="45" y="100" width="10" height="100" fill="#9c774e" />
+                <rect x="45" y="0" width="10" height="100" fill="#b18c63" />
+                <rect x="27" y="170" width="46" height="10" fill="#a98155" />
+                <polygon points="35,149 25,149 15,200 25,200" fill="#b18c63" />
+                <polygon points="75,149 65,149 75,200 85,200" fill="#b18c63" />
+                <rect x="30" y="35" width="40" height="6" fill="#a98155" />
+                <rect x="30" y="149" width="40" height="6" fill="#a98155" />
+                <rect x="0" y="40" width="100" height="110" fill="#e2e2e2" />
+            </svg>
+            <svg viewBox="0 0 100 200" x="35vw" y="10vh" width="25vw" height="90vh" perserveAspectRatio="xMidyMax meet">
+                <rect x="45" y="100" width="10" height="100" fill="#9c774e" />
+                <rect x="45" y="0" width="10" height="100" fill="#b18c63" />
+                <rect x="27" y="170" width="46" height="10" fill="#a98155" />
+                <polygon points="35,149 25,149 15,200 25,200" fill="#b18c63" />
+                <polygon points="75,149 65,149 75,200 85,200" fill="#b18c63" />
+                <rect x="30" y="35" width="40" height="6" fill="#a98155" />
+                <rect x="30" y="149" width="40" height="6" fill="#a98155" />
+                <rect x="0" y="40" width="100" height="110" fill="#e2e2e2" />
+            </svg>
+            <svg viewBox="0 0 100 100" x="65vw" y="7.5vh" width="35vw" height="55vh" perserveAspectRatio="xMidyMid meet">
+                <polygon points="11,10 14,10 50,1 86,10 89,10 50,0.5" fill="#987044" />
+                <rect x="10" y="10" width="80" height="80" fill="#e2e2e2" />
+                <image id="casperImage" href="" x="10" y="10" width="80" height="80" />
+            </svg>
+            <rect id="portraitHitbox" x="65vw" y="7.5vh" width="35vw" height="55vh" fill="#f0f0f0" opacity="0" />
+            <text x="82.5vw" y="67.5vh" text-anchor="middle" font-size="2vw" font-family="Arial" fill="#e9e9e9"><tspan font-weight="750">Name : </tspan><tspan font-weight="350">Casper</tspan></text>
+            <text x="82.5vw" y="72.5vh" text-anchor="middle" font-size="2vw" font-family="Arial" fill="#e9e9e9"><tspan font-weight="750">Age : </tspan><tspan font-weight="350">18</tspan></text>
+            <text x="82.5vw" y="77.5vh" text-anchor="middle" font-size="2vw" font-family="Arial" fill="url(#transgrad)"><tspan font-weight="750">Gender : </tspan><tspan font-weight="350"> Male </tspan></text>
+            <text x="82.5vw" y="82.5vh" text-anchor="middle" font-size="2vw" font-family="Arial" fill="#e9e9e9"><tspan font-weight="750">Interests : </tspan><tspan font-weight="350">Drawing</tspan></text>
+            <text x="82.5vw" y="87.5vh" text-anchor="middle" font-size="2vw" font-family="Arial" fill="#e9e9e9" font-weight="350">Undertale, OCS, etc.</text>
+            <text x="82.5vw" y="92.5vh" text-anchor="middle" font-size="1.5vw" font-family="Arial" fill="#e9e9e9"><tspan font-weight="750">he is my fren - </tspan><tspan font-weight="350">ヾ(≧▽≦*)o</tspan></text>
+        </svg>
+
+        <script>
+            let isHovering = false;
+            let frame = 1;
+            document.getElementById("portraitHitbox").addEventListener("mouseenter", () => {isHovering = true;});
+            document.getElementById("portraitHitbox").addEventListener("mouseleave", () => {isHovering = false;});
+
+            setInterval(() => {
+                if (frame == 3)
+                    frame = 1;
+                else
+                    frame++;
+
+                document.getElementById("casperImage").setAttribute("href", "images/casper.hovering_" + isHovering + "_" + frame + ".png");
+            }, 400);
+        </script>
+        
+	</body>
+</html>

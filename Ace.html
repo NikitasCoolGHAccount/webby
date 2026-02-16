@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>✨ ncs ✨ - Ace</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #1f1f24;
+            }
+        </style>
+	</head>
+    <body>
+
+        <!-- Main svg and script -->
+
+        <svg viewBox="0 0 1000 1250">
+            <rect x="25" y="125" width="850" height="1100" fill="#0e0e13" />
+            <circle class="shadowCircle" cx="75" cy="300" r="21" fill="#1f1f24" opacity="1" />
+            <circle class="shadowCircle" cx="75" cy="675" r="21" fill="#1f1f24" opacity="1" />
+            <circle class="shadowCircle" cx="75" cy="1050" r="21" fill="#1f1f24" opacity="1" />
+            <rect x="75" y="75" width="850" height="1100" fill="#efefef" />
+            <g id="lines">
+            </g>
+            <rect id="redLine" x="175" y="75" width="3" height="1100" fill="#bc4335" />
+            <circle class="pageHole" cx="125" cy="250" r="20" fill="#0e0e13" />
+            <circle class="pageHole" cx="125" cy="625" r="20" fill="#0e0e13" />
+            <circle class="pageHole" cx="125" cy="1000" r="20" fill="#0e0e13" />
+            <image id="ace" x="75" y="-50" width="900" height="900" href="images/ace_1.png" />
+            <image id="frame" x="75" y="-50" width="900" height="900" href="images/aceFrame_1.png" />
+            <image id="start" x="200" y="600" width="600" height="600" href="images/aceStart_1.png" />
+            <image id="star" x="150" y="200" width="600" height="600" href="images/aceStar_1.png" />
+            <image id="bolt" x="625" y="-375" width="-400" height="400" href="images/aceBolt_1.png" />
+            <image id="smile" x="325" y="150" width="600" height="600" href="images/aceSmile_1.png" />
+            <rect id="pageFlip" x="75" y="75" width="850" height="1100" opacity="0" />
+        </svg>
+
+        <script>
+            // line generator
+            for (let i = 0; i < 36; i++) document.getElementById("lines").innerHTML += '<rect x="75" y="' + (155.65 + 25.55 * (i + 1) + 2 * i) + '" width="850" height="2" fill="#2187eb" />';
+
+            // animation control for all the main site, mostly the stars
+            setInterval(nextFrameMain, 600);
+			var hoveringWebbite = false
+			var hoveringMe = false
+			var frame = 1;
+			var fastAnimationInterval;
+			function nextFrameMain() {
+				if (frame == 3)
+					frame = 1;
+				else
+					frame++;
+
+				document.getElementById("ace").setAttribute("href", "images/ace_" + frame + ".png");
+				document.getElementById("frame").setAttribute("href", "images/aceFrame_" + frame + ".png");
+				document.getElementById("start").setAttribute("href", "images/aceStart_" + frame + ".png");
+                document.getElementById("star").setAttribute("href", "images/aceStar_" + frame + ".png");
+				document.getElementById("smile").setAttribute("href", "images/aceSmile_" + frame + ".png");
+				document.getElementById("bolt").setAttribute("href", "images/aceBolt_" + frame + ".png");
+			}
+            
+            // to flip the page!
+            document.getElementById("pageFlip").addEventListener("click", () => {
+                [...document.getElementsByClassName("shadowCircle")].forEach(circle => circle.setAttribute("opacity", (+circle.getAttribute("opacity") === 1) ? 0 : 1));
+                [...document.getElementsByClassName("pageHole")].forEach(circle => circle.setAttribute("cx", (+circle.getAttribute("cx") === 125) ? 875 : 125));
+                document.getElementById("redLine").setAttribute("x", (+document.getElementById("redLine").getAttribute("x") === 175) ? 822 : 175);
+            });
+        </script>
+
+    </body>
+</html>

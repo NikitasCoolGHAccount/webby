@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Thomas</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            p {
+                border: 0;
+                margin: 0;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                padding: 0;
+                font-family: "Arial";
+                font-size: x-large;
+                font-weight: 400;
+                color: #282828;
+            }
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #5e5e5e;
+            }
+            #pattern {
+                background-image: url("frausratsPattern.png");
+                background-repeat: repeat;
+                background-size: 10vw 10vw;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Frau's Rats tab svg and script -->
+
+        <svg viewBox="0 0 1500 175" width="100vw">
+            <rect x="0" y="0" width="1500" height="100" fill="#474747" />
+            <polygon points="400,0 1100,0 1050,110 450,110" fill="#e0e0e0" />
+            <polygon points="375,15 400,15 431.81818,85 406.81818,85" fill="#e0e0e0" />
+            <polygon points="1100,15 1125,15 1093.18182,85 1068.18182,85" fill="#e0e0e0" />
+            <text x="750" y="80" fill="#222222" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> ✨ Frau's Rats 🐀 </text>
+            <text x="755" y="85" fill="#f9f9f9" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> Frau's Rats </text>
+            <rect x="37.5" y="137.5" width="1425" height="37.5" fill="#474747" />
+        </svg>
+
+        <!-- Main svg and script-->
+
+        <svg viewBox="0 0 1500 2587.5" width="100vw">
+            <defs>
+                <pattern id="frausratsPattern" patternUnits="userSpaceOnUse" width="225" height="225">
+                    <image href="images/frausratsPattern.png" x="-150" y="0" width="225" height="225" />
+                    <image href="images/frausratsPattern.png" x="75" y="0" width="225" height="225" />
+                </pattern>
+                <lineargradient id="frausratsGradient">
+                    <stop offset="25%" stop-color="#7e7e7e" />
+                    <stop offset="75%" stop-color="#eac686" />
+                </lineargradient>
+            </defs>
+            <!-- Backdrop -->
+            <rect x="37.5" y="0" width="1425" height="2587.5" fill="#474747" />
+            <rect x="75" y="0" width="1350" height="2587.5" fill="url(#frausratsPattern)" />
+            
+            <!-- Aboue me stuff -->
+            <polygon id="aboutMeFrame" points="375,300 375,700 513.88889,950 986.11111,950 1125,700 1125,300" fill="#575757" />
+            <polygon id="aboutMeMain" points="400,300 400,700 525,925 975,925 1100,700 1100,300" fill="#e0e0e0" />
+            <text y="650" fill="#222222" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle">
+                <tspan x="750" font-weight="650"> Name: </tspan><tspan> Thomas </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Age: </tspan><tspan> 19 </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Gender: </tspan><tspan> Male </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Height: </tspan><tspan> 6'1" </tspan>
+            </text>
+            <polygon />
+            <!-- Image stuff -->
+            <polygon id="outerFrame1" points="375,300 513.88889,550 986.11111,550 1125,300 986.11111,50 513.88889,50" fill="#575757" />
+            <polygon id="outerFrame2" points="400,300 525,525 975,525 1100,300 975,75 525,75" fill="url(#frausratsGradient)" />
+            <rect id="innerFrame1" x="540" y="90" width="420" height="420" fill="#575757" />
+            <rect id="innerFrame2" x="550" y="100" width="400" height="400" fill="#e0e0e0" />
+            <text x="475" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">🐀</text>
+            <text x="1025" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">✨</text>
+            <!-- Extra Stuff -->
+            <g id="description">
+                <polygon id="descOuterFrame" points="175,1300 313.88889,1550 636.11111,1550 775,1300 636.11111,1050 313.88889,1050" fill="#575757" />
+                <polygon id="descInnerFrame" points="200,1300 325,1525 625,1525 750,1300 625,1075 325,1075" fill="#e0e0e0" />
+                <text y="1175" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Description: </tspan>
+                    <tspan x="475" dy="1.5em"> A very chill person- one of </tspan>
+                    <tspan x="475" dy="1.5em"> the most chill people you'll ever </tspan>
+                    <tspan x="475" dy="1.5em"> probably meet. Also a very fun guy </tspan>
+                    <tspan x="475" dy="1.5em"> to hang out with, he'll make you </tspan>
+                    <tspan x="475" dy="1.5em"> smile- if you can stand how </tspan>
+                    <tspan x="475" dy="1.5em"> he eats certain pastries. </tspan>
+                </text>
+            <g>
+            <g id="interests">
+                <polygon id="inteOuterFrame" points="1325,1595 1186.11111,1845 863.88889,1845 725,1595 863.88889,1345 1186.11111,1345" fill="#575757" />
+                <polygon id="inteInnerFrame" points="1300,1595 1175,1820 875,1820 750,1595 875,1370 1175,1370" fill="#e0e0e0" />
+                <text y="1465" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="1025" font-weight="650"> Interests: </tspan>
+                    <tspan x="1025" dy="1.5em"> Being chill, odd noises, the </tspan>
+                    <tspan x="1025" dy="1.5em"> Anti-British, an unusual amount </tspan>
+                    <tspan x="1025" dy="1.5em"> of sunscreen, fishsticks (for other </tspan>
+                    <tspan x="1025" dy="1.5em"> not food related reasons), </tspan>
+                    <tspan x="1025" dy="1.5em"> hanging out, cracking jokes, </tspan>
+                    <tspan x="1025" dy="1.5em"> and being a friend! </tspan>
+                </text>
+            <g>
+            <g id="quotes">
+                <polygon id="quotOuterFrame" points="175,1890 313.88889,2140 636.11111,2140 775,1890 636.11111,1640 313.88889,1640" fill="#575757" />
+                <polygon id="quotInnerFrame" points="200,1890 325,2115 625,2115 750,1890 625,1665 325,1665" fill="#e0e0e0" />
+                <text y="1780" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Quote 1: </tspan>
+                    <tspan x="475" dy="1.5em"> "Seeing cute boys in thongs~" </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 2: </tspan>
+                    <tspan x="475" dy="1.5em"> "I'm a hooker, YOU'RE a pedophile." </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 3: </tspan>
+                    <tspan x="475" dy="1.5em"> "I'm hawking and tuahing." </tspan>
+                </text>
+            <g>
+            <g id="minigame">
+                <polygon id="miniOuterFrame" points="1325,2185 1186.11111,2435 863.88889,2435 725,2185 863.88889,1935 1186.11111,1935" fill="#575757" />
+                <polygon id="miniInnerFrame" points="1300,2185 1175,2410 875,2410 750,2185 875,1960 1175,1960" fill="#e0e0e0" />
+                <text x="1025" y="2100" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="400" text-anchor="middle">
+                    <tspan font-weight="650"> Minigame: </tspan><tspan> Crossword </tspan>
+                </text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;');">
+                    <rect x="825" y="2125" rx="15" ry="15" width="400" height="150" fill="#72bf6a" stroke="#575757" stroke-width="15" />
+                    <text x="1025" y="2220" fill="#222222" font-family="Trebuchet MS" font-size="60" font-weight="1400" style="user-select:none;" text-anchor="middle">▶️ PLAY ▶️</text>
+                </g>
+            </g>
+
+        </svg>
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:none;');">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" style="user-select:none;" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+                <!-- Crossword Stuff-->
+                <foreignObject x="275" y="175" width="1200" height="650">
+                    <div xmlns="http://www.w3.org/1999/xhtml"
+                        style="width:1200px; height:650px; overflow-y:auto; overflow-x:clip;">
+                        
+                        <svg id="maingameSVG" width="1200" height="1600" viewBox="0 0 1200 1600">
+                            <rect x="0" y="0" width="1200" height="1600" fill="#e5e5e5" />
+                            <g id="squares"></g>
+                            <g id="clues"></g>
+                        </svg>
+
+                    </div>
+                </foreignObject>
+            </svg>
+        </div>
+
+        <script>
+            // puzzles and coordinates of data
+            const crossword1 = [[" ", " ", " ", "S", " ", " ", " ", " ", " ", " "],
+                                ["T", " ", "J", "O", "N", "A", "S", " ", " ", " "],
+                                ["H", " ", " ", "P", " ", " ", " ", " ", " ", " "],
+                                ["O", " ", " ", "H", " ", "D", " ", "A", " ", " "],
+                                ["M", "O", "N", "I", "C", "A", " ", "N", " ", " "],
+                                ["A", " ", " ", "A", " ", "N", " ", "N", " ", " "],
+                                ["S", " ", " ", " ", "N", "I", "K", "I", "T", "A"],
+                                [" ", " ", " ", " ", " ", "E", " ", "K", " ", " "],
+                                [" ", " ", " ", " ", " ", "L", " ", "A", " ", " "]];
+            const coords1 = [[1, 0, true, "1", "The name of the person who's minigame you're currently playing."], [4, 0, false, "2", "The name of the person with the quote 'I made him wet.'"], [1, 2, false, "3", "The name of the person with a space obsession."], [0, 3, true, "4", "The name of the person who likes Chick-Fil-A sauce the most in Frau's Rats."], [6, 4, false, "5", "The name of the second tallest in Frau's Rats."], [3, 5, true, "6", "The name of the war criminal of the group."], [3, 7, true, "7", "The name of the person with who's minigame is similar to the Google dinosaur game."]];
+            const crossword2 = [[" ", " ", "C", " ", " ", " ", " ", " ", " ", " "],
+                                [" ", "D", "R", "A", "W", "I", "N", "G", "S", " "],
+                                [" ", " ", "E", " ", " ", " ", " ", " ", "U", " "],
+                                ["F", "R", "A", "U", "S", "R", "A", "T", "S", " "],
+                                ["A", " ", "M", " ", " ", "A", " ", " ", " ", " "],
+                                ["T", " ", " ", " ", " ", "T", "O", "U", "C", "H"]];
+            const coords2 = [[3, 0, true, "1", "What Sophia calls Thomas or her dogs after she's pissed."], [3, 0, false, "1", "Name of the group (without the apostrophe or whitespace.)"], [1, 1, false, "2", "The part of making the website THAT I (Nikita) hated the most."], [0, 2, true, "3", "The thing that SOMEONE in the group does after they see a cute boy in a miniskirt."], [3, 5, true, "4", "'Thomas you're a ginger ___!'"], [5, 5, false, "5", "The thing that someone will do to said cute thing they find."], [1, 8, true, "6", "The Among Us word!"]];
+            const crossword3 = [["F", "I", "S", "H", "S", "T", "I", "C", "K", "S"],
+                                ["A", " ", "U", " ", " ", " ", " ", "O", " ", " "],
+                                ["G", "I", "N", "G", "E", "R", " ", "C", " ", " "],
+                                ["G", " ", "S", " ", " ", "O", " ", "K", " ", " "],
+                                ["O", " ", "C", "H", "I", "L", "L", " ", " ", " "],
+                                ["T", " ", "R", " ", " ", "L", " ", " ", " ", " "],
+                                [" ", " ", "E", " ", " ", " ", " ", " ", " ", " "],
+                                [" ", "F", "E", "E", "L", "I", "N", "G", " ", " "],
+                                [" ", " ", "N", " ", " ", " ", " ", " ", " ", " "]];
+            const coords3 = [[0, 0, true, "1", "The noise that Raghib or Thomas might make when viewing Ace."], [0, 0, false, "1", "The thing Thomas VIOLATED during prom night."], [2, 0, false, "2", "'Thomas you're a ______ rat!'"], [7, 1, false, "3", "One of the many cruel acts Thomas commited against the object(s) mentioned in 1 Across."], [0, 2, true, "4", "Something Thomas wears WAY too much of sometimes (remember King's Dominion?)."], [4, 2, false, "5", "A word to describe Thomas' demeanor."], [2, 5, true, "6", "A word Thomas giggled at when Daniel repeated one of his quotes."], [0, 7, true, "7", "'[BLANK] n' ball torture :D'"]];
+
+            // select a puzzle and coordinates
+            let crosswordChosen, coordsChosen, randomNumber = Math.random(), controller = new AbortController(), signal = controller.signal;
+            if (randomNumber < 0.3333) {
+                crosswordChosen = crossword1;
+                coordsChosen = coords1;
+            } else if (randomNumber < 0.6666) {
+                crosswordChosen = crossword2;
+                coordsChosen = coords2;
+            } else {
+                crosswordChosen = crossword3;
+                coordsChosen = coords3;
+            }
+            
+            // generate crossword board
+            let size = 1200 / (2 + crosswordChosen[0].length), selected = null, directionVertical = null;
+            for (let i = 0; i < crosswordChosen.length; i++) {
+                for (let j = 0; j < crosswordChosen[i].length; j++) {
+                    if (crosswordChosen[i][j] !== " ") {
+                        // create square and set attributes
+                        let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        square.setAttribute("x", (j + 1) * size);
+                        square.setAttribute("y", (i + 1) * size);
+                        square.setAttribute("width", size);
+                        square.setAttribute("height", size);
+                        square.setAttribute("fill", "#fefefe");
+                        square.setAttribute("stroke", "#6a6a6a");
+                        square.setAttribute("stroke-width", 0.08 * size);
+                        square.setAttribute("id", "tile" + i + "," + j);
+
+                        // create text and set attributes
+                        let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        text.setAttribute("x", (j + 1.5) * size);
+                        text.setAttribute("y", (i + 1.75) * size);
+                        text.setAttribute("fill", "#282828");
+                        text.setAttribute("font-family", "Arial");
+                        text.setAttribute("font-size", 0.65 * size);
+                        text.setAttribute("font-weight", 500);
+                        text.setAttribute("stroke-width", 0);
+                        text.setAttribute("style", "pointer-events:none; user-select:none;");
+                        text.setAttribute("text-anchor", "middle");
+                        text.setAttribute("id", "text" + i + "," + j);
+
+                        // create event listeners
+                        square.addEventListener("mouseenter", () => square.setAttribute("fill", "#aeaeae"), { signal });
+                        square.addEventListener("mouseleave", () => square.setAttribute("fill", "#fefefe"), { signal });
+                        square.addEventListener("click", () => {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            square.setAttribute("stroke", "#fcbf55");
+                            document.getElementById(square.getAttribute("id")).remove();
+                            document.getElementById(text.getAttribute("id")).remove();
+                            document.getElementById("squares").appendChild(square);
+                            document.getElementById("squares").appendChild(text);
+                            selected = square.getAttribute("id").substring(4);
+                            directionVertical = null;
+                        }, { signal });
+
+                        // adding elements
+                        document.getElementById("squares").appendChild(square);
+                        document.getElementById("squares").appendChild(text);
+
+                        for (let dataSet of coordsChosen)
+                            if (dataSet[0] == i && dataSet[1] == j) {
+                                let numText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                                numText.setAttribute("x", (j + 1.1) * size);
+                                numText.setAttribute("y", (i + 1.325) * size);
+                                numText.setAttribute("fill", "#f0f0f0");
+                                numText.setAttribute("font-family", "Arial");
+                                numText.setAttribute("font-size", 0.3 * size);
+                                numText.setAttribute("font-weight", 600);
+                                numText.setAttribute("stroke", "#3a3a3a");
+                                numText.setAttribute("stroke-width", 0.015 * size);
+                                numText.setAttribute("style", "pointer-events:none; user-select:none;");
+                                numText.setAttribute("id", "text" + i + "," + j);
+                                numText.textContent = dataSet[3];
+
+                                document.getElementById("clues").appendChild(numText);
+                            }
+                    }
+                }
+            }
+
+            // add keydown selection
+            document.addEventListener("keydown", event => {
+                if (selected === null)
+                    return;
+
+                // switch for all tbe keys
+                switch (event.key) {
+                    case "Escape":
+                        event.preventDefault();
+                        document.getElementById("tile" + selected).setAttribute("stroke", "#6a6a6a");
+                        selected = null;
+                        break;
+                    case "Shift":
+                    case "Tab":
+                    case " ":
+                        break;
+                    case "Enter":
+                    case "Control":
+                        event.preventDefault();
+                        if (directionVertical === null) {
+                            if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null)
+                                directionVertical = true;
+                            else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null)
+                                directionVertical = false;
+                        }
+                        if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        break;
+                    case "ArrowUp":
+                        if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = true;
+                        break;
+                    case "ArrowDown":
+                        if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = true;
+                        break;
+                    case "ArrowLeft":
+                        if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = false;
+                        break;
+                    case "ArrowRight":
+                        if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = false;
+                        break;
+                    case "Backspace":
+                    case "Delete":
+                        if (document.getElementById("text" + selected).textContent == "") {
+                            if (directionVertical === null) {
+                                if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null)
+                                    directionVertical = true;
+                                else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null)
+                                    directionVertical = false;
+                            }
+                            if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null) {
+                                for (let tile of [...document.getElementById("squares").children])
+                                    tile.setAttribute("stroke", "#6a6a6a");
+                                tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                                text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                                tile.setAttribute("stroke", "#fcbf55");
+                                tile.remove();
+                                text.remove();
+                                text.textContent = "";
+                                document.getElementById("squares").appendChild(tile);
+                                document.getElementById("squares").appendChild(text);
+                                selected = tile.getAttribute("id").substring(4);
+                            } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null) {
+                                for (let tile of [...document.getElementById("squares").children])
+                                    tile.setAttribute("stroke", "#6a6a6a");
+                                tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                                text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                                tile.setAttribute("stroke", "#fcbf55");
+                                tile.remove();
+                                text.remove();
+                                text.textContent = "";
+                                document.getElementById("squares").appendChild(tile);
+                                document.getElementById("squares").appendChild(text);
+                                selected = tile.getAttribute("id").substring(4);
+                            }
+                        } else
+                            document.getElementById("text" + selected).textContent = "";
+                        break;
+                    default:
+                        document.getElementById("text" + selected).textContent = event.key.substring(0, 1).toUpperCase();
+                        if (directionVertical === null) {
+                            if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null)
+                                directionVertical = true;
+                            else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null)
+                                directionVertical = false;
+                        }
+                        if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                }
+            }, { signal });
+
+            // create clues boxes & display
+            let barLength = 1.5 * (400 - size), clueBar1 = document.createElementNS("http://www.w3.org/2000/svg", "rect"), clueBar2 = document.createElementNS("http://www.w3.org/2000/svg", "rect"), clueText1 = document.createElementNS("http://www.w3.org/2000/svg", "text"), clueText2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            clueBar1.setAttribute("x", size);
+            clueBar1.setAttribute("y", (crosswordChosen.length + 2) * size);
+            clueBar1.setAttribute("rx", 0.1 * size);
+            clueBar1.setAttribute("ry", 0.1 * size);
+            clueBar1.setAttribute("width", barLength);
+            clueBar1.setAttribute("height", size);
+            clueBar1.setAttribute("fill", "#fefefe");
+            clueBar1.setAttribute("stroke", "#6a6a6a");
+            clueBar1.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueBar1);
+            clueBar2.setAttribute("x", size * 2 + barLength);
+            clueBar2.setAttribute("y", (crosswordChosen.length + 2) * size);
+            clueBar2.setAttribute("rx", 0.1 * size);
+            clueBar2.setAttribute("ry", 0.1 * size);
+            clueBar2.setAttribute("width", barLength);
+            clueBar2.setAttribute("height", size);
+            clueBar2.setAttribute("fill", "#fefefe");
+            clueBar2.setAttribute("stroke", "#6a6a6a");
+            clueBar2.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueBar2);
+            clueText1.setAttribute("x", 1.25 * size);
+            clueText1.setAttribute("y", (crosswordChosen.length + 2.75) * size);
+            clueText1.setAttribute("fill", "#282828");
+            clueText1.setAttribute("font-family", "Arial");
+            clueText1.setAttribute("font-size", 0.65 * size);
+            clueText1.setAttribute("font-weight", 550);
+            clueText1.setAttribute("style", "user-select:none;");
+            clueText1.textContent = "Downwards";
+            document.getElementById("clues").appendChild(clueText1);
+            clueText2.setAttribute("x", size * 2.25 + barLength);
+            clueText2.setAttribute("y", (crosswordChosen.length + 2.75) * size);
+            clueText2.setAttribute("fill", "#282828");
+            clueText2.setAttribute("font-family", "Arial");
+            clueText2.setAttribute("font-size", 0.65 * size);
+            clueText2.setAttribute("font-weight", 550);
+            clueText2.setAttribute("style", "user-select:none;");
+            clueText2.textContent = "Across";
+            document.getElementById("clues").appendChild(clueText2);
+
+            // make the foreign objects, divs, and <p>s
+            let clueFO1 = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject"), clueFO2 = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject"), clueDiv1 = document.createElement("div"), clueDiv2 = document.createElement("div");
+            clueFO1.setAttribute("x", size);
+            clueFO1.setAttribute("y", (crosswordChosen.length + 3.5) * size);
+            clueFO1.setAttribute("rx", 0.1 * size);
+            clueFO1.setAttribute("ry", 0.1 * size);
+            clueFO1.setAttribute("width", barLength);
+            clueFO1.setAttribute("height", 5 * size);
+            clueFO1.setAttribute("fill", "#fefefe");
+            clueFO1.setAttribute("stroke", "#6a6a6a");
+            clueFO1.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueFO1);
+            clueFO2.setAttribute("x", size * 2 + barLength);
+            clueFO2.setAttribute("y", (crosswordChosen.length + 3.5) * size);
+            clueFO2.setAttribute("rx", 0.1 * size);
+            clueFO2.setAttribute("ry", 0.1 * size);
+            clueFO2.setAttribute("width", barLength);
+            clueFO2.setAttribute("height", 5 * size);
+            clueFO2.setAttribute("fill", "#fefefe");
+            clueFO2.setAttribute("stroke", "#6a6a6a");
+            clueFO2.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueFO2);
+            clueDiv1.setAttribute("id", "div1");
+            clueFO1.appendChild(clueDiv1);
+            clueDiv2.setAttribute("id", "div2");
+            clueFO2.appendChild(clueDiv2);
+            for (let dataSet of coordsChosen)
+                if (dataSet[2])
+                    clueDiv1.innerHTML += "<p><b>" + dataSet[3] + ".</b> " + dataSet[4] + "</p>";
+                else
+                    clueDiv2.innerHTML += "<p><b>" + dataSet[3] + ".</b> " + dataSet[4] + "</p>";
+
+            // check if puzzle is complete
+            let isCompleted = true, checkcompletionInterval = setInterval(() => {
+                isCompleted = true;
+                for (let i = 0; i < crosswordChosen.length; i++) {
+                    for (let j = 0; j < crosswordChosen[0].length; j++) {
+                        if (document.getElementById("text" + i + "," + j) === null)
+                            continue;
+                        else if (document.getElementById("text" + i + "," + j).textContent !== crosswordChosen[i][j])
+                            isCompleted = false;
+                    }
+                }
+                if (isCompleted) {
+                    selected = null;
+                    for (let item of [...document.getElementById("squares").children]) {
+                        item.setAttribute("stroke", "#29ac75");
+                        if (item.getAttribute("id").substring(0, 4) === "text")
+                            item.setAttribute("fill", "#29ac75");
+                        else
+                            item.setAttribute("fill", "#89ffc5");
+                    }
+                    clueBar1.setAttribute("stroke", "#29ac75");
+                    clueBar1.setAttribute("fill", "#89ffc5");
+                    clueBar2.setAttribute("stroke", "#29ac75");
+                    clueBar2.setAttribute("fill", "#89ffc5");
+                    clueText1.setAttribute("fill", "#29ac75");
+                    clueText2.setAttribute("fill", "#29ac75");
+                    controller.abort();
+                    clearInterval(checkcompletionInterval);
+                }
+            }, 25);
+        </script>
+        
+	</body>
+</html>

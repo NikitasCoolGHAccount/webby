@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - MG.TEST</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            p {
+                color: #e0e0e0;
+                font-size: large;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: 500;
+                margin: 0;
+            }
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #0d0d0d;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: inline-block;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="window.location.reload(true);">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" style="user-select:none;" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+                <!-- German Quiz Stuff-->
+                <text id="progressionText" x="875" y="175" fill="4f4f4f" font-family="Trebuchet MS" font-size="30" font-weight="500" text-anchor="middle">0 / 3</text>
+                <rect x="250" y="185" rx="10" ry="10" width="1250" height="25" fill="#2f2f2f" />
+                <rect x="665.6666666" y="190" rx="10" ry="10" width="2" height="15" fill="#4f4f4f" />
+                <rect x="1082.3333333" y="190" rx="10" ry="10" width="2" height="15" fill="#4f4f4f" />
+                <g id="progression1" fill="#5e5e5e">
+                    <rect x="255" y="190" rx="10" ry="10" width="100" height="15" />
+                    <rect x="330" y="190" rx="2" ry="2" width="330.6666666" height="15" />
+                </g>
+                <rect id="progression2" x="672.6666666" y="190" rx="2" ry="2" width="405.6666666" height="15" fill="#5e5e5e" />
+                <g id="progression3" fill="#5e5e5e">
+                    <rect x="1089.3333333" y="190" rx="2" ry="2" width="330" height="15" />
+                    <rect x="1395" y="190" rx="10" ry="10" width="100" height="15" />
+                </g>
+                <text id="timerText" x="875" y="260" fill="4f4f4f" font-family="Trebuchet MS" font-size="30" font-weight="500" text-anchor="middle">Intermission</text>
+                <rect x="250" y="270" rx="10" ry="10" width="1250" height="25" fill="#2f2f2f" />
+                <rect id="timerBox" x="255" y="275" rx="10" ry="10" width="1240" height="15" fill="#03ac13" />
+                <text id="questionText" x="250" y="400" fill="#2f2f2f" font-family="Trebuchet MS" font-size="52" font-weight="600">Get Ready for some questions!</text>
+                <g id="A">
+                    <text x="275" y="505" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" text-anchor="middle">A.</text>
+                    <rect x="325" y="450" rx="20" ry="20" width="400" height="80" fill="#d6204e" stroke="#2f2f2f" stroke-width="10" />
+                    <text x="525" y="505" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" style="user-select:none;" text-anchor="middle">These</text>
+                </g>
+                <g id="B">
+                    <text x="275" y="605" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" text-anchor="middle">B.</text>
+                    <rect x="325" y="550" rx="20" ry="20" width="400" height="80" fill="#fcf4a3" stroke="#2f2f2f" stroke-width="10" />
+                    <text x="525" y="605" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" style="user-select:none;" text-anchor="middle">are the</text>
+                </g>
+                <g id="C">
+                    <text x="275" y="705" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" text-anchor="middle">C.</text>
+                    <rect x="325" y="650" rx="20" ry="20" width="400" height="80" fill="#9dc183" stroke="#2f2f2f" stroke-width="10" />
+                    <text x="525" y="705" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" style="user-select:none;" text-anchor="middle">possible</text>
+                </g>
+                <g id="D">
+                    <text x="275" y="805" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" text-anchor="middle">D.</text>
+                    <rect x="325" y="750" rx="20" ry="20" width="400" height="80" fill="#7285a5" stroke="#2f2f2f" stroke-width="10" />
+                    <text x="525" y="805" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="500" style="user-select:none;" text-anchor="middle">answers!</text>
+                </g>
+                <image id="spinningRat" href="images/rat.png" x="1000" y="500" width="300" height="300" opacity="0" />
+            </svg>
+        </div>
+
+        <script>
+            // minigame stuff !!
+
+            class RussianQuestion {
+                // fields
+                word = "";
+                images = ["", "", "", ""];
+                answer = "";
+
+                // class constructor
+                constructor (word, images, answer) {
+                    this.word = word;
+                    this.images = images;
+                    this.answer = answer;
+                }
+
+                // check if right
+                check (num) {
+                    if (images[num] == answer)
+                        return true;
+                    return false;
+                }
+            }
+
+            questions = [new RussianQuestion("What is the female 'the' in German?", ["Die", "Das", "Der", "Den"], "Die")];
+            
+            let cancelEarly = false;
+            let answer = -1;
+            let inIntermission = true;
+            let timer = 0;
+
+            function getNewTimerPromise() {
+                inIntermission = false;
+                timer = 15;
+                document.getElementById("timerText").textContent = "15s";
+                let timerPromise = new Promise(resolve => {
+                    let timerInterval = setInterval(() => {
+                        document.getElementById("timerBox").setAttribute("width", 1240 * (timer / 15));
+                        document.getElementById("timerBox").setAttribute("fill", "rgb(" + Math.round(207 * ((15 - timer) / 15) + 3) + ", " + Math.round(172 - 152 * ((15 - timer) / 15)) + ", " + Math.round(4 + timer) + ")");
+                        if (timer <= 0.0001) {
+                            resolve(answer);
+                            clearInterval(timerInterval);
+                        }
+                        timer -= 0.01
+                        if (timer < 5 && timer % 0.1 < 0.01)
+                            document.getElementById("timerText").textContent = (Math.round(timer * 10) / 10) + "s";
+                        else if (timer % 1 < 0.01)
+                            document.getElementById("timerText").textContent = (Math.round(timer)) + "s";
+                    }, 10);
+                });
+                return timerPromise;
+            }
+
+            function getNewIntermissionPromise() {
+                inIntermission = true;
+                timer = 5;
+                document.getElementById("timerText").textContent = "Intermission";
+                let intermissionPromise = new Promise(resolve => {
+                    let intermissionInterval = setInterval(() => {
+                        document.getElementById("timerBox").setAttribute("width", 1240 * (timer / 5));
+                        document.getElementById("timerBox").setAttribute("fill", "rgb(" + Math.round(207 * ((5 - timer) / 5) + 3) + ", " + Math.round(172 - 152 * ((5 - timer) / 5)) + ", " + Math.round(19 - 3 * (5 - timer)) + ")");
+                        if (timer <= 0.0001) {
+                            resolve();
+                            clearInterval(intermissionInterval);
+                        } else
+                            timer -= 0.01;
+                    }, 10);
+                });
+                return intermissionPromise;
+            }
+
+            async function minigameHandler() {
+                // some important variables
+                let currentQuestion, questionsCorrect = 0;
+                
+                // main minigame
+                await getNewIntermissionPromise();
+
+                answer = -1;
+                currentQuestion = questions.splice(Math.floor(Math.random() * 12), 1)[0];
+                startQuestion(currentQuestion.question, currentQuestion.responses);
+                if (endQuestion(currentQuestion.responses[await getNewTimerPromise()], currentQuestion.answer)) {
+                    document.getElementById("progression1").setAttribute("fill", "#03ac13");
+                    questionsCorrect++;
+                    document.getElementById("progressionText").textContent = questionsCorrect + " / 3";
+                } else
+                    document.getElementById("progression1").setAttribute("fill", "#d21502");
+
+                await getNewIntermissionPromise();
+
+                answer = -1;
+                currentQuestion = questions.splice(Math.floor(Math.random() * 11), 1)[0];
+                startQuestion(currentQuestion.question, currentQuestion.responses);
+                if (endQuestion(currentQuestion.responses[await getNewTimerPromise()], currentQuestion.answer)) {
+                    document.getElementById("progression2").setAttribute("fill", "#03ac13");
+                    questionsCorrect++;
+                    document.getElementById("progressionText").textContent = questionsCorrect + " / 3";
+                } else
+                    document.getElementById("progression2").setAttribute("fill", "#d21502");
+
+                await getNewIntermissionPromise();
+
+                answer = -1;
+                currentQuestion = questions.splice(Math.floor(Math.random() * 10), 1)[0];
+                startQuestion(currentQuestion.question, currentQuestion.responses);
+                if (endQuestion(currentQuestion.responses[await getNewTimerPromise()], currentQuestion.answer)) {
+                    document.getElementById("progression3").setAttribute("fill", "#03ac13");
+                    questionsCorrect++;
+                    document.getElementById("progressionText").textContent = questionsCorrect + " / 3";
+                } else
+                    document.getElementById("progression3").setAttribute("fill", "#d21502");
+
+                document.getElementById("timerText").textContent = "You're all done!";
+                if (questionsCorrect == 3)
+                    document.getElementById("questionText").textContent = "You got all of them right! o((>ω< ))o";
+                else if (questionsCorrect == 0)
+                    document.getElementById("questionText").textContent = "You got... none of them right. ⊙﹏⊙∥";
+                else
+                    document.getElementById("questionText").textContent = "You got " + questionsCorrect + " out of 3, neat! ~(￣▽￣)~*";
+                document.getElementById("A").children[2].textContent = "Enjoy";
+                document.getElementById("B").children[2].textContent = "this";
+                document.getElementById("C").children[2].textContent = "spinning";
+                document.getElementById("D").children[2].textContent = "rat.png!!";
+                document.getElementById("spinningRat").setAttribute("opacity", 1);
+                let rotation = 0;
+                document.getElementById("spinningRat").style.transformOrigin = '1150px 650px';
+                setInterval(() => {
+                    rotation += 1;
+                    document.getElementById("spinningRat").style.transform = "rotate(" + rotation + "deg)";
+                }, 2);
+            }
+
+            function startQuestion(question, responses) {
+                document.getElementById("questionText").textContent = question;
+                document.getElementById("questionText").setAttribute("fill", "#2f2f2f");
+                document.getElementById("A").children[2].textContent = responses[0];
+                document.getElementById("B").children[2].textContent = responses[1];
+                document.getElementById("C").children[2].textContent = responses[2];
+                document.getElementById("D").children[2].textContent = responses[3];
+            }
+
+            function endQuestion(given, correct) {
+                if (given === correct) {
+                    document.getElementById("A").children[2].textContent = "Wow!";
+                    document.getElementById("B").children[2].textContent = "You're";
+                    document.getElementById("C").children[2].textContent = "very";
+                    document.getElementById("D").children[2].textContent = "smart!";
+                    document.getElementById("questionText").textContent = "Correct!";
+                    document.getElementById("questionText").setAttribute("fill", "#0b6623");
+                    return true;
+                } else {
+                    document.getElementById("A").children[2].textContent = "Better";
+                    document.getElementById("B").children[2].textContent = "luck";
+                    document.getElementById("C").children[2].textContent = "next";
+                    document.getElementById("D").children[2].textContent = "time!";
+                    document.getElementById("questionText").textContent = "Incorrect! Answer was: " + correct;
+                    document.getElementById("questionText").setAttribute("fill", "#7c0a02");
+                    return false;
+                }
+            }
+
+            document.getElementById("A").addEventListener("click", () => {
+                if (!inIntermission) {
+                    answer = 0;
+                    timer = 0;
+                }
+            });
+
+            document.getElementById("B").addEventListener("click", () => {
+                if (!inIntermission) {
+                    answer = 1;
+                    timer = 0;
+                }
+            });
+
+            document.getElementById("C").addEventListener("click", () => {
+                if (!inIntermission) {
+                    answer = 2;
+                    timer = 0;
+                }
+            });
+
+            document.getElementById("D").addEventListener("click", () => {
+                if (!inIntermission) {
+                    answer = 3;
+                    timer = 0;
+                }
+            });
+        </script>
+        
+	</body>
+</html>

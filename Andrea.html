@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Andrea</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+	</head>
+    <style>
+        body {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            overflow-x: clip;
+        }
+    </style>
+	<body>
+
+        <!-- About me svg and script-->
+
+        <svg viewbox="0 0 1000 600">
+            <defs>
+                <filter id="shine" x="0" y="0" width="100%" height="100%">
+                    <feSpecularLighting result="lightRaw" specularExponent="20" lighting-color="#bbbbbb">
+                        <fePointLight id="pointLight" x="25" y="25" z="200"/>
+                    </feSpecularLighting>
+    
+                    <feComposite in="lightRaw" in2="SourceAlpha" operator="in" result="lightClipped"/>
+                    <feComposite in="SourceGraphic" in2="lightClipped" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+                </filter>
+                <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+                    <stop offset="0%" stop-color="#3033cd" />
+                    <stop offset="100%" stop-color="#6998bf" />
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="1000" height="600" fill="#3033cd" />
+            <circle cx="520" cy="75" r="50" fill="#5f5f5f" filter="url(#shine)" />
+            <circle cx="550" cy="75" r="50" fill="#3033cd" />
+            <polygon class="star" points="650,75 6" fill="#5f5f5f" filter="url(#shine)" />
+            <polygon class="star" points="350,75 6" fill="#5f5f5f" filter="url(#shine)" />
+            <polygon class="star" points="750,75 6" fill="#5f5f5f" filter="url(#shine)" />
+            <polygon class="star" points="250,75 6" fill="#5f5f5f" filter="url(#shine)" />
+            <polygon class="star" points="850,75 6" fill="#5f5f5f" filter="url(#shine)" />
+            <polygon class="star" points="150,75 6" fill="#5f5f5f" filter="url(#shine)" />
+        </svg>
+
+        <script>
+            // for the pointlight
+            document.getElementById("pointLight").setAttribute("x", window.innerWidth / 4);
+            document.getElementById("pointLight").setAttribute("y", window.innerHeight / 4);
+
+            // for the stars
+            [...document.getElementsByClassName("star")].forEach(star => {
+                let x = 1 * star.getAttribute("points").substring(0, star.getAttribute("points").indexOf(",")), y = 1 * star.getAttribute("points").substring(1 + star.getAttribute("points").indexOf(","), star.getAttribute("points").indexOf(" ")), scale = 1 * star.getAttribute("points").substring(1 + star.getAttribute("points").indexOf(" ")), pointsStr = "";
+
+                for (let i = 0; i < 10; i++)
+                    if (i % 2 == 1) 
+                        pointsStr += "" + (x + 2 * scale * Math.cos(Math.PI / 10 * (2 * i - 1))) + "," + (y + 2 * scale * Math.sin(Math.PI / 10 * (2 * i - 1))) + " ";
+                    else
+                        pointsStr += "" + (x + 5 * scale * Math.cos(Math.PI / 10 * (2 * i - 1))) + "," + (y + 5 * scale * Math.sin(Math.PI / 10 * (2 * i - 1))) + " ";
+                
+                star.setAttribute("points", pointsStr);
+            });
+        </script>
+        
+        <!-- Shameless plug svg and script -->
+	</body>
+</html>

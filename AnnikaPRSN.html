@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Annika</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #0d0d0d;
+            }
+            #pattern {
+                background-image: url("frausdragonsPattern.png");
+                background-repeat: repeat;
+                background-size: 10vw 10vw;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Main svg -->
+
+        <svg viewBox="0 0 1500 2500">
+            /* Starry Background */
+            <g id="background">
+            </g>
+
+            /* Name card */
+            <circle cx="180" cy="267" r="7" fill="#f3f3f3" />
+            <circle cx="300" cy="125" r="7" fill="#f3f3f3" />
+            <polygon points="275,350 270,370 250,375 270,380 275,400 280,380 300,375 280,370" fill="#f3f3f3" />
+            <line x1="180" y1="267" x2="300" y2="125" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="180" y1="267" x2="275" y2="375" stroke="#f3f3f3" stroke-width="2.25" />
+            <circle cx="325" cy="525" r="7" fill="#f3f3f3" />
+            <circle cx="230" cy="467" r="7" fill="#f3f3f3" />
+            <line x1="325" y1="525" x2="230" y2="467" stroke="#f3f3f3" stroke-width="2.25" />
+            <circle cx="1300" cy="567" r="7" fill="#f3f3f3" />
+            <circle cx="1200" cy="125" r="7" fill="#f3f3f3" />
+            <circle cx="1175" cy="525" r="7" fill="#f3f3f3" />
+            <polygon points="1300,250 1295,270 1275,275 1295,280 1300,300 1305,280 1325,275 1305,270" fill="#f3f3f3" />
+            <polygon points="1200,350 1195,370 1175,375 1195,380 1200,400 1205,380 1225,375 1205,370" fill="#f3f3f3" />
+            <line x1="1300" y1="567" x2="1200" y2="375" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="1175" y1="525" x2="1200" y2="375" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="1300" y1="275" x2="1200" y2="375" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="1300" y1="275" x2="1200" y2="125" stroke="#f3f3f3" stroke-width="2.25" />
+            <g id="nameCard">
+                <image id="constellation" href="images/const1.png" x="375" y="-25" width="750" height="750" />
+                <text x="750" y="400" fill="#090909" font-family="Trebuchet MS" font-size="175" font-weight="650" stroke="#f3f3f3" stroke-width="5" style="user-select:none;" text-anchor="middle"> Annika </text>
+            </g>
+            <g id="750" class="constellationBorder">
+            </g>
+
+            /* About me */
+            <circle cx="190" cy="1400" r="7" fill="#f3f3f3" />
+            <polygon points="500,1350 495,1370 475,1375 495,1380 500,1400 505,1380 525,1375 505,1370" fill="#f3f3f3" />
+            <circle cx="275" cy="1455" r="7" fill="#f3f3f3" />
+            <line x1="190" y1="1400" x2="500" y2="1375" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="500" y1="1375" x2="275" y2="1455" stroke="#f3f3f3" stroke-width="2.25" />
+            <image href="images/starryAnnika.png" x="100" y="900" width="500" height="500" />
+            <polygon points="700,975 695,995 675,1000 695,1005 700,1025 705,1005 725,1000 705,995" fill="#f3f3f3" />
+            <circle cx="1300" cy="980" r="7" fill="#f3f3f3" />
+            <circle cx="675" cy="1250" r="7" fill="#f3f3f3" />
+            <line x1="700" y1="1000" x2="1300" y2="980" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="700" y1="1000" x2="675" y2="1250" stroke="#f3f3f3" stroke-width="2.25" />
+            <polygon points="1400,1375 1395,1395 1375,1400 1395,1405 1400,1425 1405,1405 1425,1400 1405,1395" fill="#f3f3f3" />
+            <circle cx="1405" cy="1205" r="7" fill="#f3f3f3" />
+            <circle cx="840" cy="1405" r="7" fill="#f3f3f3" />
+            <line x1="1400" y1="1400" x2="1405" y2="1205" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="1400" y1="1400" x2="840" y2="1405" stroke="#f3f3f3" stroke-width="2.25" />
+            <circle cx="1410" cy="1050" r="7" fill="#f3f3f3" />
+            <polygon points="700,1325 695,1345 675,1350 695,1355 700,1375 705,1355 725,1350 705,1345" fill="#f3f3f3" />
+            <foreignObject x="750" y="1050" width="600" height="300">
+                <p style="color:#f3f3f3; font-family:Trebuchet MS; font-size:120%; font-weight:300; overflow-y:auto; tab-size:0; white-space:pre-wrap;"><!--
+                    --><b>Name:</b> Annika       <b>Age:</b> 19       <b>Gender:</b> Genderfluid       <b>Height:</b> 5'5" <br /><br /><!--
+
+                    --><b>Description:</b> A goofball of an individual. To the absolute max. Despite this, they're very emotionally mature, but able to withhold fun conversation when shenanigans calls for it. I always enjoy spending time with her, as she always provides lovely conversation while also delving into fun antics when needs be. Just don't be a doofus when it comes to social norms, and make sure to respect her bounds. <br /><br /><!--
+
+                    --><b>Interests:</b> Yaoi, German, Angst, Gay Men Kissing (or any Gay romantic things), Drawing, Doing <a href="https://nikadoesart.carrd.co/" target="_blank" rel="noopener noreferrer">Commissions</a>, Plushies, Thai Food, and goofing off with friends while having a ball of a time.<br /><br />
+                </p>
+            </foreignObject>
+            <g id="1550" class="constellationBorder">
+            </g>
+
+            /* Extra stuff */
+            <polygon points="1400,2175 1395,2195 1375,2200 1395,2205 1400,2225 1405,2205 1425,2200 1405,2195" fill="#f3f3f3" />
+            <circle cx="1320" cy="1840" r="7" fill="#f3f3f3" />
+            <circle cx="1405" cy="2005" r="7" fill="#f3f3f3" />
+            <line x1="1320" y1="1840" x2="1405" y2="2005" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="1405" y1="2005" x2="1400" y2="2200" stroke="#f3f3f3" stroke-width="2.25" />
+            <polygon points="1025,1840 1020,1860 1000,1865 1020,1870 1025,1890 1030,1870 1050,1865 1030,1860" fill="#f3f3f3" />
+            <circle cx="1055" cy="1800" r="7" fill="#f3f3f3" />
+            <line x1="1025" y1="1865" x2="1055" y2="1800" stroke="#f3f3f3" stroke-width="2.25" />
+            <image href="images/starryAtari.png" x="950" y="1800" width="450" height="450" />
+            <polygon points="100,1775 95,1795 75,1800 95,1805 100,1825 105,1805 125,1800 105,1795" fill="#f3f3f3" />
+            <circle cx="700" cy="1810" r="7" fill="#f3f3f3" />
+            <circle cx="75" cy="2050" r="7" fill="#f3f3f3" />
+            <line x1="100" y1="1800" x2="700" y2="1810" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="100" y1="1800" x2="75" y2="2050" stroke="#f3f3f3" stroke-width="2.25" />
+            <polygon points="800,2175 795,2195 775,2200 795,2205 800,2225 805,2205 825,2200 805,2195" fill="#f3f3f3" />
+            <circle cx="805" cy="2005" r="7" fill="#f3f3f3" />
+            <circle cx="240" cy="2205" r="7" fill="#f3f3f3" />
+            <line x1="800" y1="2200" x2="805" y2="2005" stroke="#f3f3f3" stroke-width="2.25" />
+            <line x1="800" y1="2200" x2="240" y2="2205" stroke="#f3f3f3" stroke-width="2.25" />
+            <circle cx="810" cy="1850" r="7" fill="#f3f3f3" />
+            <polygon points="100,2150 95,2170 75,2175 95,2180 100,2200 105,2180 125,2175 105,2170" fill="#f3f3f3" />
+            <foreignObject x="150" y="1850" width="600" height="300">
+                <p style="color:#f3f3f3; font-family:Trebuchet MS; font-size:120%; font-weight:300; overflow-y:auto; tab-size:0; white-space:pre-wrap;"><!--
+                    --><b>Reasoning:</b> In case you're wondering why Annika has two pages, that is a not-so-comically long story. Just know it's probably nun'ya.<br /><br /><!--
+
+                    --><b>Fun Facts:</b> Her favorite animal is a Dragon, she enjoys drawing as a hobby rather than just purely as a job, she is somewhat of a gamer, works/worked at Chick-Fil-A, and knows <a href="WANNAKNOWWHOELSE.html" target="_blank" rel="noopener noreferrer"><i>who asked</i></a>.<br /><br /><!--
+
+                    --><b>Minigame:</b> Dragon Dash (Rat Run Reskin)
+                </p>
+            </foreignObject>
+            <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); minigameHandler();">
+                <rect x="425" y="2075" rx="15" ry="15" width="200" height="75" fill="#0d0d0d" stroke="#f3f3f3" stroke-width="5" />
+                <text x="525" y="2129" fill="#090909" font-family="Trebuchet MS" font-size="40" font-weight="1400" stroke="#f3f3f3" stroke-width="2" text-anchor="middle">P L A Y</text>
+            </g>
+            <g id="2350" class="constellationBorder">
+            </g>
+        </svg>
+
+        <!-- Minigame svg -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#0d0d0d" stroke="#f3f3f3" stroke-width="2" />
+                // Dragon Running Minigame Start
+                <text id="speedText" x="230" y="155" fill="#f9f9f9" font-family="Trebuchet MS" font-size="30" font-weight="600" xml:space="preserve"> Speed: 5mph </text>
+                <rect x="275" y="175" rx="2" ry="2" width="1200" height="650" fill="#1d1d1d" />
+                <text x="1300" y="340" font-size="100" text-anchor="middle">🌕</text>
+                <text id="instructions" x="300" y="230" fill="#0d0d0d" font-family="Trebuchet MS" font-size="40" font-weight="600" stroke="#f3f3f3" stroke-width="1"> You already know how to play this... </text>
+                <text id="deathM1" x="875" y="400" fill="#f3f3f3" font-family="Trebuchet MS" font-size="150" font-weight="900" opacity="0" text-anchor="middle"></text>
+                <text id="deathM2" x="875" y="480" fill="#e3e3e3" font-family="Trebuchet MS" font-size="40" font-weight="400" opacity="0" text-anchor="middle"></text>
+                <g id="restartButton" opacity="0">
+                    <rect x="650" y="525" rx="20" ry="20" width="450" height="150" fill="#0d0d0d" stroke="#f3f3f3" stroke-width="10" />
+                    <text x="875" y="625" fill="#0d0d0d" font-family="Trebuchet MS" font-size="75" font-weight="500" stroke="#f3f3f3" stroke-width="1" text-anchor="middle"></text>
+                </g>
+                <rect x="275" y="775" rx="2" ry="2" width="1200" height="75" fill="#ea9023" />
+                <rect x="275" y="825" rx="2" ry="2" width="1200" height="25" fill="#fba044" />
+                <circle id="dragonHitbox" cx="425" cy="750" r="75" opacity="0" />
+                <image id="dragon" href="images/dragon.png" x="350" y="675" width="150" height="150" />
+                <g id="obstacleContainer">
+                </g>
+                <rect x="140" y="175" width="135" height="675" fill="#0d0d0d" />
+                <rect x="1475" y="175" width="135" height="675" fill="#0d0d0d" />
+                // Dragon Running Minigame End
+                <polygon points="500,875 495,895 475,900 495,905 500,925 505,905 525,900 505,895" fill="#f3f3f3" />
+                <circle cx="450" cy="875" r="7" fill="#f3f3f3" />
+                <line x1="450" y1="875" x2="500" y2="900" stroke="#f3f3f3" stroke-width="2.25" />
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:none;'); timeoutBoolean = true;">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#0d0d0d" stroke="#f3f3f3" stroke-width="5" />
+                    <text x="1575" y="80" fill="#f3f3f3" font-family="Trebuchet MS" font-size="40" font-weight="550" text-anchor="middle"> Tired of this? </text>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Main script -->
+
+        <script>
+            // CONSTELLATION STUFF
+
+            // changing the namecard on start
+            let currentConstellationNum = Math.floor(Math.random() * 7 + 1);
+            document.getElementById("constellation").setAttribute("href", "images/const" + currentConstellationNum + ".png");
+
+            // changing the namecard on click
+            let currentlyChanging = false;
+            async function changeConstellation() {
+                if (currentlyChanging)
+                    return;
+                else
+                    currentlyChanging = true;
+
+                await new Promise(resolve => {
+                    let currentNum = 1;
+                    let currentInterval = setInterval(() => {
+                        currentNum -= 0.05;
+                        document.getElementById("constellation").setAttribute("opacity", currentNum);
+                        if (currentNum <= 0) {
+                            resolve();
+                            clearInterval(currentInterval);
+                        }
+                    }, 5);
+                });
+
+                let newCCN = Math.floor(Math.random() * 7 + 1);
+                while (newCCN == currentConstellationNum)
+                    newCCN = Math.floor(Math.random() * 7 + 1);
+                currentConstellationNum = newCCN;
+                document.getElementById("constellation").setAttribute("href", "images/const" + currentConstellationNum + ".png");
+                
+                await new Promise(resolve => {
+                    let currentNum = 0;
+                    let currentInterval = setInterval(() => {
+                        currentNum += 0.05;
+                        document.getElementById("constellation").setAttribute("opacity", currentNum);
+                        if (currentNum >= 1) {
+                            resolve();
+                            clearInterval(currentInterval);
+                        }
+                    }, 5);
+                });
+
+                currentlyChanging = false;
+            }
+            document.getElementById("nameCard").addEventListener("click", changeConstellation);
+
+            // generating the constellation borders
+            let prevX, prevY, star, line;
+            [...document.getElementsByClassName("constellationBorder")].forEach(border => {
+                let atHeight = 1 * border.getAttribute("id"), x, y;
+                for (let i = 0; i < 15; i++) {
+                    x = 100 * i + 60 * Math.random() + 20, y = atHeight + 100 * Math.random();
+                    if (i == 0 || i == 14)
+                        x = 100 * i + 10 * Math.random() + 45;
+                    if (Math.random() < 0.2) {
+                        star = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+                        star.setAttribute("points", "" + x + "," + (y - 25) + " " + (x - 5) + "," + (y - 5) + " " + (x - 25) + "," + y + " " + (x - 5) + "," + (y + 5) + " " + x + "," + (y + 25) + " " + (x + 5) + "," + (y + 5) + " " + (x + 25) + "," + y + " " + (x + 5) + "," + (y - 5));
+                    } else {
+                        star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                        star.setAttribute("cx", x);
+                        star.setAttribute("cy", y);
+                        star.setAttribute("r", 7);
+                    }
+                    star.setAttribute("fill", "#f3f3f3");
+                    border.appendChild(star);
+                    if (i != 0 && Math.random() < 0.75) {
+                        line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        line.setAttribute("x1", prevX);
+                        line.setAttribute("y1", prevY);
+                        line.setAttribute("x2", x);
+                        line.setAttribute("y2", y);
+                        line.setAttribute("stroke", "#f3f3f3");
+                        line.setAttribute("stroke-width", 2.5);
+                        border.appendChild(line);
+                    }
+                    prevX = x, prevY = y;
+                }
+            });
+
+            // genertaing starry background
+            for (let i = 0; i < 200; i++) {
+                let dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                dot.setAttribute("cx", Math.random() * 1450 + 25);
+                dot.setAttribute("cy", Math.random() * 2450 + 25);
+                dot.setAttribute("r", 2);
+                dot.setAttribute("fill", "#c9c9c9");
+                document.getElementById("background").appendChild(dot);
+            }
+
+            // MINIGAME STUFF
+
+            let currentlyJumping = false, currentlyGrounding = false, jumpInterval, groundInterval;
+            let jumpTime = 0, jumpRotation = 0;
+
+            async function minigameHandler() {
+                let gameGoingOnResolution, gameGoingOnPromise = new Promise(resolve => gameGoingOnResolution = resolve);
+                let obstacleCount = 0, counter = 0, speed = 5;
+                setTimeout(() => {
+                    let instructionOpacity = 1;
+                    let instructionInterval = setInterval(() => {
+                        instructionOpacity -= 0.05;
+                        document.getElementById("instructions").setAttribute("opacity", instructionOpacity);
+                        if (instructionOpacity <= 0)
+                            clearInterval(instructionInterval);
+                    }, 5);
+                }, 5000);
+                let obstacleInterval = setInterval(() => {
+                    counter++;
+                    document.getElementById("speedText").textContent = "Speed: " + Math.round(speed * 10) / 10 + "mph";
+                    // for cacti
+                    for (image of document.getElementsByClassName("cactusImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed);
+                    }
+                    for (hitbox of document.getElementsByClassName("cactusHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("dragonHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("dragonHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    // for eagles
+                    for (image of document.getElementsByClassName("eagleImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed * 0.8);
+                    }
+                    for (hitbox of document.getElementsByClassName("eagleHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed * 0.8);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("dragonHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("dragonHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    // for airplanes
+                    for (image of document.getElementsByClassName("airplaneImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed * 2);
+                    }
+                    for (hitbox of document.getElementsByClassName("airplaneHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed * 2);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("dragonHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("dragonHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    if (counter >= 1000 - 3 * speed) {
+                        obstacleCount++;
+                        speed += 0.1;
+                        counter = 0;
+                        let randomObstacleNumber = Math.random();
+                        if (obstacleCount < 6)
+                            randomObstacleNumber *= 0.6;
+                        if (randomObstacleNumber < 0.6) {
+                            let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newCactus.setAttribute("x", 1450);
+                            newCactus.setAttribute("y", 675);
+                            newCactus.setAttribute("width", 150);
+                            newCactus.setAttribute("height", 150);
+                            newCactus.setAttribute("href", "images/cactus.png");
+                            newCactus.setAttribute("class", "cactusImg");
+                            newCactusHitbox.setAttribute("cx", 1525);
+                            newCactusHitbox.setAttribute("cy", 750);
+                            newCactusHitbox.setAttribute("r", 75);
+                            newCactusHitbox.setAttribute("opacity", 0);
+                            newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newCactus);
+
+                            if (randomObstacleNumber < 0.4) setTimeout(() => {
+                                let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                                let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                                newCactus.setAttribute("x", 1450);
+                                newCactus.setAttribute("y", 675);
+                                newCactus.setAttribute("width", 150);
+                                newCactus.setAttribute("height", 150);
+                                newCactus.setAttribute("href", "images/cactus.png");
+                                newCactus.setAttribute("class", "cactusImg");
+                                newCactusHitbox.setAttribute("cx", 1525);
+                                newCactusHitbox.setAttribute("cy", 750);
+                                newCactusHitbox.setAttribute("r", 75);
+                                newCactusHitbox.setAttribute("opacity", 0);
+                                newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                                document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                                document.getElementById("obstacleContainer").appendChild(newCactus);
+
+                                if (randomObstacleNumber < 0.2) setTimeout(() => {
+                                    let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                                    let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                                    newCactus.setAttribute("x", 1450);
+                                    newCactus.setAttribute("y", 675);
+                                    newCactus.setAttribute("width", 150);
+                                    newCactus.setAttribute("height", 150);
+                                    newCactus.setAttribute("href", "images/cactus.png");
+                                    newCactus.setAttribute("class", "cactusImg");
+                                    newCactusHitbox.setAttribute("cx", 1525);
+                                    newCactusHitbox.setAttribute("cy", 750);
+                                    newCactusHitbox.setAttribute("r", 75);
+                                    newCactusHitbox.setAttribute("opacity", 0);
+                                    newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                                    document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                                    document.getElementById("obstacleContainer").appendChild(newCactus);
+                                }, 700 / speed);
+                            }, 700 / speed);
+
+                            counter = 600; // spawn new item sooner
+                        } else if (randomObstacleNumber < 0.95) {
+                            let newEagle = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newEagleHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newEagle.setAttribute("x", 1450);
+                            newEagle.setAttribute("y", 450);
+                            newEagle.setAttribute("width", 150);
+                            newEagle.setAttribute("height", 150);
+                            newEagle.setAttribute("href", "images/eagle.png");
+                            newEagle.setAttribute("class", "eagleImg");
+                            newEagleHitbox.setAttribute("cx", 1525);
+                            newEagleHitbox.setAttribute("cy", 525);
+                            newEagleHitbox.setAttribute("r", 75);
+                            newEagleHitbox.setAttribute("opacity", 0);
+                            newEagleHitbox.setAttribute("class", "eagleHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newEagleHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newEagle);
+
+                            counter = 750; // spawn new item much faster
+                        } else {
+                            let newAirplane = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newAirplaneHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newAirplane.setAttribute("x", 1450);
+                            newAirplane.setAttribute("y", 400);
+                            newAirplane.setAttribute("width", 150);
+                            newAirplane.setAttribute("height", 150);
+                            newAirplane.setAttribute("href", "images/airplane.png");
+                            newAirplane.setAttribute("class", "airplaneImg");
+                            newAirplaneHitbox.setAttribute("cx", 1525);
+                            newAirplaneHitbox.setAttribute("cy", 475);
+                            newAirplaneHitbox.setAttribute("r", 75);
+                            newAirplaneHitbox.setAttribute("opacity", 0);
+                            newAirplaneHitbox.setAttribute("class", "airplaneHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newAirplaneHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newAirplane);
+
+                            counter = 950; // spawn new item faster
+                        }
+                    }
+                }, 5);
+
+                // If game ends, continue the minigameHandler, which handles the end of the game
+                await gameGoingOnPromise;
+
+                clearInterval(obstacleInterval);
+                clearInterval(groundInterval);
+                clearInterval(jumpInterval);
+                for (child of [...document.getElementById("obstacleContainer").children])
+                    child.remove();
+                currentlyGrounding = true;
+                currentlyJumping = true;
+                document.getElementById("dragon").style.transformOrigin = "425px 750px";
+                document.getElementById("dragon").style.transform = "rotate(0deg)";
+                document.getElementById("dragon").setAttribute("y", 675);
+                document.getElementById("dragon").setAttribute("href", "images/gravestone.png");
+                document.getElementById("dragonHitbox").setAttribute("cy", 750);
+                document.getElementById("speedText").textContent = "Speed: 0mph - Died to obstacle number " + obstacleCount + ".";
+
+                document.getElementById("deathM1").textContent = "Oh well...";
+                document.getElementById("deathM2").textContent = "Why worry? You can always-";
+                [...document.getElementById("restartButton").children][1].textContent = "Try Again";
+                for (item of ["deathM1", "deathM2", "restartButton"])
+                    await new Promise(resolve => {
+                        let itemOpacity = 0;
+                        let itemInterval = setInterval(() => {
+                            itemOpacity += 0.05;
+                            document.getElementById(item).setAttribute("opacity", itemOpacity);
+                            if (itemOpacity >= 1) {
+                                setTimeout(() => resolve(), 500);
+                                clearInterval(itemInterval);
+                            }
+                        }, 20);
+                    });
+
+                // wait for user to click restart...
+                let restartResolution, restartPromise = new Promise(resolve => restartResolution = resolve);
+                document.getElementById("restartButton").addEventListener("click", restartResolution);
+                await restartPromise;
+
+                // after user clicks restart, reset all global variables and items
+                document.getElementById("restartButton").removeEventListener("click", restartResolution);
+                currentlyJumping = false, currentlyGrounding = false, jumpInterval, groundInterval;
+                jumpTime = 0, jumpRotation = 0;
+                document.getElementById("dragon").setAttribute("href", "images/dragon.png");
+                document.getElementById("speedText").textContent = "Speed: 4mph";
+                document.getElementById("deathM1").setAttribute("opacity", 0);
+                document.getElementById("deathM2").setAttribute("opacity", 0);
+                document.getElementById("restartButton").setAttribute("opacity", 0);
+                document.getElementById("deathM1").textContent = "";
+                document.getElementById("deathM2").textContent = "";
+                [...document.getElementById("restartButton").children][1].textContent = "";
+                document.getElementById("instructions").setAttribute("opacity", 1);
+                minigameHandler();
+            }
+
+            window.addEventListener("keydown", event => {
+                if (event.key === "ArrowDown" || event.key === "ArrowUp" || event.key === " ")
+                    event.preventDefault();
+
+                if (currentlyGrounding)
+                    return;
+
+                if ((event.key === "ArrowDown" || event.key === "s") && currentlyJumping) {
+                    currentlyGrounding = true;
+                    clearInterval(jumpInterval);
+                    let count = 1, heightDifference = document.getElementById("dragon").getAttribute("y") * 1 - 675;
+                    groundInterval = setInterval(() => {
+                        document.getElementById("dragon").style.transformOrigin = "425px " + (document.getElementById("dragon").getAttribute("y") * 1 - heightDifference / 50 + 75) + "px";
+                        if (jumpRotation <= 180)
+                            document.getElementById("dragon").style.transform = "rotate(" + ((50 - count) / 50 * jumpRotation) + "deg)";
+                        else
+                            document.getElementById("dragon").style.transform = "rotate(" + ((50 - count) / 50 * (jumpRotation - 360)) + "deg)";
+                        document.getElementById("dragon").setAttribute("y", document.getElementById("dragon").getAttribute("y") * 1 - heightDifference / 50);
+                        document.getElementById("dragonHitbox").setAttribute("cy", document.getElementById("dragonHitbox").getAttribute("cy") * 1 - heightDifference / 50);
+                        count++;
+                        if (count == 50) {
+                            jumpTime = 0, jumpRotation = 0;
+                            document.getElementById("dragon").style.transformOrigin = "425px 750px";
+                            document.getElementById("dragon").style.transform = "rotate(0deg)";
+                            document.getElementById("dragon").setAttribute("y", 675);
+                            document.getElementById("dragonHitbox").setAttribute("cy", 750);
+                            currentlyJumping = false;
+                            currentlyGrounding = false;
+                            clearInterval(groundInterval);
+                        }
+                    }, 1);
+                }
+
+                if (currentlyJumping)
+                    return;
+
+                if (event.key === " " || event.key === "w" || event.key === "ArrowUp") {
+                    currentlyJumping = true;
+
+                    jumpTime = 0, jumpRotation = 0;
+                    jumpInterval = setInterval(() => {
+                        document.getElementById("dragon").setAttribute("y", (675 + 75 * (jumpTime ** 2) - 300 * jumpTime));
+                        document.getElementById("dragonHitbox").setAttribute("cy", (750 + 75 * (jumpTime ** 2) - 300 * jumpTime));
+                        document.getElementById("dragon").style.transformOrigin = "425px " + (750 + 75 * (jumpTime ** 2) - 300 * jumpTime) + "px";
+                        document.getElementById("dragon").style.transform = "rotate(" + jumpRotation + "deg)";
+                        jumpTime += 0.02;
+                        jumpRotation += 1.8;
+                        if (jumpTime >= 4) {
+                            currentlyJumping = false;
+                            document.getElementById("dragon").setAttribute("y", 675);
+                            document.getElementById("dragonHitbox").setAttribute("cy", 750);
+                            clearInterval(jumpInterval);
+                        }
+                    }, 7);
+                }
+            });
+        </script>
+        
+	</body>
+</html>

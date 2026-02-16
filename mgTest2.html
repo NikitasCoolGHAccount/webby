@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>✨ ncs ✨ - MG.TEST.2</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            p {
+                border: 0;
+                margin: 0;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                padding: 0;
+                font-family: "Arial";
+                font-size: x-large;
+                font-weight: 400;
+                color: #282828;
+            }
+            svg {
+                display: block;
+            }
+            body {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                stroke: none;
+                overflow-x: clip;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Main minigame svg -->
+
+        <svg viewBox="0 0 1200 2400">
+            <rect x="0" y="0" width="1200" height="2400" fill="#e5e5e5" />
+            <g id="squares">
+            </g>
+            <g id="clues">
+            </g>
+        </svg>
+
+        <!-- Main minigame script -->
+
+        <script>
+            // puzzles and coordinates of data
+            const crossword1 = [[" ", " ", " ", "S", " ", " ", " ", " ", " ", " "],
+                                ["T", " ", "J", "O", "N", "A", "S", " ", " ", " "],
+                                ["H", " ", " ", "P", " ", " ", " ", " ", " ", " "],
+                                ["O", " ", " ", "H", " ", "D", " ", "A", " ", " "],
+                                ["M", "O", "N", "I", "C", "A", " ", "N", " ", " "],
+                                ["A", " ", " ", "A", " ", "N", " ", "N", " ", " "],
+                                ["S", " ", " ", " ", "N", "I", "K", "I", "T", "A"],
+                                [" ", " ", " ", " ", " ", "E", " ", "K", " ", " "],
+                                [" ", " ", " ", " ", " ", "L", " ", "A", " ", " "]];
+            const coords1 = [[1, 0, true, "1", "The name of the person who's minigame you're currently playing."], [4, 0, false, "2", "The name of the person with the quote 'I made him wet.'"], [1, 2, false, "3", "The name of the person with a space obsession."], [0, 3, true, "4", "The name of the person who likes Chick-Fil-A sauce the most in Frau's Rats."], [6, 4, false, "5", "The name of the second tallest in Frau's Rats."], [3, 5, true, "6", "The name of the war criminal of the group."], [3, 7, true, "7", "The name of the person with who's minigame is similar to the Google dinosaur game."]];
+            const crossword2 = [[" ", " ", "C", " ", " ", " ", " ", " ", " ", " "],
+                                [" ", "D", "R", "A", "W", "I", "N", "G", "S", " "],
+                                [" ", " ", "E", " ", " ", " ", " ", " ", "U", " "],
+                                ["F", "R", "A", "U", "S", "R", "A", "T", "S", " "],
+                                ["A", " ", "M", " ", " ", "A", " ", " ", " ", " "],
+                                ["T", " ", " ", " ", " ", "T", "O", "U", "C", "H"]];
+            const coords2 = [[3, 0, true, "1", "What Sophia calls Thomas or her dogs after she's pissed."], [3, 0, false, "1", "Name of the group (without the apostrophe or whitespace.)"], [1, 1, false, "2", "The part of making the website THAT I (Nikita) hated the most."], [0, 2, true, "3", "The thing that SOMEONE in the group does after they see a cute boy in a miniskirt."], [3, 5, true, "4", "'Thomas you're a ginger ___!'"], [5, 5, false, "5", "The thing that someone will do to said cute thing they find."], [1, 8, true, "6", "The Among Us word!"]];
+            const crossword3 = [["F", "I", "S", "H", "S", "T", "I", "C", "K", "S"],
+                                ["A", " ", "U", " ", " ", " ", " ", "O", " ", " "],
+                                ["G", "I", "N", "G", "E", "R", " ", "C", " ", " "],
+                                ["G", " ", "S", " ", " ", "O", " ", "K", " ", " "],
+                                ["O", " ", "C", "H", "I", "L", "L", " ", " ", " "],
+                                ["T", " ", "R", " ", " ", "L", " ", " ", " ", " "],
+                                [" ", " ", "E", " ", " ", " ", " ", " ", " ", " "],
+                                [" ", "F", "E", "E", "L", "I", "N", "G", " ", " "],
+                                [" ", " ", "N", " ", " ", " ", " ", " ", " ", " "]];
+            const coords3 = [[0, 0, true, "1", "The noise that Raghib or Thomas might make when viewing Ace."], [0, 0, false, "1", "The thing Thomas VIOLATED during prom night."], [2, 0, false, "2", "'Thomas you're a ______ rat!'"], [7, 1, false, "3", "One of the many cruel acts Thomas commited against the object(s) mentioned in 1 Across."], [0, 2, true, "4", "Something Thomas wears WAY too much of sometimes (remember King's Dominion?)."], [4, 2, false, "5", "A word to describe Thomas' demeanor."], [2, 5, true, "6", "A word Thomas giggled at when Daniel repeated one of his quotes."], [0, 7, true, "7", "'[BLANK] n' ball torture :D'"]];
+
+            // select a puzzle and coordinates
+            let crosswordChosen, coordsChosen, randomNumber = Math.random(), controller = new AbortController(), signal = controller.signal;
+            if (randomNumber < 0.3333) {
+                crosswordChosen = crossword1;
+                coordsChosen = coords1;
+            } else if (randomNumber < 0.6666) {
+                crosswordChosen = crossword2;
+                coordsChosen = coords2;
+            } else {
+                crosswordChosen = crossword3;
+                coordsChosen = coords3;
+            }
+            
+            // generate crossword board
+            let size = 1200 / (2 + crosswordChosen[0].length), selected = null, directionVertical = null;
+            for (let i = 0; i < crosswordChosen.length; i++) {
+                for (let j = 0; j < crosswordChosen[i].length; j++) {
+                    if (crosswordChosen[i][j] !== " ") {
+                        // create square and set attributes
+                        let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        square.setAttribute("x", (j + 1) * size);
+                        square.setAttribute("y", (i + 1) * size);
+                        square.setAttribute("width", size);
+                        square.setAttribute("height", size);
+                        square.setAttribute("fill", "#fefefe");
+                        square.setAttribute("stroke", "#6a6a6a");
+                        square.setAttribute("stroke-width", 0.08 * size);
+                        square.setAttribute("id", "tile" + i + "," + j);
+
+                        // create text and set attributes
+                        let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        text.setAttribute("x", (j + 1.5) * size);
+                        text.setAttribute("y", (i + 1.75) * size);
+                        text.setAttribute("fill", "#282828");
+                        text.setAttribute("font-family", "Arial");
+                        text.setAttribute("font-size", 0.65 * size);
+                        text.setAttribute("font-weight", 500);
+                        text.setAttribute("stroke-width", 0);
+                        text.setAttribute("style", "pointer-events:none; user-select:none;");
+                        text.setAttribute("text-anchor", "middle");
+                        text.setAttribute("id", "text" + i + "," + j);
+
+                        // create event listeners
+                        square.addEventListener("mouseenter", () => square.setAttribute("fill", "#aeaeae"), { signal });
+                        square.addEventListener("mouseleave", () => square.setAttribute("fill", "#fefefe"), { signal });
+                        square.addEventListener("click", () => {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            square.setAttribute("stroke", "#fcbf55");
+                            document.getElementById(square.getAttribute("id")).remove();
+                            document.getElementById(text.getAttribute("id")).remove();
+                            document.getElementById("squares").appendChild(square);
+                            document.getElementById("squares").appendChild(text);
+                            selected = square.getAttribute("id").substring(4);
+                            directionVertical = null;
+                        }, { signal });
+
+                        // adding elements
+                        document.getElementById("squares").appendChild(square);
+                        document.getElementById("squares").appendChild(text);
+
+                        for (let dataSet of coordsChosen)
+                            if (dataSet[0] == i && dataSet[1] == j) {
+                                let numText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                                numText.setAttribute("x", (j + 1.1) * size);
+                                numText.setAttribute("y", (i + 1.325) * size);
+                                numText.setAttribute("fill", "#f0f0f0");
+                                numText.setAttribute("font-family", "Arial");
+                                numText.setAttribute("font-size", 0.3 * size);
+                                numText.setAttribute("font-weight", 600);
+                                numText.setAttribute("stroke", "#3a3a3a");
+                                numText.setAttribute("stroke-width", 0.015 * size);
+                                numText.setAttribute("style", "pointer-events:none; user-select:none;");
+                                numText.setAttribute("id", "text" + i + "," + j);
+                                numText.textContent = dataSet[3];
+
+                                document.getElementById("clues").appendChild(numText);
+                            }
+                    }
+                }
+            }
+
+            // add keydown selection
+            document.addEventListener("keydown", event => {
+                if (selected === null)
+                    return;
+
+                // switch for all tbe keys
+                switch (event.key) {
+                    case "Escape":
+                        event.preventDefault();
+                        document.getElementById("tile" + selected).setAttribute("stroke", "#6a6a6a");
+                        selected = null;
+                        break;
+                    case "Shift":
+                    case "Tab":
+                    case " ":
+                        break;
+                    case "Enter":
+                    case "Control":
+                        event.preventDefault();
+                        if (directionVertical === null) {
+                            if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null)
+                                directionVertical = true;
+                            else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null)
+                                directionVertical = false;
+                        }
+                        if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        break;
+                    case "ArrowUp":
+                        if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = true;
+                        break;
+                    case "ArrowDown":
+                        if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = true;
+                        break;
+                    case "ArrowLeft":
+                        if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = false;
+                        break;
+                    case "ArrowRight":
+                        if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                        directionVertical = false;
+                        break;
+                    case "Backspace":
+                    case "Delete":
+                        if (document.getElementById("text" + selected).textContent == "") {
+                            if (directionVertical === null) {
+                                if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null)
+                                    directionVertical = true;
+                                else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null)
+                                    directionVertical = false;
+                            }
+                            if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(","))) !== null) {
+                                for (let tile of [...document.getElementById("squares").children])
+                                    tile.setAttribute("stroke", "#6a6a6a");
+                                tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                                text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) - 1) + selected.substring(selected.indexOf(",")));
+                                tile.setAttribute("stroke", "#fcbf55");
+                                tile.remove();
+                                text.remove();
+                                text.textContent = "";
+                                document.getElementById("squares").appendChild(tile);
+                                document.getElementById("squares").appendChild(text);
+                                selected = tile.getAttribute("id").substring(4);
+                            } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1)) !== null) {
+                                for (let tile of [...document.getElementById("squares").children])
+                                    tile.setAttribute("stroke", "#6a6a6a");
+                                tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                                text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) - 1));
+                                tile.setAttribute("stroke", "#fcbf55");
+                                tile.remove();
+                                text.remove();
+                                text.textContent = "";
+                                document.getElementById("squares").appendChild(tile);
+                                document.getElementById("squares").appendChild(text);
+                                selected = tile.getAttribute("id").substring(4);
+                            }
+                        } else
+                            document.getElementById("text" + selected).textContent = "";
+                        break;
+                    default:
+                        document.getElementById("text" + selected).textContent = event.key.substring(0, 1).toUpperCase();
+                        if (directionVertical === null) {
+                            if (document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null)
+                                directionVertical = true;
+                            else if (document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null)
+                                directionVertical = false;
+                        }
+                        if (directionVertical && document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(","))) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            text = document.getElementById("text" + (+selected.substring(0, selected.indexOf(",")) + 1) + selected.substring(selected.indexOf(",")));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        } else if (!directionVertical && document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1)) !== null) {
+                            for (let tile of [...document.getElementById("squares").children])
+                                tile.setAttribute("stroke", "#6a6a6a");
+                            tile = document.getElementById("tile" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            text = document.getElementById("text" + selected.substring(0, selected.indexOf(",") + 1) + (+selected.substring(selected.indexOf(",") + 1) + 1));
+                            tile.setAttribute("stroke", "#fcbf55");
+                            tile.remove();
+                            text.remove();
+                            document.getElementById("squares").appendChild(tile);
+                            document.getElementById("squares").appendChild(text);
+                            selected = tile.getAttribute("id").substring(4);
+                        }
+                }
+            }, { signal });
+
+            // create clues boxes & display
+            let barLength = 1.5 * (400 - size), clueBar1 = document.createElementNS("http://www.w3.org/2000/svg", "rect"), clueBar2 = document.createElementNS("http://www.w3.org/2000/svg", "rect"), clueText1 = document.createElementNS("http://www.w3.org/2000/svg", "text"), clueText2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            clueBar1.setAttribute("x", size);
+            clueBar1.setAttribute("y", (crosswordChosen.length + 2) * size);
+            clueBar1.setAttribute("rx", 0.1 * size);
+            clueBar1.setAttribute("ry", 0.1 * size);
+            clueBar1.setAttribute("width", barLength);
+            clueBar1.setAttribute("height", size);
+            clueBar1.setAttribute("fill", "#fefefe");
+            clueBar1.setAttribute("stroke", "#6a6a6a");
+            clueBar1.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueBar1);
+            clueBar2.setAttribute("x", size * 2 + barLength);
+            clueBar2.setAttribute("y", (crosswordChosen.length + 2) * size);
+            clueBar2.setAttribute("rx", 0.1 * size);
+            clueBar2.setAttribute("ry", 0.1 * size);
+            clueBar2.setAttribute("width", barLength);
+            clueBar2.setAttribute("height", size);
+            clueBar2.setAttribute("fill", "#fefefe");
+            clueBar2.setAttribute("stroke", "#6a6a6a");
+            clueBar2.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueBar2);
+            clueText1.setAttribute("x", 1.25 * size);
+            clueText1.setAttribute("y", (crosswordChosen.length + 2.75) * size);
+            clueText1.setAttribute("fill", "#282828");
+            clueText1.setAttribute("font-family", "Arial");
+            clueText1.setAttribute("font-size", 0.65 * size);
+            clueText1.setAttribute("font-weight", 550);
+            clueText1.setAttribute("style", "user-select:none;");
+            clueText1.textContent = "Downwards";
+            document.getElementById("clues").appendChild(clueText1);
+            clueText2.setAttribute("x", size * 2.25 + barLength);
+            clueText2.setAttribute("y", (crosswordChosen.length + 2.75) * size);
+            clueText2.setAttribute("fill", "#282828");
+            clueText2.setAttribute("font-family", "Arial");
+            clueText2.setAttribute("font-size", 0.65 * size);
+            clueText2.setAttribute("font-weight", 550);
+            clueText2.setAttribute("style", "user-select:none;");
+            clueText2.textContent = "Across";
+            document.getElementById("clues").appendChild(clueText2);
+
+            // make the foreign objects, divs, and <p>s
+            let clueFO1 = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject"), clueFO2 = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject"), clueDiv1 = document.createElement("div"), clueDiv2 = document.createElement("div");
+            clueFO1.setAttribute("x", size);
+            clueFO1.setAttribute("y", (crosswordChosen.length + 3.5) * size);
+            clueFO1.setAttribute("rx", 0.1 * size);
+            clueFO1.setAttribute("ry", 0.1 * size);
+            clueFO1.setAttribute("width", barLength);
+            clueFO1.setAttribute("height", 5 * size);
+            clueFO1.setAttribute("fill", "#fefefe");
+            clueFO1.setAttribute("stroke", "#6a6a6a");
+            clueFO1.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueFO1);
+            clueFO2.setAttribute("x", size * 2 + barLength);
+            clueFO2.setAttribute("y", (crosswordChosen.length + 3.5) * size);
+            clueFO2.setAttribute("rx", 0.1 * size);
+            clueFO2.setAttribute("ry", 0.1 * size);
+            clueFO2.setAttribute("width", barLength);
+            clueFO2.setAttribute("height", 5 * size);
+            clueFO2.setAttribute("fill", "#fefefe");
+            clueFO2.setAttribute("stroke", "#6a6a6a");
+            clueFO2.setAttribute("stroke-width", 0.08 * size);
+            document.getElementById("clues").appendChild(clueFO2);
+            clueDiv1.setAttribute("id", "div1");
+            clueFO1.appendChild(clueDiv1);
+            clueDiv2.setAttribute("id", "div2");
+            clueFO2.appendChild(clueDiv2);
+            for (let dataSet of coordsChosen)
+                if (dataSet[2])
+                    clueDiv1.innerHTML += "<p><b>" + dataSet[3] + ".</b> " + dataSet[4] + "</p>";
+                else
+                    clueDiv2.innerHTML += "<p><b>" + dataSet[3] + ".</b> " + dataSet[4] + "</p>";
+
+            // check if puzzle is complete
+            let isCompleted = true, checkcompletionInterval = setInterval(() => {
+                isCompleted = true;
+                for (let i = 0; i < crosswordChosen.length; i++) {
+                    for (let j = 0; j < crosswordChosen[0].length; j++) {
+                        if (document.getElementById("text" + i + "," + j) === null)
+                            continue;
+                        else if (document.getElementById("text" + i + "," + j).textContent !== crosswordChosen[i][j])
+                            isCompleted = false;
+                    }
+                }
+                if (isCompleted) {
+                    selected = null;
+                    for (let item of [...document.getElementById("squares").children]) {
+                        item.setAttribute("stroke", "#29ac75");
+                        if (item.getAttribute("id").substring(0, 4) === "text")
+                            item.setAttribute("fill", "#29ac75");
+                        else
+                            item.setAttribute("fill", "#89ffc5");
+                    }
+                    clueBar1.setAttribute("stroke", "#29ac75");
+                    clueBar1.setAttribute("fill", "#89ffc5");
+                    clueBar2.setAttribute("stroke", "#29ac75");
+                    clueBar2.setAttribute("fill", "#89ffc5");
+                    clueText1.setAttribute("fill", "#29ac75");
+                    clueText2.setAttribute("fill", "#29ac75");
+                    controller.abort();
+                    clearInterval(checkcompletionInterval);
+                }
+            }, 25)
+        </script>
+
+    </body>
+</html>

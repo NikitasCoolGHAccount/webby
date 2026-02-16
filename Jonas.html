@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Jonas</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #5e5e5e;
+            }
+            #pattern {
+                background-image: url("frausratsPattern.png");
+                background-repeat: repeat;
+                background-size: 10vw 10vw;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Frau's Rats tab svg and script -->
+
+        <svg viewBox="0 0 1500 175" width="100vw">
+            <rect x="0" y="0" width="1500" height="100" fill="#474747" />
+            <polygon points="400,0 1100,0 1050,110 450,110" fill="#e0e0e0" />
+            <polygon points="375,15 400,15 431.81818,85 406.81818,85" fill="#e0e0e0" />
+            <polygon points="1100,15 1125,15 1093.18182,85 1068.18182,85" fill="#e0e0e0" />
+            <text x="750" y="80" fill="#222222" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> ✨ Frau's Rats 🐀 </text>
+            <text x="755" y="85" fill="#f9f9f9" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> Frau's Rats </text>
+            <rect x="37.5" y="137.5" width="1425" height="37.5" fill="#474747" />
+        </svg>
+
+        <!-- Main svg and script-->
+
+        <svg viewBox="0 0 1500 2587.5" width="100vw">
+            <defs>
+                <pattern id="frausratsPattern" patternUnits="userSpaceOnUse" width="225" height="225">
+                    <image href="images/frausratsPattern.png" x="-150" y="0" width="225" height="225" />
+                    <image href="images/frausratsPattern.png" x="75" y="0" width="225" height="225" />
+                </pattern>
+                <lineargradient id="frausratsGradient">
+                    <stop offset="25%" stop-color="#7e7e7e" />
+                    <stop offset="75%" stop-color="#eac686" />
+                </lineargradient>
+            </defs>
+            <!-- Backdrop -->
+            <rect x="37.5" y="0" width="1425" height="2587.5" fill="#474747" />
+            <rect x="75" y="0" width="1350" height="2587.5" fill="url(#frausratsPattern)" />
+            
+            <!-- Aboue me stuff -->
+            <polygon id="aboutMeFrame" points="375,300 375,700 513.88889,950 986.11111,950 1125,700 1125,300" fill="#575757" />
+            <polygon id="aboutMeMain" points="400,300 400,700 525,925 975,925 1100,700 1100,300" fill="#e0e0e0" />
+            <text y="650" fill="#222222" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle">
+                <tspan x="750" font-weight="650"> Name: </tspan><tspan> Jonas </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Age: </tspan><tspan> 18 </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Gender: </tspan><tspan> Male </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Height: </tspan><tspan> 5'9" </tspan>
+            </text>
+            <polygon />
+            <!-- Image stuff -->
+            <polygon id="outerFrame1" points="375,300 513.88889,550 986.11111,550 1125,300 986.11111,50 513.88889,50" fill="#575757" />
+            <polygon id="outerFrame2" points="400,300 525,525 975,525 1100,300 975,75 525,75" fill="url(#frausratsGradient)" />
+            <rect id="innerFrame1" x="540" y="90" width="420" height="420" fill="#575757" />
+            <rect id="innerFrame2" x="550" y="100" width="400" height="400" fill="#e0e0e0" />
+            <text x="475" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">🐀</text>
+            <text x="1025" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">✨</text>
+            <!-- Extra Stuff -->
+            <g id="description">
+                <polygon id="descOuterFrame" points="175,1300 313.88889,1550 636.11111,1550 775,1300 636.11111,1050 313.88889,1050" fill="#575757" />
+                <polygon id="descInnerFrame" points="200,1300 325,1525 625,1525 750,1300 625,1075 325,1075" fill="#e0e0e0" />
+                <text y="1175" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Description: </tspan>
+                    <tspan x="475" dy="1.5em"> What isn't there to say about </tspan>
+                    <tspan x="475" dy="1.5em"> this grand ball of pure science </tspan>
+                    <tspan x="475" dy="1.5em"> nerd? He's smart, he's a fun guy, and </tspan>
+                    <tspan x="475" dy="1.5em"> certainly within the top 100 of </tspan>
+                    <tspan x="475" dy="1.5em"> those who'd know about space </tspan>
+                    <tspan x="475" dy="1.5em"> and cracking a joke! </tspan>
+                </text>
+            <g>
+            <g id="interests">
+                <polygon id="inteOuterFrame" points="1325,1595 1186.11111,1845 863.88889,1845 725,1595 863.88889,1345 1186.11111,1345" fill="#575757" />
+                <polygon id="inteInnerFrame" points="1300,1595 1175,1820 875,1820 750,1595 875,1370 1175,1370" fill="#e0e0e0" />
+                <text y="1485" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="1025" font-weight="650"> Interests: </tspan>
+                    <tspan x="1025" dy="1.5em"> Space, Physics, Rocket </tspan>
+                    <tspan x="1025" dy="1.5em"> Ships, Technology, Playing  </tspan>
+                    <tspan x="1025" dy="1.5em"> Games, Nerding out on Interests, </tspan>
+                    <tspan x="1025" dy="1.5em"> and being the best autism </tspan>
+                    <tspan x="1025" dy="1.5em"> representation out there. </tspan>
+                </text>
+            <g>
+            <g id="quotes">
+                <polygon id="quotOuterFrame" points="175,1890 313.88889,2140 636.11111,2140 775,1890 636.11111,1640 313.88889,1640" fill="#575757" />
+                <polygon id="quotInnerFrame" points="200,1890 325,2115 625,2115 750,1890 625,1665 325,1665" fill="#e0e0e0" />
+                <text y="1740" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Quote 1: </tspan>
+                    <tspan x="475" dy="1.5em"> "Naveed was messing </tspan>
+                    <tspan x="475" dy="1.5em"> with my stick." </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 2: </tspan>
+                    <tspan x="475" dy="1.5em"> "I will force you to squeeze </tspan>
+                    <tspan x="475" dy="1.5em"> between two gay men-" </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 3: </tspan>
+                    <tspan x="475" dy="1.5em"> "I'm on top today." </tspan>
+                </text>
+            <g>
+            <g id="minigame">
+                <polygon id="miniOuterFrame" points="1325,2185 1186.11111,2435 863.88889,2435 725,2185 863.88889,1935 1186.11111,1935" fill="#575757" />
+                <polygon id="miniInnerFrame" points="1300,2185 1175,2410 875,2410 750,2185 875,1960 1175,1960" fill="#e0e0e0" />
+                <text x="1025" y="2100" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="400" text-anchor="middle">
+                    <tspan font-weight="650"> Minigame: </tspan><tspan> Star Grab </tspan>
+                </text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); minigameHandler();">
+                    <rect x="825" y="2125" rx="15" ry="15" width="400" height="150" fill="#72bf6a" stroke="#575757" stroke-width="15" />
+                    <text x="1025" y="2220" fill="#222222" font-family="Trebuchet MS" font-size="60" font-weight="1400" style="user-select:none;" text-anchor="middle">▶️ PLAY ▶️</text>
+                </g>
+            </g>
+
+        </svg>
+
+        <!-- Minigame svg and script -->
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                // Space Minigame Start
+                <rect id="gameFrame" x="275" y="175" rx="2" ry="2" width="1200" height="650" fill="#101010" />
+                <g id="starsBackground" style="pointer-events:none;">
+                </g>
+                <g id="stars" style="pointer-events:none;">
+                </g>
+                // Non-Minigame menu extras...
+                <rect x="140" y="100" width="1470" height="75" fill="#c7c7c7" />
+                <rect x="140" y="825" width="1470" height="75" fill="#c7c7c7" />
+                <rect x="140" y="175" width="135" height="650" fill="#c7c7c7" />
+                <rect x="1475" y="175" width="135" height="650" fill="#c7c7c7" />
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="window.location.reload(true);">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" style="user-select:none;" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+                // Back to Minigame stuff
+                <circle id="map" cx="1375" cy="670" r="95" fill="#101010" stroke="#f3f3f3" stroke-width="5" style="pointer-events:none;" />
+                <line id="xCL" x1="1375" y1="670" x2="1375" y2="670" stroke="#55ff55" stroke-width="1.5" style="pointer-events:none;" />
+                <line id="yCL" x1="1375" y1="670" x2="1375" y2="670" stroke="#5555ff" stroke-width="1.5" style="pointer-events:none;" />
+                <line id="mCL" x1="1375" y1="670" x2="1375" y2="670" stroke="#ff5555" stroke-width="1.5" style="pointer-events:none;" />
+                <g id="mappedStars" style="pointer-events:none;">
+                </g>
+                <image id="rocketLocator" x="1365" y="660" width="20" height="20" href="images/rocket.active_false.png" style="pointer-events:none;" />
+                <text id="timerText" x="290" y="205" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="start"> 1:00 </text>
+                <text id="countText" x="375" y="205" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="start"> Stars Collected: 0 / 5 </text>
+                <text id="instructions" x="290" y="225" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="start"> Press space to gain speed, use mouse for direction. Remember the direction the speed is applied in matters! </text>
+                <text id="statusreportText" x="290" y="795" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="start"> Status: OK </text>
+                <text id="statusactionText" x="290" y="815" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="start"> Regular functions running... </text>
+                <text id="xcoordText" x="1300" y="795" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="end"> xCoord: 0.00 </text>
+                <text id="ycoordText" x="1465" y="795" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="end"> yCoord: 0.00 </text>
+                <text id="xspeedText" x="1300" y="815" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="end"> xSpeed: 0.00 </text>
+                <text id="yspeedText" x="1465" y="815" fill="#f3f3f3" font-family="Trebuchet MS" font-size="20" font-weight="500" style="pointer-events:none;" text-anchor="end"> ySpeed: 0.00 </text>
+                <rect id="earthSky" x="275" y="175" rx="2" ry="2" width="1200" height="650" fill="#678aed" opacity="0" style="pointer-events:none;" />
+                <rect id="earthGround" x="275" y="825" rx="2" ry="2" width="1200" height="0" fill="#56da91" opacity="0" style="pointer-events:none;" />
+                <text id="cloud" x="450" y="345" font-size="105" opacity="0" style="pointer-events:none; user-select:none;" text-anchor="middle">☁️</text>
+                <text id="sun" x="1300" y="340" font-size="100" opacity="0" style="pointer-events:none; user-select:none;" text-anchor="middle">☀️</text>
+                <text id="finalscoreText" x="875" y="350" fill="#3f3f3f" font-family="Trebuchet MS" font-size="50" font-weight="750" opacity="0" style="pointer-events:none;" text-anchor="middle"> You've collected 0 / 5 stars! </text>
+                <g id="retryButton" opacity="0" style="display:none;">
+                    <rect x="675" y="620" rx="20" ry="20" width="400" height="100" fill="#36dc46" stroke="#2f2f2f" stroke-width="15" />
+                    <text x="875" y="690" fill="#f3f3f3" font-family="Trebuchet MS" font-size="50" font-weight="500" style="pointer-events:none;" text-anchor="middle"> 🔄️ Replay? 🔄️ </text>
+                </g>
+                <image id="rocket" x="800" y="425" width="150" height="150" href="images/rocket.active_false.png" style="pointer-events:none;" />
+            </svg>
+        </div>
+
+        <script>
+            // generate stars for minigame background
+            for (let i = 0; i < 50; i++) {
+                let dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                dot.setAttribute("cx", Math.random() * 1150 + 300);
+                dot.setAttribute("cy", Math.random() * 600 + 200);
+                dot.setAttribute("r", 2);
+                dot.setAttribute("fill", "#c9c9c9");
+                document.getElementById("starsBackground").appendChild(dot);
+            }
+
+            // variables for minigame
+            let xCoord = 0, yCoord = 0, xSpeed = 0, ySpeed = 0, timeleft = 60, gameOngoing = false, currentAngle = - Math.PI / 4, speedInterval = null, starsCollected = 0, starCoordinates = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]];
+            async function minigameHandler() {
+                document.getElementById("rocket").style.transformOrigin = "875px 500px";
+                gameOngoing = true;
+                let currentOpacity = 1;
+
+                // generates star positions and dots on locator map
+                for (let i = 0; i < 5; i++) {
+                    // get positions via scaled coordinate numbers
+                    let randomRadius = Math.random() * 5250 + 3000, randomAngle = Math.random() * Math.PI * 2;
+                    let currentX = Math.round(randomRadius * Math.cos(randomAngle)), currentY = Math.round(randomRadius * Math.sin(randomAngle));
+
+                    // make a dot on the map
+                    let dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    dot.setAttribute("cx", 1375 + currentX / 100);
+                    dot.setAttribute("cy", 670 + currentY / 100);
+                    dot.setAttribute("r", 2.5);
+                    dot.setAttribute("fill", "#eadc32");
+                    dot.setAttribute("id", "locatorstar" + (i + 1));
+                    document.getElementById("mappedStars").appendChild(dot);
+
+                    // put a star into the main game
+                    let star = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                    star.setAttribute("x", 837.5 + currentX / 7.5);
+                    star.setAttribute("y", 462.5 + currentY / 7.5);
+                    star.setAttribute("width", 75);
+                    star.setAttribute("height", 75);
+                    star.setAttribute("href", "images/star.png");
+                    star.setAttribute("opacity", 0);
+                    star.setAttribute("id", "star" + (i + 1));
+                    document.getElementById("stars").appendChild(star);
+                    starCoordinates[i][0] = (837.5 + currentX / 7.5), starCoordinates[i][1] = (462.5 + currentY / 7.5);
+                }
+
+                // instruction timeout
+                setTimeout(() => {
+                    let instructionInterval = setInterval(() => {
+                        currentOpacity -= 0.025;
+                        document.getElementById("instructions").setAttribute("opacity", currentOpacity);
+
+                        if (currentOpacity <= 0)
+                            clearInterval(instructionInterval);
+                    }, 50);
+                }, 10000);
+
+                // promise for the main game (lasts for 1 minutes)
+                await new Promise(resolve => {
+                    let timerInterval = setInterval(() => {
+                        timeleft--;
+                        if (timeleft > 9 && starsCollected < 5)
+                            document.getElementById("timerText").textContent = "0:" + timeleft;
+                        else if (timeleft > 0 && starsCollected < 5)
+                            document.getElementById("timerText").textContent = "0:0" + timeleft;
+                        else {
+                            document.getElementById("timerText").textContent = "0:00";
+                            clearInterval(timerInterval);
+                            clearInterval(mainInterval);
+                            resolve();
+                        }
+                    }, 1000);
+                    let mainInterval = setInterval(() => {
+                        // changing coordinates...
+                        xCoord += xSpeed / 15;
+                        yCoord += ySpeed / 15;
+                        if ((xCoord ** 2 + yCoord ** 2) ** 0.5 > 9600) {
+                            xCoord *= -1;
+                            yCoord *= -1;
+                        }
+
+                        // changing stars positions and if close enough to collect...
+                        for (let i = 0; i < 5; i++) {
+                            let currentStar = document.getElementById("star" + (i + 1));
+
+                            if (currentStar === null)
+                                continue;
+
+                            if (+currentStar.getAttribute("x") >= 200 && +currentStar.getAttribute("x") <= 1475 && +currentStar.getAttribute("y") >= 100 && +currentStar.getAttribute("y") <= 825)
+                                currentStar.setAttribute("opacity", 1);
+                            else
+                                currentStar.setAttribute("opacity", 0);
+
+                            if (((+currentStar.getAttribute("x") - 837.5) ** 2 + (+currentStar.getAttribute("y") - 462.5) ** 2) ** 0.5 <= 90) {
+                                starsCollected++;
+                                document.getElementById("countText").textContent = "Stars Collected: " + starsCollected + " / 5";
+                                document.getElementById("locator" + currentStar.getAttribute("id")).remove();
+                                currentStar.remove();
+                            } else {
+                                currentStar.setAttribute("x", starCoordinates[i][0] - xCoord / 7.5);
+                                currentStar.setAttribute("y", starCoordinates[i][1] + yCoord / 7.5);
+                            }
+                        }
+
+                        // change map's stroke and ship's status if approaching bound...
+                        if ((xCoord ** 2 + yCoord ** 2) ** 0.5 > 8750) {
+                            document.getElementById("map").setAttribute("stroke", "#ca321f");
+                            document.getElementById("statusreportText").setAttribute("fill", "#ca321f");
+                            document.getElementById("statusactionText").setAttribute("fill", "#ca321f");
+                            document.getElementById("statusreportText").textContent = "Status: NEARING STEREOGRAPHIC MAP BOUNDS"
+                            document.getElementById("statusactionText").textContent = "Resetting locator post-rotation..."
+                        } else {
+                            document.getElementById("map").setAttribute("stroke", "#f3f3f3");
+                            document.getElementById("statusreportText").setAttribute("fill", "#f3f3f3");
+                            document.getElementById("statusactionText").setAttribute("fill", "#f3f3f3");
+                            document.getElementById("statusreportText").textContent = "Status: OK"
+                            document.getElementById("statusactionText").textContent = "Regular functions running..."
+                        }
+
+                        // changing rocket's text coordinates and map locator...
+                        document.getElementById("rocketLocator").style.transformOrigin = "" + (1375 + xCoord / 100) + "px " + (670 - yCoord / 100) + "px";
+                        document.getElementById("rocketLocator").setAttribute("x", (1365 + xCoord / 100));
+                        document.getElementById("rocketLocator").setAttribute("y", (660 - yCoord / 100));
+                        document.getElementById("xcoordText").textContent = "xCoord: " + xCoord.toString().substring(0, xCoord.toString().indexOf(".") + 3);
+                        document.getElementById("ycoordText").textContent = "yCoord: " + yCoord.toString().substring(0, yCoord.toString().indexOf(".") + 3);
+
+                        // changing map locator lines...
+                        document.getElementById("xCL").setAttribute("x2", (1375 + xCoord / 100));
+                        document.getElementById("yCL").setAttribute("x1", (1375 + xCoord / 100));
+                        document.getElementById("yCL").setAttribute("x2", (1375 + xCoord / 100));
+                        document.getElementById("yCL").setAttribute("y2", (670 - yCoord / 100));
+                        document.getElementById("mCL").setAttribute("x2", (1375 + xCoord / 100));
+                        document.getElementById("mCL").setAttribute("y2", (670 - yCoord / 100));
+                    }, 5);
+                });
+
+                // game-ending items...
+                gameOngoing = false;
+                document.getElementById("rocket").setAttribute("href", "images/rocket.active_false.png");
+                document.getElementById("rocketLocator").setAttribute("href", "images/rocket.active_false.png");
+                xSpeed = 0;
+                ySpeed = 0;
+                clearInterval(speedInterval);
+                document.getElementById("map").setAttribute("stroke", "#f3f3f3");
+                document.getElementById("statusreportText").setAttribute("fill", "#cdaf53");
+                document.getElementById("statusactionText").setAttribute("fill", "#cdaf53");
+                document.getElementById("statusreportText").textContent = "Status: OXYGEN LOW";
+                document.getElementById("statusactionText").textContent = "Returning to Earth...";
+                currentAngle += Math.PI / 2;
+
+                // turn main items invisible
+                currentOpacity = 1;
+                await new Promise(resolve => {
+                    let opacityInterval = setInterval(() => {
+                        currentOpacity -= 0.025;
+                        document.getElementById("map").setAttribute("opacity", currentOpacity);
+                        document.getElementById("xCL").setAttribute("opacity", currentOpacity);
+                        document.getElementById("yCL").setAttribute("opacity", currentOpacity);
+                        document.getElementById("mCL").setAttribute("opacity", currentOpacity);
+                        document.getElementById("timerText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("countText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("xcoordText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("xspeedText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("ycoordText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("yspeedText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("rocketLocator").setAttribute("opacity", currentOpacity);
+                        document.getElementById("rocket").style.transform = "rotate(" + (- Math.PI / 4 + currentAngle * currentOpacity) + "rad)";
+                        document.getElementById("rocketLocator").style.transform = "rotate(" + (- Math.PI / 4 + currentAngle * currentOpacity) + "rad)";
+                        [...document.getElementById("mappedStars").children].forEach(child => child.setAttribute("opacity", currentOpacity));
+                        [...document.getElementById("stars").children].forEach(child => child.setAttribute("opacity", currentOpacity));
+
+                        if (currentOpacity <= 0) {
+                            resolve();
+                            clearInterval(opacityInterval);
+                        }
+                    }, 50);
+                });
+
+                // makes end screen visible
+                await new Promise(resolve => {
+                    let opacityReverseInterval = setInterval(() => {
+                        currentOpacity += 0.01;
+                        document.getElementById("sun").setAttribute("opacity", currentOpacity);
+                        document.getElementById("cloud").setAttribute("opacity", currentOpacity);
+                        document.getElementById("earthSky").setAttribute("opacity", currentOpacity);
+                        document.getElementById("earthGround").setAttribute("opacity", currentOpacity);
+                        document.getElementById("earthGround").setAttribute("y", (825 - currentOpacity * 300));
+                        document.getElementById("earthGround").setAttribute("height", (currentOpacity * 300));
+
+                        if (currentOpacity >= 1) {
+                            resolve();
+                            clearInterval(opacityReverseInterval);
+                        }
+                    }, 10);
+                });
+
+                // makes reset button visible and pressable
+                document.getElementById("retryButton").setAttribute("style", "");
+                if (starsCollected === 0)
+                    document.getElementById("finalscoreText").textContent = "You've collected... nothing?"
+                else if (starsCollected === 5)
+                    document.getElementById("finalscoreText").textContent = "You've collected all 5 stars!"
+                else
+                    document.getElementById("finalscoreText").textContent = "You've collected " + starsCollected + " / 5 stars!"
+                currentOpacity = 0;
+                await new Promise(resolve => {
+                    let retrybuttonInterval = setInterval(() => {
+                        currentOpacity += 0.025;
+                        document.getElementById("finalscoreText").setAttribute("opacity", currentOpacity);
+                        document.getElementById("retryButton").setAttribute("opacity", currentOpacity);
+
+                        if (currentOpacity >= 1) {
+                            resolve();
+                            clearInterval(retrybuttonInterval);
+                        }
+                    }, 5);
+                });
+
+                await new Promise(resolve => document.getElementById("retryButton").addEventListener("click", resolve));
+
+                // reset game back to starting opacities and values
+                document.getElementById("retryButton").setAttribute("style", "display:none;");
+                document.getElementById("finalscoreText").setAttribute("opacity", 0);
+                document.getElementById("retryButton").setAttribute("opacity", 0);
+                document.getElementById("sun").setAttribute("opacity", 0);
+                document.getElementById("cloud").setAttribute("opacity", 0);
+                document.getElementById("earthSky").setAttribute("opacity", 0);
+                document.getElementById("earthGround").setAttribute("opacity", 0);
+                document.getElementById("map").setAttribute("opacity", 1);
+                document.getElementById("xCL").setAttribute("opacity", 1);
+                document.getElementById("yCL").setAttribute("opacity", 1);
+                document.getElementById("mCL").setAttribute("opacity", 1);
+                document.getElementById("timerText").setAttribute("opacity", 1);
+                document.getElementById("countText").setAttribute("opacity", 1);
+                document.getElementById("xcoordText").setAttribute("opacity", 1);
+                document.getElementById("xspeedText").setAttribute("opacity", 1);
+                document.getElementById("ycoordText").setAttribute("opacity", 1);
+                document.getElementById("yspeedText").setAttribute("opacity", 1);
+                document.getElementById("rocketLocator").setAttribute("opacity", 1);
+                document.getElementById("instructions").setAttribute("opacity", 1);
+                document.getElementById("earthGround").setAttribute("y", 525);
+                document.getElementById("earthGround").setAttribute("height", 300);
+                document.getElementById("countText").textContent = "Stars Collected: 0 / 5";
+                document.getElementById("xcoordText").textContent = "xCoord: 0.00";
+                document.getElementById("ycoordText").textContent = "yCoord: 0.00";
+                document.getElementById("xspeedText").textContent = "xSpeed: 0.00";
+                document.getElementById("yspeedText").textContent = "ySpeed: 0.00";
+                [...document.getElementById("mappedStars").children].forEach(child => child.remove());
+                [...document.getElementById("stars").children].forEach(child => child.remove());
+                xCoord = 0, yCoord = 0, xSpeed = 0, ySpeed = 0, timeleft = 60, gameOngoing = false, currentAngle = - Math.PI / 4, speedInterval = null, starsCollected = 0;
+                minigameHandler();
+            }
+
+            // makes rocket ship rotate towards mouse
+            document.getElementById("gameFrame").addEventListener("mousemove", event => {
+                if (gameOngoing) {
+                    currentAngle = Math.atan2(event.clientY - window.innerHeight / 2, event.clientX - window.innerWidth / 2);
+                    document.getElementById("rocket").style.transform = "rotate(" + (Math.PI / 4 + currentAngle) + "rad)";
+                    document.getElementById("rocketLocator").style.transform = "rotate(" + (Math.PI / 4 + currentAngle) + "rad)";
+                }
+            });
+
+            // is spacebutton down? + associated items
+            document.addEventListener("keydown", event => {
+                if (gameOngoing && event.key === " ") {
+                    event.preventDefault();
+                    document.getElementById("rocket").setAttribute("href", "images/rocket.active_true.png");
+                    document.getElementById("rocketLocator").setAttribute("href", "images/rocket.active_true.png");
+                    if (speedInterval === null)
+                        speedInterval = setInterval(() => {
+                            xSpeed += Math.cos(currentAngle);
+                            ySpeed -= Math.sin(currentAngle);
+                            document.getElementById("xspeedText").textContent = "xSpeed: " + xSpeed.toString().substring(0, xSpeed.toString().indexOf(".") + 3);
+                            document.getElementById("yspeedText").textContent = "ySpeed: " + ySpeed.toString().substring(0, ySpeed.toString().indexOf(".") + 3);
+                        }, 50);
+                }
+            });
+
+            // is spacebutton up? + associated items
+            document.addEventListener("keyup", event => {
+                if (gameOngoing && event.key === " ") {
+                    document.getElementById("rocket").setAttribute("href", "images/rocket.active_false.png");
+                    document.getElementById("rocketLocator").setAttribute("href", "images/rocket.active_false.png");
+                    clearInterval(speedInterval);
+                    speedInterval = null;
+                }
+            });
+        </script>
+        
+	</body>
+</html>

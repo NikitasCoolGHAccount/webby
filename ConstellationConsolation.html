@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Constellation Consolation</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                background-color: #0f0f0f;
+                margin: 0;
+                padding: 0;
+                border: 1vw solid #0f0f0f;
+                border-left: 2vw solid #0f0f0f;
+                border-right: 5vw solid #0f0f0f;
+            }
+            p {
+                color: #f0f0f0;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: 500;
+                white-space: pre-wrap;
+            }
+        </style>
+	</head>
+	<body>
+        <!-- Interface Paragarph -->
+        <div id="mainCC"></div>
+        <div>
+            <p><br /></p>
+        </div>
+
+        <script>
+            let time = 0n;
+            let timer = setInterval(() => {time++;}, 1);
+            let entryCount = 1;
+            document.getElementById("mainCC").innerHTML += "<p>&lt;LOG[CC] | SESSION STARTED | 00:00:00.000&gt;<br /><br />&lt;LOG[CC] | RELAYING ENTRIES | " + formatTime() + "&gt;<br /><br /></p>";
+            let entries = log();
+            setTimeout(() => {writeEntry(50)}, 500);
+
+            // functions
+            function writeNextEntry() {
+                let entryTypeSpeeds = [45, 45, 45, 40, 40, 1000, 125, 45, 75, 45, 45, 45, 45, 45, 85, 45, 40, 50, 75, 45, 45, 75, 60, 50, 45, 100, 45, 40, 45, 45, 60];
+                setTimeout(() => {writeEntry(entryTypeSpeeds[entryCount]);}, 300);
+            }
+            function writeEntry(typeSpeed) {
+                document.getElementById("mainCC").innerHTML += "<p>&lt;LOG[CC] | ENTRY : " + entryCount + " | " + formatTime() + "&gt;<br /></p>";
+                document.getElementById("mainCC").innerHTML += "<p id=\"entry" + entryCount + "\"></p>";
+                window.scrollTo({
+                    top: document.documentElement.scrollHeight - window.innerHeight,
+                    behavior: 'smooth'
+                });
+                let indexLBL = 0;
+                let currentMessage = entries.next().value;
+                let writeLBL = setInterval(() => {
+                    if (indexLBL >= currentMessage.length) {
+                        document.getElementById("entry" + entryCount).innerHTML += "<br /><br />";
+                        entryCount++;
+                        clearInterval(writeLBL);
+                        if (entryCount < 31)
+                            writeNextEntry();
+                        else
+                            writeClosing();
+                        return;
+                    } else {
+                        document.getElementById("entry" + entryCount).textContent += currentMessage.substring(indexLBL, indexLBL + 1);
+                        indexLBL++;
+                    }      
+                }, typeSpeed);
+            }
+            function writeClosing() {
+                setTimeout(() => {
+                    getElementById("mainCC").innerHTML += "<p>&lt;LOG[CC] | SESSION TERMINATED | " + formatTime() + "&gt;<br /><br /></p>";
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight - window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+                setTimeout(() => {
+                    document.getElementById("mainCC").innerHTML += "<p>&lt;LOG[CC] | FURTHER ENTRIES LOCATED | " + formatTime() + "&gt;<br /></p>";
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight - window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                }, 600);
+                setTimeout(() => {document.getElementById("mainCC").innerHTML += "<p>   # There are further entries located on this file locked behind access keys, </p>";}, 900);
+                setTimeout(() => {document.getElementById("mainCC").innerHTML += "<p>     in order to view these entries, please provide their associated access keys. </p>";}, 901);
+                setTimeout(() => {document.getElementById("mainCC").innerHTML += "<p>     There are [5] access keys that have access to different sets of entries. <br></p>";}, 902);
+                setTimeout(() => {
+                    document.getElementById("mainCC").innerHTML += "<p>     [Enter Access Key] : </p>";
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight - window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                }, 903);
+            }
+            function formatTime() {
+                let currentTime = time;
+                let formattedTime = "";
+                // HOURS
+                if (currentTime / 3600000n > 10n)
+                    formattedTime += currentTime / 3600000n;
+                else
+                    formattedTime += "0" + currentTime / 3600000n;
+                currentTime -= 3600000n * (currentTime / 3600000n);
+                formattedTime += ":";
+                // MINUTES
+                if (currentTime / 60000n > 10n)
+                    formattedTime += currentTime / 60000n;
+                else
+                    formattedTime += "0" + currentTime / 60000n;
+                currentTime -= 60000n * (currentTime / 60000n);
+                formattedTime += ":";
+                // SECONDS
+                if (currentTime / 1000n > 10n)
+                    formattedTime += currentTime / 1000n;
+                else
+                    formattedTime += "0" + currentTime / 1000n;
+                currentTime -= 1000n * (currentTime / 1000n);
+                formattedTime += ".";
+                // MILLISECONDS
+                if (currentTime > 100n)
+                    formattedTime += currentTime;
+                else if (currentTime > 10n)
+                    formattedTime += "0" + currentTime;
+                else
+                    formattedTime += "00" + currentTime;
+                return formattedTime;
+            }
+            function* log() {
+                yield "OH- HELLO THERE.";
+                yield "IT APPEARS YOU'VE STUMBLED INTO A PLACE THAT YOU LIKELY SHOULD NOT BE IN.";
+                yield "EITHER YOU'VE BEEN EXPLORING MY FRIEND GROUPS, TYPED A NAME IN THE SEARCH BAR THAT IT COULDN'T QUITE FIND AT FIRST, SOMEONE GAVE YOU THIS HTML, OR WERE JUST LOOKING FOR ANOTHER FUN WEBPAGE TO SEE- OR ALTERNATIVELY, YOU KNOW EXACTLY WHY YOU'RE HERE.";
+                yield "IF YOU FIND YOURSELF HERE BY AN UNFORTUNATE ACCIDENT, I IMPLORE YOU TO LEAVE. THE ENTRIES CONTAINED WITHIN THIS LOG ARE NOT MEANT FOR YOU.\n\nIF YOU REMAIN... THEN YOU'RE THE PERSON THIS MESSAGE IS INTENDED FOR, KNOW THE PERSON THIS MESSAGE IS INTENDED FOR, OR ARE JUST TOO CURIOUS FOR YOUR OWN GOOD; UNAWARE THAT IT ALMOST ALWAYS LEADS THE CAT TO TROUBLE.";
+                yield "...";
+                yield "SO...";
+                yield "I GUESS I SHOULD STOP STALLING AND SAY WHAT HAS BEEN ON MY MIND.";
+                yield "...";
+                yield "EVER SINCE YOU'VE GHOSTED ME, YOU'VE ALWAYS BEEN ON MY MIND STARRY-";
+                yield "AFTER ALL THEY TOLD ME. AFTER ALL THE VOICES TOLD ME. AFTER ALL WAS SAID AND DONE.";
+                yield "I DON'T BLAME YOU. I NEVER DID. I DON'T BLAME FOR WHAT I DID TO YOU, AND I DON'T BLAME YOU FOR WHAT YOU DID TO ME, DESPITE WHAT THE OTHERS ADVISING ME TO REVISE THIS THOUGHT.";
+                yield "ALL I WANT TO TELL YOU IS I'M SORRY.--- I SHOULD HAVE COMMUNICATED BACK THEN, AND NOT LET THE PAST DRAG ME DOWN.";
+                yield "IT WAS MY FAULT THAT THIS ALL HAPPENED IN THE FIRST PLACE, AND I UNDERSTAND WHY YOU'D BLOCK ME OUT NOW, AND PULL STRINGS SO SIRIUS AND ARTIFACTORY WOULD FOLLOW YOUR MOVE TO DO SO. DESPITE MY BEST EFFORTS, I COULDN'T MOVE ON FROM THE PAST, AND NOW IT LEFT US BOTH HURT. A MISTAKE ON MY END THAT WILL HAUNT ME FOR A STRETCH OF TIME SO LONG THAT I'M AFRAID IT'LL BE FOREVER UNTIL I'M FREE FROM THIS GUILT.";
+                yield "AND IRONICALLY...";
+                yield "YOU'VE FALLEN TO MAKE THE SAME MISTAKE I HAVE. AGAIN, I CANNOT BLAME YOU. AFTER ALL, I RESORTED TO THE SAME METHOD TO CLEAR MY HEAD AND TRY TO MOVE FORWARD.";
+                yield "BUT YOU'RE AWARE OF WHAT MY MISTAKE DID TO ME, AND WHAT IT DID TO YOU-- AND YOU'RE AWARE OF WHAT YOURS WILL DO YOU ME, AND WHAT IT WILL DO TO YOU.";
+                yield "IF ONLY MOVING FORWARD IS THAT EASY...";
+                yield "...";
+                yield "JUST AS MUCH AS I HATED TO INFORM MY FRIENDS THAT I COULD NOT PIN ANYTHING TO THE ONE WHO CAUSED THEM TO FIND ME CRYING, I HATE TO INFORM YOU THAT THIS ISN'T HEALTHY FOR YOU OR ME, AND THAT I WILL ALWAYS 'STICK AROUND.' NO MATTER WHAT. I TOLD YOU THAT YOU WERE NEVER TOO MUCH, AND I MEANT EVERY WORD OF IT. SO WHY DID YOU THINK WHAT HAPPENED IN THE PAST WOULD HOLD ME FROM TALKING TO YOU EVER AGAIN?... AND WHY DO YOU THINK THAT REPEATING MY FOLLEY WOULD MAKE ANYTHING BETTER?";
+                yield "I KNOW IT HURTS YOU TOO, AND I HATE THAT I CAN'T BE THERE TO HELP YOU THROUGH IT.";
+                yield "BUT PLEASE";
+                yield "LISTEN TO MY REQUEST";
+                yield "IF YOU'RE FINE WITH IT, REACH BACK OUT TO ME. I MISS YOU. I WANT TO TALK TO YOU AGAIN. I WANT TO MAKE THINGS RIGHT. I WANT TO STAY BY YOUR SIDE. AFTER ALL, THAT'S WHAT THOSE CLOSE ARE FOR, AND I'M NOT AMIABLE TO THE OPTION OF JUST FORGETTING YOU.";
+                yield "SO PLEASE, DON'T LET THIS BE THE END. DON'T LET US KEEP HURTING THIS WAY.";
+                yield "...";
+                yield "I WISH, I HOPE... THAT THERE IS A NOT-SO-DISTANT FUTURE WHERE WE'LL TALK AGAIN, AND RID OURSELVES OF THIS NASTY SILENCE. SMILE AGAIN AND PLAY THE GAMES THAT WE ADORE.";
+                yield "THAT WE CAN LAUGH, STAY UP LATE LISTENING TO EACH OTHERS STORIES. SEE THE SOUNDS OF ENJOYMENT BLOSSOM AND THE MUTED NOISE WITHER. MAYBE... MAYBE ONE DAY.";
+                yield "SADLY, I AM NOT THE DECIDER OF THAT DAY.";
+                yield "ALTHOUGH THESE DREAMS OF WARMTH MAY COMFORT ME, I STILL MISS YOU. AND I'LL STILL BE HERE. NO MATTER WHAT. SEE YOU SOON STARRY, HOPEFULLY.";
+                yield "- NIKITA I.R.S.";
+            }
+        </script>
+	</body>
+</html>

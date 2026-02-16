@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Daniel</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            p {
+                color: #e0e0e0;
+                font-size: large;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: 500;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #5e5e5e;
+            }
+            #pattern {
+                background-image: url("frausratsPattern.png");
+                background-repeat: repeat;
+                background-size: 10vw 10vw;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Frau's Rats tab svg and script -->
+
+        <svg viewBox="0 0 1500 175" width="100vw">
+            <rect x="0" y="0" width="1500" height="100" fill="#474747" />
+            <polygon points="400,0 1100,0 1050,110 450,110" fill="#e0e0e0" />
+            <polygon points="375,15 400,15 431.81818,85 406.81818,85" fill="#e0e0e0" />
+            <polygon points="1100,15 1125,15 1093.18182,85 1068.18182,85" fill="#e0e0e0" />
+            <text x="750" y="80" fill="#222222" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> ✨ Frau's Rats 🐀 </text>
+            <text x="755" y="85" fill="#f9f9f9" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> Frau's Rats </text>
+            <rect x="37.5" y="137.5" width="1425" height="37.5" fill="#474747" />
+        </svg>
+
+        <!-- Main svg and script-->
+
+        <svg viewBox="0 0 1500 2587.5" width="100vw">
+            <defs>
+                <pattern id="frausratsPattern" patternUnits="userSpaceOnUse" width="225" height="225">
+                    <image href="images/frausratsPattern.png" x="-150" y="0" width="225" height="225" />
+                    <image href="images/frausratsPattern.png" x="75" y="0" width="225" height="225" />
+                </pattern>
+                <lineargradient id="frausratsGradient">
+                    <stop offset="25%" stop-color="#7e7e7e" />
+                    <stop offset="75%" stop-color="#eac686" />
+                </lineargradient>
+                <lineargradient id="rainbow">
+                    <stop offset="0%" stop-color="#ff0000" />
+                    <stop offset="20%" stop-color="#ffa500" />
+                    <stop offset="40%" stop-color="#ffde21" />
+                    <stop offset="60%" stop-color="#00ff00" />
+                    <stop offset="80%" stop-color="#002eff" />
+                    <stop offset="100%" stop-color="#5700ff" />
+                </lineargradient>
+            </defs>
+            <!-- Backdrop -->
+            <rect x="37.5" y="0" width="1425" height="2587.5" fill="#474747" />
+            <rect x="75" y="0" width="1350" height="2587.5" fill="url(#frausratsPattern)" />
+            
+            <!-- Aboue me stuff -->
+            <polygon id="aboutMeFrame" points="375,300 375,700 513.88889,950 986.11111,950 1125,700 1125,300" fill="#575757" />
+            <polygon id="aboutMeMain" points="400,300 400,700 525,925 975,925 1100,700 1100,300" fill="#e0e0e0" />
+            <text y="650" fill="#222222" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle">
+                <tspan x="750" font-weight="650"> Name: </tspan><tspan> Daniel </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Age: </tspan><tspan> 19 </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Gender: </tspan><tspan> Male </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Height: </tspan><tspan> 5'9" </tspan>
+            </text>
+            <polygon />
+            <!-- Image stuff -->
+            <polygon id="outerFrame1" points="375,300 513.88889,550 986.11111,550 1125,300 986.11111,50 513.88889,50" fill="#575757" />
+            <polygon id="outerFrame2" points="400,300 525,525 975,525 1100,300 975,75 525,75" fill="url(#frausratsGradient)" />
+            <rect id="innerFrame1" x="540" y="90" width="420" height="420" fill="#575757" />
+            <rect id="innerFrame2" x="550" y="100" width="400" height="400" fill="#e0e0e0" />
+            <image x="550" y="100" width="400" height="400" href="images/daniel.png" />
+            <text x="475" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">🐀</text>
+            <text x="1025" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">✨</text>
+            <!-- Extra Stuff -->
+            <g id="description">
+                <polygon id="descOuterFrame" points="175,1300 313.88889,1550 636.11111,1550 775,1300 636.11111,1050 313.88889,1050" fill="#575757" />
+                <polygon id="descInnerFrame" points="200,1300 325,1525 625,1525 750,1300 625,1075 325,1075" fill="#e0e0e0" />
+                <text y="1175" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Description: </tspan>
+                    <tspan x="475" dy="1.5em"> A war criminal. Staight. Up. </tspan>
+                    <tspan x="475" dy="1.5em"> Though, is absolutely fun to </tspan>
+                    <tspan x="475" dy="1.5em"> hang out with and goof around with! </tspan>
+                    <tspan x="475" dy="1.5em"> Never before can you smile </tspan>
+                    <tspan x="475" dy="1.5em"> (and commit crimes against </tspan>
+                    <tspan x="475" dy="1.5em"> humanity) like before! </tspan>
+                </text>
+            <g>
+            <g id="interests">
+                <polygon id="inteOuterFrame" points="1325,1595 1186.11111,1845 863.88889,1845 725,1595 863.88889,1345 1186.11111,1345" fill="#575757" />
+                <polygon id="inteInnerFrame" points="1300,1595 1175,1820 875,1820 750,1595 875,1370 1175,1370" fill="#e0e0e0" />
+                <text y="1485" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="1025" font-weight="650"> Interests: </tspan>
+                    <tspan x="1025" dy="1.5em"> Christianity, HOI4 (Or </tspan>
+                    <tspan x="1025" dy="1.5em"> Any War Game), War Crimes, </tspan>
+                    <tspan x="1025" dy="1.5em"> Geography, Politics, Countries, </tspan>
+                    <tspan x="1025" dy="1.5em"> Military Stuff, and just </tspan>
+                    <tspan x="1025" dy="1.5em"> vibing with friends. </tspan>
+                </text>
+            <g>
+            <g id="quotes">
+                <polygon id="quotOuterFrame" points="175,1890 313.88889,2140 636.11111,2140 775,1890 636.11111,1640 313.88889,1640" fill="#575757" />
+                <polygon id="quotInnerFrame" points="200,1890 325,2115 625,2115 750,1890 625,1665 325,1665" fill="#e0e0e0" />
+                <text y="1740" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Quote 1: </tspan>
+                    <tspan x="475" dy="1.5em"> "I want that damn </tspan>
+                    <tspan x="475" dy="1.5em" font-style="italic"> cream--" *wink* </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 2: </tspan>
+                    <tspan x="475" dy="1.5em"> "It's time for your roll, can </tspan>
+                    <tspan x="475" dy="1.5em"> you roll on me?" </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 3: </tspan>
+                    <tspan x="475" dy="1.5em"> "I'm a slut anyways." </tspan>
+                </text>
+            <g>
+            <g id="minigame">
+                <polygon id="miniOuterFrame" points="1325,2185 1186.11111,2435 863.88889,2435 725,2185 863.88889,1935 1186.11111,1935" fill="#575757" />
+                <polygon id="miniInnerFrame" points="1300,2185 1175,2410 875,2410 750,2185 875,1960 1175,1960" fill="#e0e0e0" />
+                <text x="1025" y="2025" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="650" text-anchor="middle"> Minigame: </text>
+                <text x="860" y="2075" fill="#dd2167" font-family="Trebuchet MS" font-size="20" font-weight="900" text-anchor="middle"> COMMIT </text>
+                <text x="1005" y="2070" fill="url(#rainbow)" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle"> war crimes </text>
+                <text x="1000" y="2100" fill="#ff2222" font-family="Trebuchet MS" font-size="30" font-style="italic" font-weight="900" text-anchor="middle"> AGAINST </text>
+                <text x="1155" y="2090" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="500" text-anchor="middle"> RatCity™ </text>
+                <text x="1220" y="2100" fill="#22ff22" font-family="Trebuchet MS" font-size="20" font-weight="1000" text-anchor="middle"> 53 </text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); minigameHandler();">
+                    <rect x="825" y="2125" rx="15" ry="15" width="400" height="150" fill="#72bf6a" stroke="#575757" stroke-width="15" />
+                    <text x="1025" y="2220" fill="#222222" font-family="Trebuchet MS" font-size="60" font-weight="1400" style="user-select:none;" text-anchor="middle">▶️ PLAY ▶️</text>
+                </g>
+            </g>
+
+        </svg>
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="window.location.reload(true);">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+                <!-- War Crime Minigame Stuff -->
+                <svg id="maingameSVG" x="275" y="175" width="1200" height="650" viewBox="0 0 1200 650">
+                    <rect x="0" y="0" width="1200" height="650" fill="#6e9dcc" />
+                    <rect x="0" y="550" width="1200" height="100" fill="#9c9c9c" />
+                    <rect x="0" y="540" width="1200" height="10" fill="#5c5c5c" />
+                    <g id="map">
+                    </g>
+                    <g id="items">
+                    </g>
+                    <image id="ingameTerrorat" x="620" y="450" width="160" height="160" href="images/terrorat.hasGun_false.png"/>
+                    <rect x="0" y="0" width="300" height="650" fill="#142a5e" />
+                    <rect x="1100" y="0" width="100" height="650" fill="#142a5e" />
+                    <rect x="20" y="20" rx="10" ry="10" width="250" height="250" fill="#041a4e" />
+                    <rect x="30" y="30" rx="10" ry="10" width="250" height="250" fill="#253b6f" />
+                    <text id="sideconWeapon" x="150" y="225" font-size="200" style="user-select:none;" text-anchor="middle">💣</text>
+                    <polygon points="45,295 270,295 245,345 20,345" fill="#041a4e" />
+                    <polygon points="55,305 280,305 255,355 30,355" fill="#253b6f" />
+                    <g id="killcountTexts">
+                        <text x="37" y="282" fill="#101010" font-family="Trebuchet MS" font-size="25" font-weight="450">Kills: 0</text>
+                        <text x="33" y="278" fill="#e0e0e0" font-family="Trebuchet MS" font-size="25" font-weight="450">Kills: 0</text>
+                    </g>
+                    <g id="scoreTexts">
+                        <text x="158" y="348" fill="#101010" font-family="Trebuchet MS" font-size="50" font-weight="450" text-anchor="middle">00000000</text>
+                        <text x="152" y="342" fill="#e0e0e0" font-family="Trebuchet MS" font-size="50" font-weight="450" text-anchor="middle">00000000</text>
+                    </g>
+                    <rect x="25" y="375" width="2" height="250" fill="#041a4e" />
+                    <foreignObject x="50" y="375" width="200" height="225">
+                        <div id="killDIV">
+                        </div>
+                    </foreignObject>
+                    <rect id="maingameScreen" x="300" y="0" width="800" height="650" opacity="0" />
+                </svg>
+            </svg>
+        </div>
+
+        <script>
+            // MINIGAME HAS UPDATES PLANNED- CURRENT UNFINISHED BUILD BELOW
+
+            // making buldings
+            for (let i = 0; i < 18; i++) {
+                let building = document.createElementNS("http://www.w3.org/2000/svg", "rect"), buildingY = Math.random() * 200 + 100, buildingFill = Math.floor(Math.random() * 100 + 50);
+                building.setAttribute("x", i * 200);
+                building.setAttribute("y", buildingY);
+                building.setAttribute("width", 200);
+                building.setAttribute("height", 540 - buildingY);
+                building.setAttribute("fill", "rgb(" + buildingFill + "," + buildingFill + "," + buildingFill + ")");
+                document.getElementById("map").appendChild(building);
+            }
+
+            // minigame variables
+            let mapLocation = 300, score = 0, killCount = 0, gameOver = false, weaponIsGun = false, facingLeft = false, gunReady = true, bombReady = true;
+
+            // minigame handler
+            minigameHandler();
+            async function minigameHandler() {
+                await new Promise(resolve => {
+                    let mainInterval = setInterval(() => {
+                        if (mapLocation > 0 && (keys["a"] || keys["ArrowLeft"])) {
+                            [...document.getElementById("map").children].forEach(child => child.setAttribute("x", +child.getAttribute("x") + 0.75));
+                            [...document.getElementsByClassName("Regular")].forEach(child => child.setAttribute("x", +child.getAttribute("x") + 0.75));
+                            [...document.getElementsByClassName("Inverse")].forEach(child => child.setAttribute("x", +child.getAttribute("x") - 0.75));
+                            [...document.getElementsByClassName("bullet")].forEach(child => child.setAttribute("cx", +child.getAttribute("cx") + 0.75));
+                            mapLocation--;
+                        }
+                        if (mapLocation < 2800 && (keys["d"] || keys["ArrowRight"])) {
+                            [...document.getElementById("map").children].forEach(child => child.setAttribute("x", +child.getAttribute("x") - 0.75));
+                            [...document.getElementsByClassName("Regular")].forEach(child => child.setAttribute("x", +child.getAttribute("x") - 0.75));
+                            [...document.getElementsByClassName("Inverse")].forEach(child => child.setAttribute("x", +child.getAttribute("x") + 0.75));
+                            [...document.getElementsByClassName("bullet")].forEach(child => child.setAttribute("cx", +child.getAttribute("cx") - 0.75));
+                            mapLocation++;
+                        }
+                        if (gameOver) {
+                            resolve();
+                            clearInterval(mainInterval);
+                        }
+                        [...document.getElementsByClassName("bulletLeft")].forEach(bullet => {
+                            bullet.setAttribute("cx", +bullet.getAttribute("cx") - 2);
+                            if (+bullet.getAttribute("cx") < -2000)
+                                bullet.remove();
+                        });
+                        [...document.getElementsByClassName("bulletRight")].forEach(bullet => {
+                            bullet.setAttribute("cx", +bullet.getAttribute("cx") + 2);
+                            if (+bullet.getAttribute("cx") > 2000)
+                                bullet.remove();
+                        });
+                        [...document.getElementsByClassName("civilian")].forEach(civilian => {
+                            civilian.setAttribute("x", +civilian.getAttribute("x") + 0.4);
+                            if (+civilian.getAttribute("x") > 4000)
+                                civilian.remove();
+                        });
+                        [...document.getElementsByClassName("bullet")].forEach(bullet => {
+                            bullet.setAttribute("x", +bullet.getAttribute("x") + 0.4);
+                            [...document.getElementsByClassName("civilian")].forEach(civilian => {
+                                if (bullet.getBoundingClientRect().left > civilian.getBoundingClientRect().left && bullet.getBoundingClientRect().right < civilian.getBoundingClientRect().right) {
+                                    killCount++;
+                                    [...document.getElementById("killcountTexts").children][0].textContent = "Kills: " + killCount;
+                                    [...document.getElementById("killcountTexts").children][1].textContent = "Kills: " + killCount;
+                                    score += 5;
+                                    [...document.getElementById("scoreTexts").children][0].textContent = "00000000".substring(0, 8 - killCount.toString().length) + score;
+                                    [...document.getElementById("scoreTexts").children][1].textContent = "00000000".substring(0, 8 - killCount.toString().length) + score;
+                                    document.getElementById("killDIV").innerHTML += "<p class='killText'>+ Civilian Kill</p>";
+                                    setTimeout(() => [...document.getElementsByClassName("killText")][0].remove(), 1000);
+                                    bullet.remove();
+                                    civilian.remove();
+                                    return;
+                                }
+                            });
+                            if (+bullet.getAttribute("x") > 4000)
+                                bullet.remove();
+                        });
+                        
+                        if (Math.random() < 0.0025)
+                            if (Math.random() < 0.5)
+                                summonCivilian(true);
+                            else
+                                summonCivilian(false);
+                    }, 1);
+                });
+
+                console.log("CRITICAL ERROR- MAIN INTERVAL PROMISE RESOLVED (currently impossible)");
+            }
+
+            // function that makes civilian rats
+            function summonCivilian(spawnOnLeft) {
+                let newCivilian = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                if (spawnOnLeft) {
+                    newCivilian.setAttribute("x", +[...document.getElementById("map").children][0].getAttribute("x") - 200);
+                    newCivilian.setAttribute("class", "civilian Regular");
+                } else {
+                    newCivilian.setAttribute("x", +[...document.getElementById("map").children][17].getAttribute("x") + 400);
+                    newCivilian.setAttribute("class", "civilian Inverse");
+                    newCivilian.style.transformOrigin = newCivilian.getAttribute("x") + "px 457px";
+                    newCivilian.style.transform = "scaleX(-1)";
+                }
+                newCivilian.setAttribute("y", "457");
+                newCivilian.setAttribute("width", "140");
+                newCivilian.setAttribute("height", "140");
+                newCivilian.setAttribute("href", "images/rat.png");
+                document.getElementById("items").appendChild(newCivilian);
+            }
+
+            // which keys are down?
+            const keys = {};
+
+            // check for keysdown
+            document.addEventListener("keydown", event => {
+                keys[event.key] = true;
+                if (event.key === "1") {
+                    document.getElementById("ingameTerrorat").setAttribute("href", "images/terrorat.hasGun_true.png");
+                    document.getElementById("sideconWeapon").textContent = "🔫";
+                    weaponIsGun = true;
+                } else if (event.key === "2") {
+                    document.getElementById("ingameTerrorat").setAttribute("href", "images/terrorat.hasGun_false.png");
+                    document.getElementById("sideconWeapon").textContent = "💣";
+                    weaponIsGun = false;
+                }
+            });
+
+            // check for keysup
+            document.addEventListener("keyup", event => {
+                keys[event.key] = false;
+            });
+
+            // maingameSVG for mousemovements
+            document.getElementById("maingameScreen").addEventListener("mousemove", event => {
+                document.getElementById("ingameTerrorat").style.transformOrigin = "700px 530px";
+                if (event.clientX <= document.getElementById("ingameTerrorat").getBoundingClientRect().left + document.getElementById("ingameTerrorat").getBoundingClientRect().width / 2) {
+                    document.getElementById("ingameTerrorat").style.transform = "scaleX(1)";
+                    facingLeft = true;
+                } else {
+                    document.getElementById("ingameTerrorat").style.transform = "scaleX(-1)";
+                    facingLeft = false;
+                }
+            });
+
+            // maingameSVG for clicks (shooting a gun or grenade)
+            document.getElementById("maingameScreen").addEventListener("mousedown", event => {
+                if (weaponIsGun && gunReady) {
+                    gunReady = false;
+                    let bullet = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    bullet.setAttribute("cx", "700");
+                    bullet.setAttribute("cy", "535");
+                    bullet.setAttribute("r", "2");
+                    bullet.setAttribute("fill", "#202020");
+                    if (facingLeft)
+                        bullet.setAttribute("class", "bullet bulletLeft");
+                    else
+                        bullet.setAttribute("class", "bullet bulletRight");
+                    document.getElementById("items").appendChild(bullet);
+                    setTimeout(() => gunReady = true, 500);
+                }
+                if (!weaponIsGun && bombReady) {
+                    bombReady = false;
+                    let bomb = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                    bomb.setAttribute("x", "650");
+                    bomb.setAttribute("y", "490");
+                    bomb.setAttribute("width", "80");
+                    bomb.setAttribute("height", "80");
+                    bomb.setAttribute("href", "images/bomb.png");
+                    bomb.setAttribute("id", "bomb");
+                    document.getElementById("map").appendChild(bomb);
+                    setTimeout(() => {
+                        let boom = document.createElementNS("http://www.w3.org/2000/svg", "text"), bombKills = 0;
+                        boom.setAttribute("x", +bomb.getAttribute("x") + 40);
+                        boom.setAttribute("y", "630");
+                        boom.setAttribute("opacity", "1");
+                        boom.setAttribute("font-size", "300");
+                        boom.setAttribute("text-anchor", "middle");
+                        boom.setAttribute("id", "boom");
+                        boom.textContent = "💥";
+                        document.getElementById("map").appendChild(boom);
+                        [...document.getElementsByClassName("civilian")].forEach(civilian => {
+                            if (bomb.getBoundingClientRect().left + 4 * bomb.getBoundingClientRect().width > civilian.getBoundingClientRect().right && bomb.getBoundingClientRect().right - 4 * bomb.getBoundingClientRect().width < civilian.getBoundingClientRect().left) {
+                                bombKills++, killCount++, score += 7;
+                                [...document.getElementById("killcountTexts").children][0].textContent = "Kills: " + killCount;
+                                [...document.getElementById("killcountTexts").children][1].textContent = "Kills: " + killCount;
+                                [...document.getElementById("scoreTexts").children][0].textContent = "00000000".substring(0, 8 - killCount.toString().length) + score;
+                                [...document.getElementById("scoreTexts").children][1].textContent = "00000000".substring(0, 8 - killCount.toString().length) + score;
+                                document.getElementById("killDIV").innerHTML += "<p class='killText'>+ Civilian Exploded</p>";
+                                setTimeout(() => [...document.getElementsByClassName("killText")][0].remove(), 1000);
+                                civilian.remove();
+                            }
+                        });
+                        if (bombKills > 1) {
+                            score += 10 * bombKills;
+                            document.getElementById("killDIV").innerHTML += "<p class='killText'>+ Civilian Multikill (" + bombKills + "x)</p>";
+                            setTimeout(() => [...document.getElementsByClassName("killText")][0].remove(), 1000);
+                        }
+                        bomb.remove();
+                        setTimeout(() => {
+                            let boomInterval = setInterval(() => {
+                                boom.setAttribute("opacity", +boom.getAttribute("opacity") - 0.05);
+                                if (+boom.getAttribute("opacity") <= 0) {
+                                    boom.remove();
+                                    clearInterval(boomInterval);
+                                }
+                            }, 5);
+                        }, 150);
+                    }, 3000);
+                    setTimeout(() => bombReady = true, 6000);
+                }
+            });
+        </script>
+        
+	</body>
+</html>

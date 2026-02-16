@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Annika</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            svg {
+                display: block;
+            }
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #5e5e5e;
+            }
+            #pattern {
+                background-image: url("frausratsPattern.png");
+                background-repeat: repeat;
+                background-size: 10vw 10vw;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- Frau's Rats tab svg and script -->
+
+        <svg viewBox="0 0 1500 175" width="100vw">
+            <rect x="0" y="0" width="1500" height="100" fill="#474747" />
+            <polygon points="400,0 1100,0 1050,110 450,110" fill="#e0e0e0" />
+            <polygon points="375,15 400,15 431.81818,85 406.81818,85" fill="#e0e0e0" />
+            <polygon points="1100,15 1125,15 1093.18182,85 1068.18182,85" fill="#e0e0e0" />
+            <text x="750" y="80" fill="#222222" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> ✨ Frau's Rats 🐀 </text>
+            <text x="755" y="85" fill="#f9f9f9" font-family="Trebuchet MS" font-size="75" text-anchor="middle"> Frau's Rats </text>
+            <rect x="37.5" y="137.5" width="1425" height="37.5" fill="#474747" />
+        </svg>
+
+        <!-- Main svg and script-->
+
+        <svg viewBox="0 0 1500 2587.5" width="100vw">
+            <defs>
+                <pattern id="frausratsPattern" patternUnits="userSpaceOnUse" width="225" height="225">
+                    <image href="images/frausratsPattern.png" x="-150" y="0" width="225" height="225" />
+                    <image href="images/frausratsPattern.png" x="75" y="0" width="225" height="225" />
+                </pattern>
+                <lineargradient id="frausratsGradient">
+                    <stop offset="25%" stop-color="#7e7e7e" />
+                    <stop offset="75%" stop-color="#eac686" />
+                </lineargradient>
+            </defs>
+            <!-- Backdrop -->
+            <rect x="37.5" y="0" width="1425" height="2587.5" fill="#474747" />
+            <rect x="75" y="0" width="1350" height="2587.5" fill="url(#frausratsPattern)" />
+            
+            <!-- Aboue me stuff -->
+            <polygon id="aboutMeFrame" points="375,300 375,700 513.88889,950 986.11111,950 1125,700 1125,300" fill="#575757" />
+            <polygon id="aboutMeMain" points="400,300 400,700 525,925 975,925 1100,700 1100,300" fill="#e0e0e0" />
+            <text y="650" fill="#222222" font-family="Trebuchet MS" font-size="40" font-weight="400" text-anchor="middle">
+                <tspan x="750" font-weight="650"> Name: </tspan><tspan> Annika </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Age: </tspan><tspan> 18 </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Gender: </tspan><tspan> Genderfluid </tspan>
+                <tspan x="750" dy="1.5em" font-weight="650"> Height: </tspan><tspan> 5'5" </tspan>
+            </text>
+            <polygon />
+            <!-- Image stuff -->
+            <polygon id="outerFrame1" points="375,300 513.88889,550 986.11111,550 1125,300 986.11111,50 513.88889,50" fill="#575757" />
+            <polygon id="outerFrame2" points="400,300 525,525 975,525 1100,300 975,75 525,75" fill="url(#frausratsGradient)" />
+            <rect id="innerFrame1" x="540" y="90" width="420" height="420" fill="#575757" />
+            <rect id="innerFrame2" x="550" y="100" width="400" height="400" fill="#e0e0e0" />
+            <text x="475" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">🐀</text>
+            <text x="1025" y="337.5" font-size="75" style="user-select:none;" text-anchor="middle">✨</text>
+            <!-- Extra Stuff -->
+            <g id="description">
+                <polygon id="descOuterFrame" points="175,1300 313.88889,1550 636.11111,1550 775,1300 636.11111,1050 313.88889,1050" fill="#575757" />
+                <polygon id="descInnerFrame" points="200,1300 325,1525 625,1525 750,1300 625,1075 325,1075" fill="#e0e0e0" />
+                <text y="1175" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Description: </tspan>
+                    <tspan x="475" dy="1.5em"> A goofball of an individual. </tspan>
+                    <tspan x="475" dy="1.5em"> To the absolute max. They're </tspan>
+                    <tspan x="475" dy="1.5em"> pretty antisocial- but once you </tspan>
+                    <tspan x="475" dy="1.5em"> get them to talk, you're sure </tspan>
+                    <tspan x="475" dy="1.5em"> to have a spectacular time </tspan>
+                    <tspan x="475" dy="1.5em"> full of giggles. </tspan>
+                </text>
+            <g>
+            <g id="interests">
+                <polygon id="inteOuterFrame" points="1325,1595 1186.11111,1845 863.88889,1845 725,1595 863.88889,1345 1186.11111,1345" fill="#575757" />
+                <polygon id="inteInnerFrame" points="1300,1595 1175,1820 875,1820 750,1595 875,1370 1175,1370" fill="#e0e0e0" />
+                <text y="1485" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="1025" font-weight="650"> Interests: </tspan>
+                    <tspan x="1025" dy="1.5em"> Yaoi, German, Angst, </tspan>
+                    <tspan x="1025" dy="1.5em"> Gay Men Kissing, Drawing, </tspan>
+                    <tspan x="1025" dy="1.5em"> (<a href="https://nikadoesart.carrd.co/" target="_blank" rel="noopener noreferrer">Commissions</a>), Thai Food, </tspan>
+                    <tspan x="1025" dy="1.5em"> Plushies, Goofing off with </tspan>
+                    <tspan x="1025" dy="1.5em"> Freinds, and being Cool. </tspan>
+                </text>
+            <g>
+            <g id="quotes">
+                <polygon id="quotOuterFrame" points="175,1890 313.88889,2140 636.11111,2140 775,1890 636.11111,1640 313.88889,1640" fill="#575757" />
+                <polygon id="quotInnerFrame" points="200,1890 325,2115 625,2115 750,1890 625,1665 325,1665" fill="#e0e0e0" />
+                <text y="1740" fill="#222222" font-family="Trebuchet MS" font-size="30" font-weight="400" text-anchor="middle">
+                    <tspan x="475" font-weight="650"> Quote 1: </tspan>
+                    <tspan x="475" dy="1.5em"> "Do you sell your feet on </tspan>
+                    <tspan x="475" dy="1.5em"> the internet?" </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 2: </tspan>
+                    <tspan x="475" dy="1.5em"> "I would eat EVERYONE on </tspan>
+                    <tspan x="475" dy="1.5em"> this planet." </tspan>
+                    <tspan x="475" dy="1.5em" font-weight="650"> Quote 3: </tspan>
+                    <tspan x="475" dy="1.5em"> "Fuck me, please." </tspan>
+                </text>
+            <g>
+            <g id="minigame">
+                <polygon id="miniOuterFrame" points="1325,2185 1186.11111,2435 863.88889,2435 725,2185 863.88889,1935 1186.11111,1935" fill="#575757" />
+                <polygon id="miniInnerFrame" points="1300,2185 1175,2410 875,2410 750,2185 875,1960 1175,1960" fill="#e0e0e0" />
+                <text x="1025" y="2100" fill="#222222" font-family="Trebuchet MS" font-size="35" font-weight="400" text-anchor="middle">
+                    <tspan font-weight="650"> Minigame: </tspan><tspan> Rat Run </tspan>
+                </text>
+                <g onclick="document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); minigameHandler();">
+                    <rect x="825" y="2125" rx="15" ry="15" width="400" height="150" fill="#72bf6a" stroke="#575757" stroke-width="15" />
+                    <text x="1025" y="2220" fill="#222222" font-family="Trebuchet MS" font-size="60" font-weight="1400" style="user-select:none;" text-anchor="middle">▶️ PLAY ▶️</text>
+                </g>
+            </g>
+
+        </svg>
+
+        <!-- Minigame svg and script -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 1750 1000">
+                <defs>
+                    <lineargradient id="frausratsMinigameGradient" x1="0" y1="15%" x2="100%" y2="85%">
+                        <stop offset="25%" stop-color="#eac686" />
+                        <stop offset="75%" stop-color="#7e7e7e" />
+                    </lineargradient>
+                </defs>
+                <polygon points="20,500 85,50 1665,50 1730,500 1665,950 85,950" fill="url(#frausratsMinigameGradient)" stroke="#3f3f3f" stroke-width="25" />
+                <rect x="125" y="87.5" rx="20" ry="20" width="1500" height="825" fill="#c7c7c7" stroke="#3f3f3f" stroke-width="10" />
+                // Rat Running Minigame Start
+                <text id="speedText" x="230" y="155" fill="#6f6f6f" font-family="Trebuchet MS" font-size="30" font-weight="600" xml:space="preserve"> Speed: 4mph </text>
+                <rect x="275" y="175" rx="2" ry="2" width="1200" height="650" fill="#81abfe" />
+                <text x="1300" y="340" font-size="100" style="user-select:none;" text-anchor="middle">☀️</text>
+                <image id="instructions" href="images/runnerInstructions.png" x="300" y="200" width="360" height="104" />
+                <text id="deathM1" x="875" y="400" fill="#373737" font-family="Trebuchet MS" font-size="150" font-weight="900" opacity="0" text-anchor="middle"></text>
+                <text id="deathM2" x="875" y="480" fill="#676767" font-family="Trebuchet MS" font-size="40" font-weight="400" opacity="0" text-anchor="middle"></text>
+                <g id="restartButton" opacity="0">
+                    <rect x="600" y="525" rx="20" ry="20" width="550" height="150" fill="#56cd90" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="875" y="625" fill="#373737" font-family="Trebuchet MS" font-size="75" font-weight="500" style="user-select:none;" text-anchor="middle"></text>
+                </g>
+                <rect x="275" y="775" rx="2" ry="2" width="1200" height="75" fill="#ea9023" />
+                <rect x="275" y="825" rx="2" ry="2" width="1200" height="25" fill="#fba044" />
+                <circle id="ratHitbox" cx="425" cy="750" r="75" opacity="0" />
+                <image id="rat" href="images/rat.png" x="350" y="675" width="150" height="150" />
+                <g id="obstacleContainer">
+                </g>
+                <rect x="140" y="175" width="135" height="675" fill="#c7c7c7" />
+                <rect x="1475" y="175" width="135" height="675" fill="#c7c7c7" />
+                // Rat Running Minigame End
+                <text x="125" y="255" font-size="175" style="user-select:none;" text-anchor="middle">✨</text>
+                <text x="1650" y="925" font-size="175" style="user-select:none;" text-anchor="middle">🐀</text>
+                <g onclick="window.location.reload(true);">
+                    <rect x="1425" y="25" rx="20" ry="20" width="300" height="80" fill="#f01e2c" stroke="#3f3f3f" stroke-width="10" />
+                    <text x="1575" y="80" fill="#2f2f2f" font-family="Trebuchet MS" font-size="40" font-weight="750" style="user-select:none;" text-anchor="middle">❎ QUIT ❎</text>
+                </g>
+            </svg>
+        </div>
+
+        <script>
+            let currentlyJumping = false, currentlyGrounding = false, jumpInterval, groundInterval;
+            let jumpTime = 0, jumpRotation = 0;
+
+            async function minigameHandler() {
+                let gameGoingOnResolution, gameGoingOnPromise = new Promise(resolve => gameGoingOnResolution = resolve);
+                let obstacleCount = 0, counter = 0, speed = 4;
+                setTimeout(() => {
+                    let instructionOpacity = 1;
+                    let instructionInterval = setInterval(() => {
+                        instructionOpacity -= 0.05;
+                        document.getElementById("instructions").setAttribute("opacity", instructionOpacity);
+                        if (instructionOpacity <= 0)
+                            clearInterval(instructionInterval);
+                    }, 5);
+                }, 5000);
+                let obstacleInterval = setInterval(() => {
+                    counter++;
+                    document.getElementById("speedText").textContent = "Speed: " + Math.round(speed * 10) / 10 + "mph";
+                    // for cacti
+                    for (image of document.getElementsByClassName("cactusImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed);
+                    }
+                    for (hitbox of document.getElementsByClassName("cactusHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("ratHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("ratHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    // for eagles
+                    for (image of document.getElementsByClassName("eagleImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed * 0.8);
+                    }
+                    for (hitbox of document.getElementsByClassName("eagleHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed * 0.8);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("ratHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("ratHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    // for airplanes
+                    for (image of document.getElementsByClassName("airplaneImg")) {
+                        if (image.getAttribute("x") * 1 <= 125)
+                            image.remove();
+                        else
+                            image.setAttribute("x", image.getAttribute("x") * 1 - speed * 2);
+                    }
+                    for (hitbox of document.getElementsByClassName("airplaneHBx")) {
+                        if (hitbox.getAttribute("cx") * 1 <= 200)
+                            hitbox.remove();
+                        else {
+                            hitbox.setAttribute("cx", hitbox.getAttribute("cx") * 1 - speed * 2);
+                            if (((hitbox.getAttribute("cx") * 1 - document.getElementById("ratHitbox").getAttribute("cx") * 1) ** 2 + (hitbox.getAttribute("cy") * 1 - document.getElementById("ratHitbox").getAttribute("cy") * 1) ** 2) ** 0.5 < 150)
+                                gameGoingOnResolution();
+                        }
+                    }
+                    if (counter >= 1000 - 3 * speed) {
+                        obstacleCount++;
+                        speed += 0.1;
+                        counter = 0;
+                        let randomObstacleNumber = Math.random();
+                        if (obstacleCount < 6)
+                            randomObstacleNumber *= 0.6;
+                        if (randomObstacleNumber < 0.6) {
+                            let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newCactus.setAttribute("x", 1450);
+                            newCactus.setAttribute("y", 675);
+                            newCactus.setAttribute("width", 150);
+                            newCactus.setAttribute("height", 150);
+                            newCactus.setAttribute("href", "images/cactus.png");
+                            newCactus.setAttribute("class", "cactusImg");
+                            newCactusHitbox.setAttribute("cx", 1525);
+                            newCactusHitbox.setAttribute("cy", 750);
+                            newCactusHitbox.setAttribute("r", 75);
+                            newCactusHitbox.setAttribute("opacity", 0);
+                            newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newCactus);
+
+                            if (randomObstacleNumber < 0.4) setTimeout(() => {
+                                let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                                let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                                newCactus.setAttribute("x", 1450);
+                                newCactus.setAttribute("y", 675);
+                                newCactus.setAttribute("width", 150);
+                                newCactus.setAttribute("height", 150);
+                                newCactus.setAttribute("href", "images/cactus.png");
+                                newCactus.setAttribute("class", "cactusImg");
+                                newCactusHitbox.setAttribute("cx", 1525);
+                                newCactusHitbox.setAttribute("cy", 750);
+                                newCactusHitbox.setAttribute("r", 75);
+                                newCactusHitbox.setAttribute("opacity", 0);
+                                newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                                document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                                document.getElementById("obstacleContainer").appendChild(newCactus);
+
+                                if (randomObstacleNumber < 0.2) setTimeout(() => {
+                                    let newCactus = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                                    let newCactusHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                                    newCactus.setAttribute("x", 1450);
+                                    newCactus.setAttribute("y", 675);
+                                    newCactus.setAttribute("width", 150);
+                                    newCactus.setAttribute("height", 150);
+                                    newCactus.setAttribute("href", "images/cactus.png");
+                                    newCactus.setAttribute("class", "cactusImg");
+                                    newCactusHitbox.setAttribute("cx", 1525);
+                                    newCactusHitbox.setAttribute("cy", 750);
+                                    newCactusHitbox.setAttribute("r", 75);
+                                    newCactusHitbox.setAttribute("opacity", 0);
+                                    newCactusHitbox.setAttribute("class", "cactusHBx");
+
+                                    document.getElementById("obstacleContainer").appendChild(newCactusHitbox);
+                                    document.getElementById("obstacleContainer").appendChild(newCactus);
+                                }, 700 / speed);
+                            }, 700 / speed);
+
+                            counter = 600; // spawn new item sooner
+                        } else if (randomObstacleNumber < 0.95) {
+                            let newEagle = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newEagleHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newEagle.setAttribute("x", 1450);
+                            newEagle.setAttribute("y", 450);
+                            newEagle.setAttribute("width", 150);
+                            newEagle.setAttribute("height", 150);
+                            newEagle.setAttribute("href", "images/eagle.png");
+                            newEagle.setAttribute("class", "eagleImg");
+                            newEagleHitbox.setAttribute("cx", 1525);
+                            newEagleHitbox.setAttribute("cy", 525);
+                            newEagleHitbox.setAttribute("r", 75);
+                            newEagleHitbox.setAttribute("opacity", 0);
+                            newEagleHitbox.setAttribute("class", "eagleHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newEagleHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newEagle);
+
+                            counter = 750; // spawn new item much faster
+                        } else {
+                            let newAirplane = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                            let newAirplaneHitbox = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            newAirplane.setAttribute("x", 1450);
+                            newAirplane.setAttribute("y", 400);
+                            newAirplane.setAttribute("width", 150);
+                            newAirplane.setAttribute("height", 150);
+                            newAirplane.setAttribute("href", "images/airplane.png");
+                            newAirplane.setAttribute("class", "airplaneImg");
+                            newAirplaneHitbox.setAttribute("cx", 1525);
+                            newAirplaneHitbox.setAttribute("cy", 475);
+                            newAirplaneHitbox.setAttribute("r", 75);
+                            newAirplaneHitbox.setAttribute("opacity", 0);
+                            newAirplaneHitbox.setAttribute("class", "airplaneHBx");
+
+                            document.getElementById("obstacleContainer").appendChild(newAirplaneHitbox);
+                            document.getElementById("obstacleContainer").appendChild(newAirplane);
+
+                            counter = 950; // spawn new item faster
+                        }
+                    }
+                }, 5);
+
+                // If game ends, continue the minigameHandler, which handles the end of the game
+                await gameGoingOnPromise;
+
+                clearInterval(obstacleInterval);
+                clearInterval(groundInterval);
+                clearInterval(jumpInterval);
+                for (child of [...document.getElementById("obstacleContainer").children])
+                    child.remove();
+                currentlyGrounding = true;
+                currentlyJumping = true;
+                document.getElementById("rat").style.transformOrigin = "425px 750px";
+                document.getElementById("rat").style.transform = "rotate(0deg)";
+                document.getElementById("rat").setAttribute("y", 675);
+                document.getElementById("rat").setAttribute("href", "images/gravestone.png");
+                document.getElementById("ratHitbox").setAttribute("cy", 750);
+                document.getElementById("speedText").textContent = "Speed: 0mph - Died to obstacle number " + obstacleCount + ".";
+
+                document.getElementById("deathM1").textContent = "You died!";
+                document.getElementById("deathM2").textContent = "Well darn... Maybe try again?";
+                [...document.getElementById("restartButton").children][1].textContent = "🔄️ Restart 🔄️";
+                for (item of ["deathM1", "deathM2", "restartButton"])
+                    await new Promise(resolve => {
+                        let itemOpacity = 0;
+                        let itemInterval = setInterval(() => {
+                            itemOpacity += 0.05;
+                            document.getElementById(item).setAttribute("opacity", itemOpacity);
+                            if (itemOpacity >= 1) {
+                                setTimeout(() => resolve(), 500);
+                                clearInterval(itemInterval);
+                            }
+                        }, 20);
+                    });
+
+                // wait for user to click restart...
+                let restartResolution, restartPromise = new Promise(resolve => restartResolution = resolve);
+                document.getElementById("restartButton").addEventListener("click", restartResolution);
+                await restartPromise;
+
+                // after user clicks restart, reset all global variables and items
+                document.getElementById("restartButton").removeEventListener("click", restartResolution);
+                currentlyJumping = false, currentlyGrounding = false, jumpInterval, groundInterval;
+                jumpTime = 0, jumpRotation = 0;
+                document.getElementById("rat").setAttribute("href", "images/rat.png");
+                document.getElementById("speedText").textContent = "Speed: 4mph";
+                document.getElementById("deathM1").setAttribute("opacity", 0);
+                document.getElementById("deathM2").setAttribute("opacity", 0);
+                document.getElementById("restartButton").setAttribute("opacity", 0);
+                document.getElementById("deathM1").textContent = "";
+                document.getElementById("deathM2").textContent = "";
+                [...document.getElementById("restartButton").children][1].textContent = "";
+                document.getElementById("instructions").setAttribute("opacity", 1);
+                minigameHandler();
+            }
+
+            window.addEventListener("keydown", event => {
+                if (event.key === "ArrowDown" || event.key === "ArrowUp" || event.key === " ")
+                    event.preventDefault();
+
+                if (currentlyGrounding)
+                    return;
+
+                if ((event.key === "ArrowDown" || event.key === "s") && currentlyJumping) {
+                    currentlyGrounding = true;
+                    clearInterval(jumpInterval);
+                    let count = 1, heightDifference = document.getElementById("rat").getAttribute("y") * 1 - 675;
+                    groundInterval = setInterval(() => {
+                        document.getElementById("rat").style.transformOrigin = "425px " + (document.getElementById("rat").getAttribute("y") * 1 - heightDifference / 50 + 75) + "px";
+                        if (jumpRotation <= 180)
+                            document.getElementById("rat").style.transform = "rotate(" + ((50 - count) / 50 * jumpRotation) + "deg)";
+                        else
+                            document.getElementById("rat").style.transform = "rotate(" + ((50 - count) / 50 * (jumpRotation - 360)) + "deg)";
+                        document.getElementById("rat").setAttribute("y", document.getElementById("rat").getAttribute("y") * 1 - heightDifference / 50);
+                        document.getElementById("ratHitbox").setAttribute("cy", document.getElementById("ratHitbox").getAttribute("cy") * 1 - heightDifference / 50);
+                        count++;
+                        if (count == 50) {
+                            jumpTime = 0, jumpRotation = 0;
+                            document.getElementById("rat").style.transformOrigin = "425px 750px";
+                            document.getElementById("rat").style.transform = "rotate(0deg)";
+                            document.getElementById("rat").setAttribute("y", 675);
+                            document.getElementById("ratHitbox").setAttribute("cy", 750);
+                            currentlyJumping = false;
+                            currentlyGrounding = false;
+                            clearInterval(groundInterval);
+                        }
+                    }, 1);
+                }
+
+                if (currentlyJumping)
+                    return;
+
+                if (event.key === " " || event.key === "w" || event.key === "ArrowUp") {
+                    currentlyJumping = true;
+
+                    jumpTime = 0, jumpRotation = 0;
+                    jumpInterval = setInterval(() => {
+                        document.getElementById("rat").setAttribute("y", (675 + 75 * (jumpTime ** 2) - 300 * jumpTime));
+                        document.getElementById("ratHitbox").setAttribute("cy", (750 + 75 * (jumpTime ** 2) - 300 * jumpTime));
+                        document.getElementById("rat").style.transformOrigin = "425px " + (750 + 75 * (jumpTime ** 2) - 300 * jumpTime) + "px";
+                        document.getElementById("rat").style.transform = "rotate(" + jumpRotation + "deg)";
+                        jumpTime += 0.02;
+                        jumpRotation += 1.8;
+                        if (jumpTime >= 4) {
+                            currentlyJumping = false;
+                            document.getElementById("rat").setAttribute("y", 675);
+                            document.getElementById("ratHitbox").setAttribute("cy", 750);
+                            clearInterval(jumpInterval);
+                        }
+                    }, 7);
+                }
+            });
+        </script>
+        
+	</body>
+</html>

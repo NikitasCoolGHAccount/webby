@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Artifactory</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: auto;
+                overflow-y: scroll;
+                min-height: 100vh;
+                background-attachment: fixed;
+                background-image: linear-gradient(135deg, #4995ef, #1511af);
+            }
+            svg {
+                position: absolute;
+                left: 25%;
+                width: 50%;
+            }
+            p {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                color: #434749;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- About me svg -->
+
+        <svg viewBox="0 0 500 1500">
+            <g class="window" left="0" top="25" width="500" height="300" title="artifactory.bmp - Paint" options="File Edit View Image Options Help" type="paint" href="images/artifactory.png"></g>
+            <g class="window" left="0" top="350" width="225" height="150" title="AboutMe.txt" options="File Edit Search Help" type="text" text="<p><b>Name:</b> Artifactory <br /> <b>Age:</b> Unknown??? <br /> <b>Gender:</b> Unknown??? <br /> <b>Height:</b> ~6'0&quot;</p>"></g>
+            <g class="window" left="250" top="350" width="250" height="200" title="artiology.png" options="File Image Help" type="image" href="images/artiology.png"></g>
+            <g class="window" left="250" top="575" width="250" height="175" title="simpson.png" options="File Image Help" type="image" href="images/artiSimpson.png"></g>
+            <g class="window" left="0" top="525" width="225" height="225" title="Desc.txt" options="File Edit Search Help" type="text" text="<p><b>Description:</b> <br /> Artifactory is a tall he/she/they. A very tall he/she/they. Not as tall as me though. :P Anyways, they're very fun to play and call with, and is a top 10 goober.</p>"></g>
+            <g class="window" left="0" top="775" width="325" height="225" title="ournameisjason.png" options="File Image Help" type="image" href="images/ournameisjason.png"></g>
+            <g class="window" left="350" top="775" width="150" height="225" title="?" options="File Edit ..." type="text" text="<p>SHE'S THE RAINBOW PERSON IN THE IMAGE TYPICALLY HE IS THE ONE DRIPPED IN THE BLUE GAY FLAG!!!</p>"></g>
+            <g class="window" left="0" top="1025" width="450" height="200" title="SpamText1.txt" options="File Edit Search Help" type="text" text="<p>OMG SO LIKE I REMEMBER THIS TIME WHEN ROWAN WAS LIKE BEING THE BIG MEAN IN THIS ROBLOX GAME WE USED TO PLAY SO ME AND ARTI KINDA HAD TO AVENGERS ENDGAME ALL OVER ROWAN BUT THEY STILL WON IN THE END</p>"></g>
+            <g class="window" left="25" top="1050" width="450" height="200" title="SpamText2.txt" options="File Edit Search Help" type="text" text="<p>ARTI IS A HE/SHE/THEY BTW BUT I STILL DON'T KNOW THEIR GENDER :SOB: LIKE FOR A WHILE I THOUGHT IS WAS A HE/HIM UNTIL SHE WAS LIKE &quot;OH YEAH I GO BY ANY/ALL&quot; OR SOMETHING LIKE THAT AND I WAS LIKE WHAAA- BUT I'M STILL TOTALLY CHILL ABOUT IT AND ALWAYS SUPPORTIVE OF A FRIEND, NO MATTER WHAT THEY ARE <3</p>"></g>
+            <g class="window" left="50" top="1075" width="450" height="200" title="SpamText3.txt" options="File Edit Search Help" type="text" text="<p>Hello! Below this text is some spam text. Though, this is alreayd considered spam text. But uhhh- this is Artifactory's page so it will be about them. Just start closing windows and see what you can find! :sparkles:</p>"></g>
+            <g class="window" left="0" top="1300" width="300" height="175" title="AboutMe.txt" options="File Edit Search Help" type="text" text="<p><b>Interests:</b> <br /> Roblox; (Bloxtales and Die of Death), Drawing, Talking with Freinds, and Goofing Off! <b>Minigame:</b> <br /> Goober Quiz!!! ^o^</p>"></g>
+            <g class="window" left="325" top="1300" width="175" height="175" title="gq.txt" options="File Image Help" type="text" text="<p style='font-size:32px;color:green;' onclick=&quot;document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); if (document.getElementById('mgWindow').getAttribute('class') === null) {document.getElementById('mgWindow').setAttribute('class', 'window'); createWindow(document.getElementById('mgWindow'));} else if (gameGoingOn) setTimeout(() => ball.setAttribute('moving', 'true'), 300); else document.getElementById('mgMessage').setAttribute('style', 'display:inline-block;');&quot;></g>PLAY NOW<br /> HERE!!! <br />o(&gt;ω&lt; )o</p>"></g>
+        </svg>
+
+        <!-- Minigame svg -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 600 400">
+                <g id="mgWindow" left="25" top="25" width="550" height="350" title="Running GooberQuiz.exe..." options="File Edit Save Search Quit Help" type="minigame" text=""></g>
+                <g id="mgMessage" left="150" top="100" width="300" height="200" title="PromiseDesc.txt" options="File Edit Search Help" type="text" text="There is no Promise.reject();"></g>
+            </svg>
+        </div>
+
+        <!-- Script -->
+
+        <script id="script">
+            // takes care of windows
+            for (let tab of document.getElementsByClassName("window"))
+                createWindow(tab);
+
+            function createWindow(tab) {
+                // if window is too small, don't make it
+                if (+tab.getAttribute("width") < 50 || +tab.getAttribute("height") < 50)
+                    return;
+
+                // create main
+                let main = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                main.setAttribute("x", tab.getAttribute("left"));
+                main.setAttribute("y", tab.getAttribute("top"));
+                main.setAttribute("rx", 1.5);
+                main.setAttribute("ry", 1.5);
+                main.setAttribute("width", tab.getAttribute("width"));
+                main.setAttribute("height", tab.getAttribute("height"));
+                main.setAttribute("fill", "#c3c7c9");
+                main.setAttribute("stroke", "#434749");
+                main.setAttribute("stroke-width", 1);
+
+                // create windowbar
+                let windowbar = document.createElementNS("http://www.w3.org/2000/svg", "rect"), windowbarColorScale = Math.random();
+                windowbar.setAttribute("x", +tab.getAttribute("left") + 5);
+                windowbar.setAttribute("y", +tab.getAttribute("top") + 5);
+                windowbar.setAttribute("rx", 1.5);
+                windowbar.setAttribute("ry", 1.5);
+                windowbar.setAttribute("width", +tab.getAttribute("width") - 10);
+                windowbar.setAttribute("height", 25);
+                windowbar.setAttribute("stroke", "#434749");
+                windowbar.setAttribute("stroke-width", 1);
+                windowbar.setAttribute("fill", "rgb(" + Math.floor(windowbarColorScale * 53 + 71) + ", " + Math.floor(windowbarColorScale * 133 + 67) + ", " + Math.floor(windowbarColorScale * 46 + 210) + ")");
+
+                // create X
+                let x = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let xBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                xBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 32.5);
+                xBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                xBound.setAttribute("rx", 1.5);
+                xBound.setAttribute("ry", 1.5);
+                xBound.setAttribute("width", 25);
+                xBound.setAttribute("height", 20);
+                xBound.setAttribute("stroke", "#434749");
+                xBound.setAttribute("stroke-width", 1);
+                xBound.setAttribute("fill", "#c3c7c9");
+                let xLine1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine1.setAttribute("x1", +xBound.getAttribute("x") + 5);
+                xLine1.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine1.setAttribute("x2", +xBound.getAttribute("x") + 20);
+                xLine1.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine1.setAttribute("stroke", "#434749");
+                xLine1.setAttribute("stroke-width", 3);
+                let xLine2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine2.setAttribute("x1", +xBound.getAttribute("x") + 20);
+                xLine2.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine2.setAttribute("x2", +xBound.getAttribute("x") + 5);
+                xLine2.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine2.setAttribute("stroke", "#434749");
+                xLine2.setAttribute("stroke-width", 3);
+                x.append(xBound);
+                x.append(xLine1);
+                x.append(xLine2);
+
+                // create Square
+                let s = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let sBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 60);
+                sBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                sBound.setAttribute("rx", 1.5);
+                sBound.setAttribute("ry", 1.5);
+                sBound.setAttribute("width", 25);
+                sBound.setAttribute("height", 20);
+                sBound.setAttribute("stroke", "#434749");
+                sBound.setAttribute("stroke-width", 1);
+                sBound.setAttribute("fill", "#c3c7c9");
+                let sSquare1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare1.setAttribute("x", +sBound.getAttribute("x") + 5);
+                sSquare1.setAttribute("y", +sBound.getAttribute("y") + 4);
+                sSquare1.setAttribute("width", +sBound.getAttribute("width") - 10);
+                sSquare1.setAttribute("height", +sBound.getAttribute("height") - 8);
+                sSquare1.setAttribute("fill", "#434749");
+                let sSquare2 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare2.setAttribute("x", +sBound.getAttribute("x") + 6);
+                sSquare2.setAttribute("y", +sBound.getAttribute("y") + 7);
+                sSquare2.setAttribute("width", +sBound.getAttribute("width") - 12);
+                sSquare2.setAttribute("height", +sBound.getAttribute("height") - 12);
+                sSquare2.setAttribute("fill", "#c3c7c9");
+                s.append(sBound);
+                s.append(sSquare1);
+                s.append(sSquare2);
+
+                // create Minus
+                let m = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let mBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                mBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 87.5);
+                mBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                mBound.setAttribute("rx", 1.5);
+                mBound.setAttribute("ry", 1.5);
+                mBound.setAttribute("width", 25);
+                mBound.setAttribute("height", 20);
+                mBound.setAttribute("stroke", "#434749");
+                mBound.setAttribute("stroke-width", 1);
+                mBound.setAttribute("fill", "#c3c7c9");
+                let mLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                mLine.setAttribute("x1", +mBound.getAttribute("x") + 5);
+                mLine.setAttribute("y1", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("x2", +mBound.getAttribute("x") + 20);
+                mLine.setAttribute("y2", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("stroke", "#434749");
+                mLine.setAttribute("stroke-width", 3);
+                m.append(mBound);
+                m.append(mLine);
+
+                // create barText
+                let barText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                barText.setAttribute("x", +tab.getAttribute("left") + 15);
+                barText.setAttribute("y", +tab.getAttribute("top") + 22.5);
+                barText.setAttribute("font-family", "Courier New");
+                barText.setAttribute("font-size", 16);
+                barText.setAttribute("font-width", 500);
+                barText.setAttribute("fill", "#434749");
+                barText.setAttribute("stroke", "#434749");
+                barText.setAttribute("stroke-width", 1);
+                barText.textContent = tab.getAttribute("title");
+
+                // create options texts
+                let options = document.createElementNS("http://www.w3.org/2000/svg", "g"), optionsArray = tab.getAttribute("options").split(" ");
+                tab.prepend(options);
+                for (let i = 0; i < optionsArray.length; i++) {
+                    let optionText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    let optionTextX = +tab.getAttribute("left") + 10;
+                    for (let option of options.children)
+                        optionTextX += option.getBBox().width + 10;
+                    optionText.setAttribute("x", optionTextX);
+                    optionText.setAttribute("y", +tab.getAttribute("top") + 43);
+                    optionText.setAttribute("font-family", "Courier New");
+                    optionText.setAttribute("font-size", 10);
+                    optionText.setAttribute("font-width", 500);
+                    optionText.setAttribute("fill", "#434749");
+                    optionText.setAttribute("stroke", "#434749");
+                    optionText.setAttribute("stroke-width", 0.05);
+                    optionText.setAttribute("text-decoration", "underline");
+                    optionText.textContent = optionsArray[i];
+                    options.append(optionText);
+                }
+
+                // what to put in the main area
+                switch (tab.getAttribute("type")) {
+                    case "text":
+                        // make text box
+                        let textBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        textBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        textBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        textBox.setAttribute("rx", 1.5);
+                        textBox.setAttribute("ry", 1.5);
+                        textBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        textBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        textBox.setAttribute("stroke", "#434749");
+                        textBox.setAttribute("stroke-width", 1);
+                        textBox.setAttribute("fill", "#f3f7f9");
+
+                        // make foreign object with said text
+                        let tbText = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+                        tbText.setAttribute("x", +tab.getAttribute("left") + 10);
+                        tbText.setAttribute("y", +tab.getAttribute("top") + 55);
+                        tbText.setAttribute("width", +tab.getAttribute("width") - 20);
+                        tbText.setAttribute("height", +tab.getAttribute("height") - 65);
+                        tbText.innerHTML = tab.getAttribute("text");
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(tbText);
+                        tab.prepend(textBox);
+                        break;
+                    case "paint":
+                        // make paint box
+                        let paintBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        paintBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        paintBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        paintBox.setAttribute("rx", 1.5);
+                        paintBox.setAttribute("ry", 1.5);
+                        paintBox.setAttribute("width", 0.2 * +tab.getAttribute("width") - 2);
+                        paintBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        paintBox.setAttribute("stroke", "#434749");
+                        paintBox.setAttribute("stroke-width", 1);
+                        paintBox.setAttribute("fill", "#f3f7f9");
+
+                        // make paint squares
+                        for (let i = 0; i < 2; i++)
+                            for (let j = 0; j < 4; j++) {
+                                let paintSquare = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                                paintSquare.setAttribute("x", +paintBox.getAttribute("x") + (i * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("y", +paintBox.getAttribute("y") + (j * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("rx", 1.5);
+                                paintSquare.setAttribute("ry", 1.5);
+                                paintSquare.setAttribute("width", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("height", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("stroke", "#434749");
+                                paintSquare.setAttribute("stroke-width", 1);
+                                paintSquare.setAttribute("fill", "hsl(" + 40 * (i + j * 2) + "deg, 50%, 50%)");
+                                tab.prepend(paintSquare);
+                            }
+
+                        // make main box
+                        let mainBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mainBox.setAttribute("x", +tab.getAttribute("left") + 0.2 * +tab.getAttribute("width") + 8);
+                        mainBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        mainBox.setAttribute("rx", 1.5);
+                        mainBox.setAttribute("ry", 1.5);
+                        mainBox.setAttribute("width", 0.8 * +tab.getAttribute("width") - 13);
+                        mainBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        mainBox.setAttribute("stroke", "#434749");
+                        mainBox.setAttribute("stroke-width", 1);
+                        mainBox.setAttribute("fill", "#f3f7f9");
+
+                        let painting = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        painting.setAttribute("x", +mainBox.getAttribute("x") + 20);
+                        painting.setAttribute("y", +mainBox.getAttribute("y") + 20);
+                        painting.setAttribute("width", +mainBox.getAttribute("width") - 40);
+                        painting.setAttribute("height", +mainBox.getAttribute("height") - 40);
+                        painting.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(painting);
+                        tab.prepend(mainBox);
+                        tab.prepend(paintBox);
+                        break;
+                    case "image":
+                        // make imgae box
+                        let imageBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        imageBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        imageBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        imageBox.setAttribute("rx", 1.5);
+                        imageBox.setAttribute("ry", 1.5);
+                        imageBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        imageBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        imageBox.setAttribute("stroke", "#434749");
+                        imageBox.setAttribute("stroke-width", 1);
+                        imageBox.setAttribute("fill", "#f3f7f9");
+
+                        // make the image
+                        let image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        image.setAttribute("x", +tab.getAttribute("left") + 10);
+                        image.setAttribute("y", +tab.getAttribute("top") + 55);
+                        image.setAttribute("width", +tab.getAttribute("width") - 20);
+                        image.setAttribute("height", +tab.getAttribute("height") - 65);
+                        image.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(image);
+                        tab.prepend(imageBox);
+                        break;
+                    case "minigame":
+                        // make minigame box
+                        let mgBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mgBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        mgBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        mgBox.setAttribute("rx", 1.5);
+                        mgBox.setAttribute("ry", 1.5);
+                        mgBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        mgBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        mgBox.setAttribute("stroke", "#434749");
+                        mgBox.setAttribute("stroke-width", 1);
+                        mgBox.setAttribute("fill", "#f3f7f9");
+                        mgBox.setAttribute("id", "gameArea");
+                        tab.prepend(mgBox);
+
+                        // make foreign object with said text
+                        let mgFO = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+                        mgFO.setAttribute("x", +mgBox.getAttribute("x") + 15);
+                        mgFO.setAttribute("y", +mgBox.getAttribute("y") + 15);
+                        mgFO.setAttribute("width", +mgBox.getAttribute("width") - 30);
+                        mgFO.setAttribute("height", +mgBox.getAttribute("height") - 30);
+                        
+                        // add stuff
+                        tab.prepend(mgFO);
+                        tab.prepend(mgBox);
+
+                        // internal minigameHandler
+                        minigameHandler();
+                        async function minigameHandler() {
+                            // questions class
+                            class GooberQuestion {
+                                // variables
+                                question = "";
+                                responses = ["", "", "", "", ""];
+                                rScores = [0, 0, 0, 0, 0];
+
+                                // class constructor
+                                constructor(question, responses, rScores) {
+                                    this.question = question;
+                                    this.responses = responses;
+                                    this.rScores = rScores;
+                                }
+
+                                // uses tpedHandler to make text
+                                async handleQuestion() {
+                                    await new Promise(resolve => typedHandler(this.question, resolve)); 
+                                    document.getElementById("mgText").innerHTML += "<br />";
+                                    let questionResolution, questionPromise = new Promise(resolve => questionResolution = resolve);
+                                    setTimeout(() => document.getElementById("mgText").innerHTML += "<br /><span style='font-size:24px;' id='r0'><b>A.</b>" + this.responses[0] + "</span>", 100); 
+                                    setTimeout(() => document.getElementById("mgText").innerHTML += "<br /><span style='font-size:24px;' id='r1'><b>B.</b>" + this.responses[1] + "</span>", 200);
+                                    setTimeout(() => document.getElementById("mgText").innerHTML += "<br /><span style='font-size:24px;' id='r2'><b>C.</b>" + this.responses[2] + "</span>", 300);
+                                    setTimeout(() => document.getElementById("mgText").innerHTML += "<br /><span style='font-size:24px;' id='r3'><b>D.</b>" + this.responses[3] + "</span>", 400);
+                                    setTimeout(() => document.getElementById("mgText").innerHTML += "<br /><span style='font-size:24px;' id='r4'><b>E.</b>" + this.responses[4] + "</span>", 500);
+                                    for (let idIterable = 0; idIterable < 5; idIterable++)
+                                        setTimeout(() => document.getElementById("r" + idIterable).addEventListener("click", () => {questionResolution(); gooberness += this.rScores[idIterable];}), 500);
+                                    return questionPromise;
+                                }
+                            }
+
+                            // set up variables needed and text
+                            mgFO.innerHTML = "<p style='font-size:20px; user-select:none;' id='mgText'></p>";
+                            let gooberness = 0;
+                            let mgqs = [new GooberQuestion("How many times should you brush your teeth each day?", ["-1", "0", "1", "2", "3"], [10, 0, 3, 7, 10]),
+                                        new GooberQuestion("What's one plus one?", ["1", "2", "21", "idk","Ask a calculator-"], [2, 5, 8, 10, 9]),
+                                        new GooberQuestion("How long will you live for?", ["50 years", "80 years", "100 years", "15.678 ± ∫(14ⅹ)ⅾⅹ years", "forever"], [1, 5, 5, 8, 10]),
+                                        new GooberQuestion("mmmmmmmm... donut (yes or no?)", ["Yes", "No", "Maybe", "Perhaps", "Weedeater"], [3, 3, 5, 7, 10]),
+                                        new GooberQuestion("Mama Mia- Papa pia- baby's got the- ", ["poopies :(", "the-- MY WALLET??", "DIARRHEA!", "rizz", "uhhhhhh"], [6, 10, 9, 9, 9]),
+                                        new GooberQuestion("Ipx nboz sbut bsf jo b sbu qjf?", ["Uhm- what?", "Tfwfo sbut", "6-7 rats, give or take", "Hello, 911?", ":3????"], [3, 8, 10, 1, 0]),
+                                        new GooberQuestion("Save file as .pdf?", ["Yes", "No", "Save is as a png!", "ain't that jeffy eptein???", "Portable Document Format my A**."], [3, 3, 10, 8, 10]),
+                                        new GooberQuestion("What did I do wrong?", ["Please", "give", "me", "an", "answer."], [0, 0, 0, 0, 0]),
+                                        new GooberQuestion("What's the best cute face?", [":3", "ヾ(≧▽≦*)o", "(┬┬﹏┬┬)", "o((>ω< ))o", "🥺"], [10, 10, 10, 10, 0]),
+                                        new GooberQuestion("CHAT AM I COOKED?", ["probs", "no", "Ben?", "chat let's be so fr rn", "THEY'RE JUMPING ME-"], [4, 1, 10, 5, 8]),
+                                        new GooberQuestion("How do I spell 'gamer'?", ["R-A-T", "G-A-M-E-R", "S-N-A-C-K-- snack? NO SNACK- snack? NO SNACK-", "you think i can spell?", "ur mom"], [7, 5, 10, 10, 0]),
+                                        new GooberQuestion("Free space!", ["oh fr?", "Really?", "Neat!", "swank", "YOU LAZY FU-"], [10, 10, 10, 10, 10]),
+                                        new GooberQuestion("Ar ar ar ar?", ["ar ar ar-", "beanz", "FREDDY FAZBEAR!!", "why is baby in the fnaf 2 mogie", "Live, Laugh, Leddy Lazbear"], [1, 8, 7, 3, 10]),
+                                        new GooberQuestion("How do you get rid of artist block?", ["good question", "estrogen", "GET OU-", "[+PARRY] it", "Do you wanna know WHO ELSE needs to get rid of artist block?"], [5, 10, 3, 10, 0]),
+                                        new GooberQuestion("Row, row, row your", ["Boat", "T-rex", "Junkers F-13", "Googooga :o", "WARSHIP"], [7, 10, 10, 10, 8]),
+                                        new GooberQuestion("He found me. He told me to not cry. He told me it wasn't my fault. Is he correct...?", ["Just break", "this silence", "and please", "don't leave", "me ghosted."], [0, 0, 0, 0, 0]),
+                                        new GooberQuestion("I WANT TO BE FREE!", ["freedom motif!?", "Free.99?", "Nothing in life is free", "!EERF EB OT TNAW I", "reeheehee"], [10, 1, 0, 3, 6]),
+                                        new GooberQuestion("To get full credit, answer 'B'.", ["🐝", "C", "B", "₿", "🅱️"], [10, 10, 10, 10, 10]),
+                                        new GooberQuestion("What's the derivative of 10ⅹ?", ["Do I look like a nerd to you?", "10", "5ⅹ²", "Nunya", "deez"], [3, 10, 0, 7, 8]),
+                                        new GooberQuestion("Want a break from the ads?", ["Truly a goober statement.", "Yeah", "Nah", "I wanna break from THIS STUPID-", "Mayhaps"], [5, 3, 3, 7, 10]),
+                                        new GooberQuestion("What isn't 9 + 10?", ["19", "21", "-10", "okay bud", "What's one plus one?"], [1, 1, 1, 8, 10]),
+                                        new GooberQuestion("Are you TRULY a goober?", ["Yes", "No", "heed", "goobertastic", "Yeshaps"], [10, 0, 0, 10, 10]),
+                                        new GooberQuestion("Tell me. Did they cry? Why did they pull the strings this way? To shut me off. Did they lie? They're hurt, aren't they? But did you have to follow through?", ["YOU", "MUST", "COMFORT", "THEM.", ""], [0, 0, 0, 0, 0])];
+
+                            // wait a second for player to get in
+                            await new Promise(resolve => setTimeout(resolve, 1000));
+
+                            // main question asker
+                            for (let gq of mgqs) {
+                                await gq.handleQuestion();
+                                switch (mgqs.indexOf(gq)) {
+                                    case 7:
+                                        mgText.innerHTML = "";
+                                        await new Promise(resolve => typedHandler("Please, answer the question. Don't ignore me. I still am here. Just like I told to Sirius, I will stick around.", resolve));
+                                        await new Promise(resolve => setTimeout(resolve, 5000));
+                                        break;
+                                    case 15:
+                                        mgText.innerHTML = "";
+                                        createWindow(document.getElementById("mgMessage"));
+                                        await new Promise(resolve => typedHandler("You must answer the question. Stop ignoring me. I never left. I made a promise I won't be going anywhere.", resolve));
+                                        await new Promise(resolve => setTimeout(resolve, 7500));
+                                        break;
+                                    case 22:
+                                        alert("I know you can see this. I know you know who I'm talking to. Just please, message me back. If he was right, then clearly something went wrong.");
+                                        break;
+                                    default:
+                                }
+                                mgText.innerHTML = "";
+                            }
+                            
+                            // congratulations screen
+                            let finalText = "Congratulations!! You are", faceState = false;
+                            if (gooberness > 140)
+                                finalText += " totally a goober! :D";
+                            else if (gooberness > 90)
+                                finalText += " probably a goober! :)";
+                            else
+                                finalText += " not a goober. :(";
+                            await new Promise(resolve => typedHandler(finalText, resolve));
+                            mgText.innerHTML += "<br /><br />\\((>ω< ))o ";
+                            setInterval(() => {
+                                if (faceState)
+                                    mgText.innerHTML = mgText.innerHTML.substring(0, mgText.innerHTML.length - 17) + "\\((>ω< ))o ";
+                                else
+                                    mgText.innerHTML = mgText.innerHTML.substring(0, mgText.innerHTML.length - 17) + " o(( >ω<))/";
+                                faceState = !faceState;
+                            }, 200);
+
+                            // handles typed items
+                            function typedHandler(text, resolution) {
+                                let atypedIterable = 0;
+                                let atypedInterval = setInterval(() => {
+                                    if (atypedIterable === text.length) {
+                                        clearInterval(atypedInterval);
+                                        resolution();
+                                    } else {
+                                        document.getElementById("mgText").innerHTML += text.substring(atypedIterable, atypedIterable + 1);
+                                        atypedIterable++;
+                                    }
+                                }, 25);
+                            }
+                        }
+                        
+                        // make sure minigame is exitable and works
+                        m.addEventListener("click", exitGame);
+                        x.addEventListener("click", exitGame);
+                        function exitGame() {
+                            document.getElementById('minigameDIV').setAttribute('style', 'display:none;');
+                            ball.setAttribute("moving", false);
+                        }
+                        break;
+                }
+
+                // add stuff
+                tab.prepend(barText);
+                tab.prepend(m);
+                tab.prepend(s);
+                tab.prepend(x);
+                tab.prepend(windowbar);
+                tab.prepend(main);
+            }
+        </script>
+        
+	</body>
+</html>

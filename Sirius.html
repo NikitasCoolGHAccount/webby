@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>✨ ncs ✨ - Sirius</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: auto;
+                overflow-y: scroll;
+                min-height: 100vh;
+                background-attachment: fixed;
+                background-image: linear-gradient(135deg, #dcf5ee, #84eab3);
+            }
+            svg {
+                position: absolute;
+                left: 25%;
+                width: 50%;
+            }
+            p {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                color: #434749;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            #minigameSVG {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                display: block;
+                margin: 0;
+            }
+            #minigameDIV {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+        </style>
+	</head>
+	<body id="body">
+
+        <!-- About me svg -->
+
+        <svg viewBox="0 0 500 1500">
+            <g class="window" left="0" top="25" width="500" height="300" title="sirius.bmp - Paint" options="File Edit View Image Options Help" type="paint" href="images/sirius.png"></g>
+            <g class="window" left="0" top="350" width="300" height="175" title="AboutMe.txt" options="File Edit Search Help" type="text" text="<p><b>Name:</b> Sirius <br /> <b>Age:</b> Unknown??? <br /> <b>Gender:</b> Unknown??? <br /> <b>Height:</b> Taller than Rowan! :P</p>"></g>
+            <g class="window" left="325" top="350" width="175" height="175" title="x.jpg" options="File Image Help" type="image" href="images/babySirius.jpg"></g>
+            <g class="window" left="200" top="550" width="300" height="175" title="Description.txt" options="File Edit Search Help" type="text" text="<p><b>Description:</b> <br /> A good friend of mine who loves to <span style='color:blue;' onclick=&quot;document.getElementById('gossipWindow').setAttribute('style', 'display:inline-block;');&quot;>gossip</span> a BIT too much. Quite fun to hang out and spend time with!</p>"></g>
+            <g class="window" left="0" top="550" width="175" height="175" title="L.png" options="File Image Help" type="image" href="images/siriusmeetsirius.png"></g>
+            <g class="window" left="150" top="750" width="350" height="200" title="untitled - Paint" options="File Edit View Image Options Help" type="paint" href="images/seriously.png"></g>
+            <g class="window" left="0" top="750" width="125" height="200" title="?" options="File Edit ..." type="text" text="<p>INOB😦<br />IOOB🥺<br />IDWTBSBL😭<br /><br />PFFFFFFTTTTTTT HAHAHAHAHAH</p>"></g>
+            <g class="window" left="50" top="512.5" width="400" height="250" title="Gossip.txt" options="File Edit Search Help" type="text" text="<p>I guess it's my turn to gossip. <br /> After you all ghosted me, I certainly did cry a bit. Thanks for that btw. However, past transgressions aside, what did they tell you for you to so openly shut me out? Did they lie? Did they cry? Probably... I still blame myself, despite him telling me to blame you. I'm sure we can talk this out- so please, don't hold youself from me.</p>" id="gossipWindow"></g>
+            <g class="window" left="0" top="975" width="500" height="300" title="ournameisjason.png" options="File Image Help" type="image" href="images/ournameisjason.png"></g>
+            <g class="window" left="0" top="1300" width="300" height="175" title="AboutMe.txt" options="File Edit Search Help" type="text" text="<p><b>Interests:</b> <br /> Gossiping, Roblox, Randomly Contacting Friends, Being a Goof, and Having No Gender. <b>Minigame:</b> <br /> Breakout!! :D</p>"></g>
+            <g class="window" left="325" top="1300" width="175" height="175" title="mg.txt" options="File Image Help" type="text" text="<p style='font-size:32px;color:green;' onclick=&quot;document.getElementById('minigameDIV').setAttribute('style', 'display:inline-block;'); if (document.getElementById('mgWindow').getAttribute('class') === null) {document.getElementById('mgWindow').setAttribute('class', 'window'); createWindow(document.getElementById('mgWindow'));} else if (gameGoingOn) setTimeout(() => ball.setAttribute('moving', 'true'), 300); else document.getElementById('mgMessage').setAttribute('style', 'display:inline-block;');&quot;></g>PLAY <br /> NOW!!! <br /> (≧∀≦)/</p>"></g>
+        </svg>
+
+        <!-- Minigame svg -->
+
+        <div id="minigameDIV">
+            <svg id="minigameSVG" viewBox="0 0 600 400">
+                <g id="mgWindow" left="25" top="25" width="550" height="350" title="Running Breakout.exe..." options="File Edit Save Search Quit Help" type="minigame" text=""></g>
+                <g id="mgMessage" left="150" top="100" width="300" height="200" title="EndGame.txt" options="File Edit Search Help" type="text" text="Congrats!! You won! ヾ(≧▽≦*)o"></g>
+            </svg>
+        </div>
+
+        <!-- Script -->
+
+        <script id="script">
+            // takes care of windows
+            for (let tab of document.getElementsByClassName("window"))
+                createWindow(tab);
+            document.getElementById("gossipWindow").setAttribute("style", "display:none;");
+
+            function createWindow(tab) {
+                // if window is too small, don't make it
+                if (+tab.getAttribute("width") < 50 || +tab.getAttribute("height") < 50)
+                    return;
+
+                // create main
+                let main = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                main.setAttribute("x", tab.getAttribute("left"));
+                main.setAttribute("y", tab.getAttribute("top"));
+                main.setAttribute("rx", 1.5);
+                main.setAttribute("ry", 1.5);
+                main.setAttribute("width", tab.getAttribute("width"));
+                main.setAttribute("height", tab.getAttribute("height"));
+                main.setAttribute("fill", "#c3c7c9");
+                main.setAttribute("stroke", "#434749");
+                main.setAttribute("stroke-width", 1);
+
+                // create windowbar
+                let windowbar = document.createElementNS("http://www.w3.org/2000/svg", "rect"), windowbarColorScale = Math.random();
+                windowbar.setAttribute("x", +tab.getAttribute("left") + 5);
+                windowbar.setAttribute("y", +tab.getAttribute("top") + 5);
+                windowbar.setAttribute("rx", 1.5);
+                windowbar.setAttribute("ry", 1.5);
+                windowbar.setAttribute("width", +tab.getAttribute("width") - 10);
+                windowbar.setAttribute("height", 25);
+                windowbar.setAttribute("stroke", "#434749");
+                windowbar.setAttribute("stroke-width", 1);
+                windowbar.setAttribute("fill", "rgb(" + Math.floor(windowbarColorScale * 89 + 132) + ", " + Math.floor(windowbarColorScale * 12 + 234) + ", " + Math.floor(windowbarColorScale * 60 + 179) + ")");
+
+                // create X
+                let x = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let xBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                xBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 32.5);
+                xBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                xBound.setAttribute("rx", 1.5);
+                xBound.setAttribute("ry", 1.5);
+                xBound.setAttribute("width", 25);
+                xBound.setAttribute("height", 20);
+                xBound.setAttribute("stroke", "#434749");
+                xBound.setAttribute("stroke-width", 1);
+                xBound.setAttribute("fill", "#c3c7c9");
+                let xLine1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine1.setAttribute("x1", +xBound.getAttribute("x") + 5);
+                xLine1.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine1.setAttribute("x2", +xBound.getAttribute("x") + 20);
+                xLine1.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine1.setAttribute("stroke", "#434749");
+                xLine1.setAttribute("stroke-width", 3);
+                let xLine2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                xLine2.setAttribute("x1", +xBound.getAttribute("x") + 20);
+                xLine2.setAttribute("y1", +xBound.getAttribute("y") + 5);
+                xLine2.setAttribute("x2", +xBound.getAttribute("x") + 5);
+                xLine2.setAttribute("y2", +xBound.getAttribute("y") + 15);
+                xLine2.setAttribute("stroke", "#434749");
+                xLine2.setAttribute("stroke-width", 3);
+                x.append(xBound);
+                x.append(xLine1);
+                x.append(xLine2);
+
+                // create Square
+                let s = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let sBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 60);
+                sBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                sBound.setAttribute("rx", 1.5);
+                sBound.setAttribute("ry", 1.5);
+                sBound.setAttribute("width", 25);
+                sBound.setAttribute("height", 20);
+                sBound.setAttribute("stroke", "#434749");
+                sBound.setAttribute("stroke-width", 1);
+                sBound.setAttribute("fill", "#c3c7c9");
+                let sSquare1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare1.setAttribute("x", +sBound.getAttribute("x") + 5);
+                sSquare1.setAttribute("y", +sBound.getAttribute("y") + 4);
+                sSquare1.setAttribute("width", +sBound.getAttribute("width") - 10);
+                sSquare1.setAttribute("height", +sBound.getAttribute("height") - 8);
+                sSquare1.setAttribute("fill", "#434749");
+                let sSquare2 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                sSquare2.setAttribute("x", +sBound.getAttribute("x") + 6);
+                sSquare2.setAttribute("y", +sBound.getAttribute("y") + 7);
+                sSquare2.setAttribute("width", +sBound.getAttribute("width") - 12);
+                sSquare2.setAttribute("height", +sBound.getAttribute("height") - 12);
+                sSquare2.setAttribute("fill", "#c3c7c9");
+                s.append(sBound);
+                s.append(sSquare1);
+                s.append(sSquare2);
+
+                // create Minus
+                let m = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                let mBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                mBound.setAttribute("x", +tab.getAttribute("left") + +tab.getAttribute("width") - 87.5);
+                mBound.setAttribute("y", +tab.getAttribute("top") + 7.5);
+                mBound.setAttribute("rx", 1.5);
+                mBound.setAttribute("ry", 1.5);
+                mBound.setAttribute("width", 25);
+                mBound.setAttribute("height", 20);
+                mBound.setAttribute("stroke", "#434749");
+                mBound.setAttribute("stroke-width", 1);
+                mBound.setAttribute("fill", "#c3c7c9");
+                let mLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                mLine.setAttribute("x1", +mBound.getAttribute("x") + 5);
+                mLine.setAttribute("y1", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("x2", +mBound.getAttribute("x") + 20);
+                mLine.setAttribute("y2", +mBound.getAttribute("y") + +mBound.getAttribute("height") / 2);
+                mLine.setAttribute("stroke", "#434749");
+                mLine.setAttribute("stroke-width", 3);
+                m.append(mBound);
+                m.append(mLine);
+
+                // create barText
+                let barText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                barText.setAttribute("x", +tab.getAttribute("left") + 15);
+                barText.setAttribute("y", +tab.getAttribute("top") + 22.5);
+                barText.setAttribute("font-family", "Courier New");
+                barText.setAttribute("font-size", 16);
+                barText.setAttribute("font-width", 500);
+                barText.setAttribute("fill", "#434749");
+                barText.setAttribute("stroke", "#434749");
+                barText.setAttribute("stroke-width", 1);
+                barText.textContent = tab.getAttribute("title");
+
+                // create options texts
+                let options = document.createElementNS("http://www.w3.org/2000/svg", "g"), optionsArray = tab.getAttribute("options").split(" ");
+                tab.prepend(options);
+                for (let i = 0; i < optionsArray.length; i++) {
+                    let optionText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    let optionTextX = +tab.getAttribute("left") + 10;
+                    for (let option of options.children)
+                        optionTextX += option.getBBox().width + 10;
+                    optionText.setAttribute("x", optionTextX);
+                    optionText.setAttribute("y", +tab.getAttribute("top") + 43);
+                    optionText.setAttribute("font-family", "Courier New");
+                    optionText.setAttribute("font-size", 10);
+                    optionText.setAttribute("font-width", 500);
+                    optionText.setAttribute("fill", "#434749");
+                    optionText.setAttribute("stroke", "#434749");
+                    optionText.setAttribute("stroke-width", 0.05);
+                    optionText.setAttribute("text-decoration", "underline");
+                    optionText.textContent = optionsArray[i];
+                    options.append(optionText);
+                }
+
+                // what to put in the main area
+                switch (tab.getAttribute("type")) {
+                    case "text":
+                        // make text box
+                        let textBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        textBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        textBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        textBox.setAttribute("rx", 1.5);
+                        textBox.setAttribute("ry", 1.5);
+                        textBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        textBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        textBox.setAttribute("stroke", "#434749");
+                        textBox.setAttribute("stroke-width", 1);
+                        textBox.setAttribute("fill", "#f3f7f9");
+
+                        // make foreign object with said text
+                        let tbText = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+                        tbText.setAttribute("x", +tab.getAttribute("left") + 10);
+                        tbText.setAttribute("y", +tab.getAttribute("top") + 55);
+                        tbText.setAttribute("width", +tab.getAttribute("width") - 20);
+                        tbText.setAttribute("height", +tab.getAttribute("height") - 65);
+                        tbText.innerHTML = tab.getAttribute("text");
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(tbText);
+                        tab.prepend(textBox);
+                        break;
+                    case "paint":
+                        // make paint box
+                        let paintBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        paintBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        paintBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        paintBox.setAttribute("rx", 1.5);
+                        paintBox.setAttribute("ry", 1.5);
+                        paintBox.setAttribute("width", 0.2 * +tab.getAttribute("width") - 2);
+                        paintBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        paintBox.setAttribute("stroke", "#434749");
+                        paintBox.setAttribute("stroke-width", 1);
+                        paintBox.setAttribute("fill", "#f3f7f9");
+
+                        // make paint squares
+                        for (let i = 0; i < 2; i++)
+                            for (let j = 0; j < 4; j++) {
+                                let paintSquare = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                                paintSquare.setAttribute("x", +paintBox.getAttribute("x") + (i * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("y", +paintBox.getAttribute("y") + (j * 4 + 1) * (0.11111 * +paintBox.getAttribute("width")));
+                                paintSquare.setAttribute("rx", 1.5);
+                                paintSquare.setAttribute("ry", 1.5);
+                                paintSquare.setAttribute("width", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("height", 0.33333 * +paintBox.getAttribute("width"));
+                                paintSquare.setAttribute("stroke", "#434749");
+                                paintSquare.setAttribute("stroke-width", 1);
+                                paintSquare.setAttribute("fill", "hsl(" + 40 * (i + j * 2) + "deg, 50%, 50%)");
+                                tab.prepend(paintSquare);
+                            }
+
+                        // make main box
+                        let mainBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mainBox.setAttribute("x", +tab.getAttribute("left") + 0.2 * +tab.getAttribute("width") + 8);
+                        mainBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        mainBox.setAttribute("rx", 1.5);
+                        mainBox.setAttribute("ry", 1.5);
+                        mainBox.setAttribute("width", 0.8 * +tab.getAttribute("width") - 13);
+                        mainBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        mainBox.setAttribute("stroke", "#434749");
+                        mainBox.setAttribute("stroke-width", 1);
+                        mainBox.setAttribute("fill", "#f3f7f9");
+
+                        let painting = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        painting.setAttribute("x", +mainBox.getAttribute("x") + 20);
+                        painting.setAttribute("y", +mainBox.getAttribute("y") + 20);
+                        painting.setAttribute("width", +mainBox.getAttribute("width") - 40);
+                        painting.setAttribute("height", +mainBox.getAttribute("height") - 40);
+                        painting.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(painting);
+                        tab.prepend(mainBox);
+                        tab.prepend(paintBox);
+                        break;
+                    case "image":
+                        // make imgae box
+                        let imageBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        imageBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        imageBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        imageBox.setAttribute("rx", 1.5);
+                        imageBox.setAttribute("ry", 1.5);
+                        imageBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        imageBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        imageBox.setAttribute("stroke", "#434749");
+                        imageBox.setAttribute("stroke-width", 1);
+                        imageBox.setAttribute("fill", "#f3f7f9");
+
+                        // make the image
+                        let image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+                        image.setAttribute("x", +tab.getAttribute("left") + 10);
+                        image.setAttribute("y", +tab.getAttribute("top") + 55);
+                        image.setAttribute("width", +tab.getAttribute("width") - 20);
+                        image.setAttribute("height", +tab.getAttribute("height") - 65);
+                        image.setAttribute("href", tab.getAttribute("href"));
+
+                        // add event listeners
+                        m.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+                        x.addEventListener("click", () => tab.setAttribute('style', 'display:none;'));
+
+                        // add the text box and FO
+                        tab.prepend(image);
+                        tab.prepend(imageBox);
+                        break;
+                    case "minigame":
+                        // make minigame box
+                        let mgItems = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                        let mgBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mgBox.setAttribute("x", +tab.getAttribute("left") + 5);
+                        mgBox.setAttribute("y", +tab.getAttribute("top") + 50);
+                        mgBox.setAttribute("rx", 1.5);
+                        mgBox.setAttribute("ry", 1.5);
+                        mgBox.setAttribute("width", +tab.getAttribute("width") - 10);
+                        mgBox.setAttribute("height", +tab.getAttribute("height") - 55);
+                        mgBox.setAttribute("stroke", "#434749");
+                        mgBox.setAttribute("stroke-width", 1);
+                        mgBox.setAttribute("fill", "#535759");
+                        mgBox.setAttribute("id", "gameArea");
+
+                        // make bounds around the mgBox for the ball
+                        let topBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        topBound.setAttribute("x", mgBox.getAttribute("x"));
+                        topBound.setAttribute("y", +mgBox.getAttribute("y") - 20);
+                        topBound.setAttribute("width", mgBox.getAttribute("width"));
+                        topBound.setAttribute("height", 20);
+                        topBound.setAttribute("opacity", 0);
+                        topBound.setAttribute("class", "collidable");
+                        let bottomBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        bottomBound.setAttribute("x", mgBox.getAttribute("x"));
+                        bottomBound.setAttribute("y", +mgBox.getAttribute("height") + +mgBox.getAttribute("y"));
+                        bottomBound.setAttribute("width", mgBox.getAttribute("width"));
+                        bottomBound.setAttribute("height", 20);
+                        bottomBound.setAttribute("opacity", 0);
+                        bottomBound.setAttribute("class", "collidable");
+                        bottomBound.setAttribute("id", "killBound");
+                        let leftBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        leftBound.setAttribute("x", +mgBox.getAttribute("x") - 20);
+                        leftBound.setAttribute("y", mgBox.getAttribute("y"));
+                        leftBound.setAttribute("width", 20);
+                        leftBound.setAttribute("height", mgBox.getAttribute("height"));
+                        leftBound.setAttribute("opacity", 0);
+                        leftBound.setAttribute("class", "collidable");
+                        let rightBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        rightBound.setAttribute("x", +mgBox.getAttribute("x") + +mgBox.getAttribute("width"));
+                        rightBound.setAttribute("y", mgBox.getAttribute("y"));
+                        rightBound.setAttribute("width", 20);
+                        rightBound.setAttribute("height", mgBox.getAttribute("height"));
+                        rightBound.setAttribute("opacity", 0);
+                        rightBound.setAttribute("class", "collidable");
+
+                        // add bounds
+                        mgItems.append(topBound);
+                        mgItems.append(bottomBound);
+                        mgItems.append(leftBound);
+                        mgItems.append(rightBound);
+                        
+                        // make breakout boxes
+                        for (let i = 0; i < 12; i++) {
+                            for (let j = 0; j < 6; j ++) {
+                                let breakoutBox = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                                breakoutBox.setAttribute("x", +mgBox.getAttribute("width") / 169 + i * (+mgBox.getAttribute("width") / 169 + +mgBox.getAttribute("width") / 13) + +mgBox.getAttribute("x"));
+                                breakoutBox.setAttribute("y", (j + 2) * +mgBox.getAttribute("height") / 20 + +mgBox.getAttribute("y"));
+                                breakoutBox.setAttribute("rx", 1.5);
+                                breakoutBox.setAttribute("ry", 1.5);
+                                breakoutBox.setAttribute("width", +mgBox.getAttribute("width") / 13);
+                                breakoutBox.setAttribute("height", +mgBox.getAttribute("height") / 25);
+                                breakoutBox.setAttribute("class", "collidable breakable");
+                                breakoutBox.setAttribute("fill", "hsl(" + (60 * j) + "deg, 90%, 75%)");
+                                mgItems.append(breakoutBox);
+                            }
+                        }
+
+                        // create padde
+                        let paddle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        paddle.setAttribute("x", +mgBox.getAttribute("x") + 128 * +mgBox.getAttribute("width") / 338);
+                        paddle.setAttribute("y", 9 * +mgBox.getAttribute("height") / 10 + +mgBox.getAttribute("y"));
+                        paddle.setAttribute("rx", 1.5);
+                        paddle.setAttribute("ry", 1.5);
+                        paddle.setAttribute("width", 41 * +mgBox.getAttribute("width") / 169);
+                        paddle.setAttribute("height", +mgBox.getAttribute("height") / 25);
+                        paddle.setAttribute("class", "collidable");
+                        paddle.setAttribute("id", "paddle");
+                        paddle.setAttribute("fill", "#f0f0f0");
+                        mgItems.append(paddle);
+
+                        // create ball
+                        let ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                        ball.setAttribute("cx", +mgBox.getAttribute("x") + +mgBox.getAttribute("width") / 2);
+                        ball.setAttribute("cy", 17 * +mgBox.getAttribute("height") / 20 + +mgBox.getAttribute("y"));
+                        ball.setAttribute("r", +mgBox.getAttribute("height") / 50);
+                        ball.setAttribute("moving", true);
+                        ball.setAttribute("id", "ball");
+                        ball.setAttribute("fill", "#f7f7f7");
+                        const angle = (45 + (Math.random() > 0.5 ? 90 : 0)) * Math.PI / 180;
+                        ball.vx = Math.cos(angle) * 0.3;  
+                        ball.vy = -Math.sin(angle) * 0.3;
+                        mgItems.append(ball);
+
+                        // make interactable bound box
+                        let mgBound = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                        mgBound.setAttribute("x", +mgBox.getAttribute("x") + 41 * +mgBox.getAttribute("width") / 338);
+                        mgBound.setAttribute("y", mgBox.getAttribute("y"));
+                        mgBound.setAttribute("width", +mgBox.getAttribute("width") - 41 * +mgBox.getAttribute("width") / 169);
+                        mgBound.setAttribute("height", mgBox.getAttribute("height"));
+                        mgBound.setAttribute("fill", "none");
+                        mgBound.setAttribute("pointer-events", "all");
+                        mgItems.append(mgBound);
+
+                        // add the minigame items and the box
+                        tab.prepend(mgItems);
+                        tab.prepend(mgBox);
+
+                        // make sure minigame is exitable and works
+                        mgBound.addEventListener("mousemove", event => {
+                            const pt = mgBound.ownerSVGElement.createSVGPoint();
+                            pt.x = event.clientX;
+                            pt.y = event.clientY;
+                            const svgCoords = pt.matrixTransform(mgBound.ownerSVGElement.getScreenCTM().inverse());
+                            paddle.setAttribute("x", svgCoords.x - 41 * +mgBox.getAttribute("width") / 338);
+                        });
+                        m.addEventListener("click", exitGame);
+                        x.addEventListener("click", exitGame);
+                        function exitGame() {
+                            document.getElementById('minigameDIV').setAttribute('style', 'display:none;');
+                            ball.setAttribute("moving", false);
+                        }
+                        break;
+                }
+
+                // add stuff
+                tab.prepend(barText);
+                tab.prepend(m);
+                tab.prepend(s);
+                tab.prepend(x);
+                tab.prepend(windowbar);
+                tab.prepend(main);
+            }
+
+            // for the minigame ball to move and interact
+            var gameGoingOn = true;
+            setInterval(() => {
+                ball = document.getElementById("ball");
+                if (!ball || ball.getAttribute("moving") === "false") return;
+                ball.setAttribute("cx", +ball.getAttribute("cx") + 1.5 * ball.vx);
+                ball.setAttribute("cy", +ball.getAttribute("cy") + 1.5 * ball.vy);
+
+                const bx = +ball.getAttribute("cx");
+                const by = +ball.getAttribute("cy");
+                const r  = +ball.getAttribute("r");
+
+                for (let item of document.getElementsByClassName("collidable")) {
+                    const ix = +item.getAttribute("x");
+                    const iy = +item.getAttribute("y");
+                    const iw = +item.getAttribute("width");
+                    const ih = +item.getAttribute("height");
+                        
+                    if (bx + r > ix && bx - r < ix + iw && by + r > iy && by - r < iy + ih) {
+                        // for paddle-spin
+                        if (item.id === "paddle") {
+                            const px = ix;
+                            const pw = iw;
+
+                            // ball center relative to paddle center, from -1 to +1
+                            const relative = ((bx - px) / pw) * 2 - 1;
+                            const clamped = Math.max(-1, Math.min(1, relative));
+
+                            // angle range: 30° (left) → 150° (right)
+                            const angleDeg = 90 - clamped * 60;
+                            const angleRad = angleDeg * Math.PI / 180;
+
+                            // maintain speed!!
+                            const speed = Math.hypot(ball.vx, ball.vy);
+
+                            ball.vx = Math.cos(angleRad) * speed;
+                            ball.vy = -Math.sin(angleRad) * speed;
+
+                            continue; // skip normal collision stuff
+                        }
+
+                        // for regular collision
+                        const overlapLeft   = (bx + r) - ix;
+                        const overlapRight  = (ix + iw) - (bx - r);
+                        const overlapTop    = (by + r) - iy;
+                        const overlapBottom = (iy + ih) - (by - r);
+
+                        const minOverlap = Math.min(overlapLeft, overlapRight, overlapTop, overlapBottom);
+
+                        if (minOverlap === overlapLeft || minOverlap === overlapRight)
+                            ball.vx = -ball.vx;
+                        else
+                            ball.vy = -ball.vy;
+
+                        if (item.classList.contains("breakable"))
+                            item.remove();
+                        else if (item.id === "killBound") {
+                            ball.setAttribute("moving", "false");
+                            document.getElementById("mgMessage").setAttribute("text", "<p>Oh... you lost... better luck next time! <br /> ⊙﹏⊙∥</p>");
+                            document.getElementById("mgMessage").setAttribute("style", "display:inline-block;");
+                            createWindow(document.getElementById("mgMessage"));
+                            gameGoingOn = false;
+                        }
+                    }
+                }
+
+                if ([...document.getElementsByClassName("breakable")].length === 0) {
+                    ball.setAttribute("moving", "false");
+                    document.getElementById("mgMessage").setAttribute("text", "<p>Congrats!! <b>You won!</b> <br />ヾ(≧▽≦*)o</p>");
+                    document.getElementById("mgMessage").setAttribute("style", "display:inline-block;");
+                    createWindow(document.getElementById("mgMessage"));
+                    gameGoingOn = false;
+                }
+            }, 1);
+        </script>
+        
+	</body>
+</html>

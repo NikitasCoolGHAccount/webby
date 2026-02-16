@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>✨ ncs ✨ - Raghib</title>
+        <link rel="icon" type="png" href="images/ncs_favicon.png" />
+        <style>
+            body {
+                margin: 0;
+                border: 0;
+                padding: 0;
+                overflow-x: clip;
+                background-color: #1f1f24;
+            }
+        </style>
+	</head>
+    <body>
+
+        <!-- Main svg and script -->
+
+        <svg viewBox="0 0 1500 3000">
+            <!-- Title -->
+            <polygon points="500,150 1000,150 1000,650 500,650" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon points="750,46.44661 396.44661,400 750,753.55339 1103.55339,400" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <text x="750" y="450" fill="#e0e0e0" font-family="Trebuchet MS" font-size="150" font-weight="1000" text-anchor="middle"> Raghib </text>
+            <polygon points="1050,150 1250,150 1450,400 1250,650 1050,650 1250,400" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon points="450,150 250,150 50,400 250,650 450,650 250,400" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+
+            <!-- About me -->
+            <polygon class="outerSquare" points="250,1100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="innerSquare" points="250,1100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="arrowBox Left" points="450,958.57864 550,958.57864 650,1100 550,1241.42136 450,1241.42136 550,1100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+
+            <!-- Description -->
+            <polygon class="outerSquare" points="1250,1600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="innerSquare" points="1250,1600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="arrowBox Right" points="1050,1458.57864 950,1458.57864 850,1600 950,1741.42136 1050,1741.42136 950,1600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+
+            <!-- Interests -->
+            <polygon class="outerSquare" points="250,2100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="innerSquare" points="250,2100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="arrowBox Left" points="450,1958.57864 550,1958.57864 650,2100 550,2241.42136 450,2241.42136 550,2100" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+
+            <!-- Q&A -->
+            <polygon class="outerSquare" points="1250,2600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="innerSquare" points="1250,2600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+            <polygon class="arrowBox Right" points="1050,2458.57864 950,2458.57864 850,2600 950,2741.42136 1050,2741.42136 950,2600" fill="#2e6f40" stroke="#e0e0e0" stroke-width="15"/>
+        </svg>
+
+        <script>
+            // make square cards
+            for (let oS of [...document.getElementsByClassName("outerSquare")]) {
+                let x = +oS.getAttribute("points").substring(0, oS.getAttribute("points").indexOf(",")), y = +oS.getAttribute("points").substring(1 + oS.getAttribute("points").indexOf(","));
+                oS.setAttribute("points", "");
+                for (let theta = 0.25 * Math.PI; theta <= 2.25 * Math.PI; theta += 0.5 * Math.PI)
+                    oS.setAttribute("points", oS.getAttribute("points") + (x + 200 * Math.cos(theta)) + "," + (y + 200 * Math.sin(theta)) + " ");
+            }
+            for (let iS of [...document.getElementsByClassName("innerSquare")]) {
+                let x = +iS.getAttribute("points").substring(0, iS.getAttribute("points").indexOf(",")), y = +iS.getAttribute("points").substring(1 + iS.getAttribute("points").indexOf(","));
+                iS.setAttribute("points", "");
+                for (let theta = 0; theta <= 2 * Math.PI; theta += 0.5 * Math.PI)
+                    iS.setAttribute("points", iS.getAttribute("points") + (x + 200 * Math.cos(theta)) + "," + (y + 200 * Math.sin(theta)) + " ");
+            }
+
+            // cause arrow extensions
+            extendArrows();
+            async function extendArrows() {
+                for (let aB of [...document.getElementsByClassName("arrowBox")]) {
+                    let points = aB.getAttribute("points").split(" ");
+                    points.forEach(string => points[points.indexOf(string)] = string.split(","));
+                    await new Promise(resolve => {
+                        let count = 0, x1 = +points[1][0], x2 = +points[2][0], x3 = +points[3][0], change = ((aB.classList.contains("Left")) ? 800 : -800);
+                        let eaInterval = setInterval(() => {
+                            count += 1, x1 = +points[1][0] + Math.sin(Math.PI * count / 200) * change, x2 = +points[2][0] + Math.sin(Math.PI * count / 200) * change, x3 = +points[3][0] + Math.sin(Math.PI * count / 200) * change;
+                            aB.setAttribute("points", points[0][0] + "," + points[0][1] + " " + x1 + "," + points[1][1] + " " + x2 + "," + points[2][1] + " " + x3 + "," + points[3][1] + " " + points[4][0] + "," + points[4][1] + " " + points[5][0] + "," + points[5][1]);
+                            if (count >= 100) {
+                                clearInterval(eaInterval);
+                                resolve();
+                            }
+                        }, 10);
+                    });
+                }
+            }
+        </script>
+
+    </body>
+</html>
